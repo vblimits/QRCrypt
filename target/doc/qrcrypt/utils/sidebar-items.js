@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["confirm_action","generate_example_seed","load_encrypted_from_data","load_encrypted_from_file","load_shares_from_data","load_shares_from_files","print_error","print_info","print_success","print_warning","read_file_content","read_password","read_secret_input","validate_seed_phrase","write_file_content"]};

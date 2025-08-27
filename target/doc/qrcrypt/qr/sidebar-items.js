@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":["QRDataType"],"struct":["QRData","QRGenerator","QRReader"]};

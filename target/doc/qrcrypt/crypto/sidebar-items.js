@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["NONCE_SIZE"],"struct":["Crypto","EncryptedData","SecretData"]};

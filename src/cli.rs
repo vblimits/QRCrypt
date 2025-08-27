@@ -46,6 +46,10 @@ pub enum Commands {
         #[arg(short, long, conflicts_with = "input")]
         data: Option<String>,
 
+        /// Scan QR code from webcam
+        #[arg(long, conflicts_with_all = ["input", "data"])]
+        scan_qr: bool,
+
         /// Save decrypted output to file
         #[arg(short, long)]
         output: Option<PathBuf>,
@@ -100,6 +104,14 @@ pub enum Commands {
         #[arg(short, long, conflicts_with = "shares")]
         data: Vec<String>,
 
+        /// Scan QR codes from webcam (will scan until enough shares collected)
+        #[arg(long, conflicts_with_all = ["shares", "data"])]
+        scan_qr: bool,
+
+        /// Maximum number of QR codes to scan (optional, will auto-stop when sufficient)
+        #[arg(long, requires = "scan_qr")]
+        max_scans: Option<u8>,
+
         /// Save reconstructed output to file
         #[arg(short, long)]
         output: Option<PathBuf>,
@@ -114,6 +126,14 @@ pub enum Commands {
         /// JSON strings containing share data
         #[arg(short, long, conflicts_with = "shares")]
         data: Vec<String>,
+
+        /// Scan QR codes from webcam for validation
+        #[arg(long, conflicts_with_all = ["shares", "data"])]
+        scan_qr: bool,
+
+        /// Number of QR codes to scan for validation
+        #[arg(long, requires = "scan_qr")]
+        count: Option<u8>,
     },
 
     /// Generate example seed phrase for testing
@@ -160,14 +180,14 @@ impl Cli {
                     return Err("Border must be 20 or less".to_string());
                 }
             }
-            Commands::Reconstruct { shares, data, .. } => {
-                if shares.is_empty() && data.is_empty() {
-                    return Err("Must provide either share files or share data".to_string());
+            Commands::Reconstruct { shares, data, scan_qr, .. } => {
+                if !scan_qr && shares.is_empty() && data.is_empty() {
+                    return Err("Must provide either share files, share data, or --scan-qr".to_string());
                 }
             }
-            Commands::Validate { shares, data, .. } => {
-                if shares.is_empty() && data.is_empty() {
-                    return Err("Must provide either share files or share data".to_string());
+            Commands::Validate { shares, data, scan_qr, .. } => {
+                if !scan_qr && shares.is_empty() && data.is_empty() {
+                    return Err("Must provide either share files, share data, or --scan-qr".to_string());
                 }
             }
             Commands::Example { words, .. } => {

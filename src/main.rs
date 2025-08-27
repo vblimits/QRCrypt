@@ -4,6 +4,7 @@ mod shamir;
 mod qr;
 mod cli;
 mod utils;
+mod scanner;
 
 use std::fs;
 use qrcode::EcLevel;
@@ -14,6 +15,7 @@ use crate::shamir::ShamirSecretSharing;
 use crate::qr::QRGenerator;
 use crate::error::Result;
 use crate::utils::*;
+use crate::scanner::QRScanner;
 
 fn main() {
     let cli = Cli::parse_args();
@@ -34,17 +36,17 @@ fn run_command(command: Commands) -> Result<()> {
         Commands::Encrypt { output, secret, file, scale, border } => {
             handle_encrypt(output, secret, file, scale, border)
         }
-        Commands::Decrypt { input, data, output } => {
-            handle_decrypt(input, data, output)
+        Commands::Decrypt { input, data, scan_qr, output } => {
+            handle_decrypt(input, data, scan_qr, output)
         }
         Commands::Split { threshold, total, output_dir, prefix, secret, file, scale, border, info } => {
             handle_split(threshold, total, output_dir, prefix, secret, file, scale, border, info)
         }
-        Commands::Reconstruct { shares, data, output } => {
-            handle_reconstruct(shares, data, output)
+        Commands::Reconstruct { shares, data, scan_qr, max_scans, output } => {
+            handle_reconstruct(shares, data, scan_qr, max_scans, output)
         }
-        Commands::Validate { shares, data } => {
-            handle_validate(shares, data)
+        Commands::Validate { shares, data, scan_qr, count } => {
+            handle_validate(shares, data, scan_qr, count)
         }
         Commands::Example { example_type, words } => {
             handle_example(example_type, words)
@@ -111,15 +113,18 @@ fn handle_encrypt(
 fn handle_decrypt(
     input: Option<std::path::PathBuf>,
     data: Option<String>,
+    scan_qr: bool,
     output: Option<std::path::PathBuf>,
 ) -> Result<()> {
     // Load encrypted data
-    let encrypted_data = if let Some(input_path) = input {
+    let encrypted_data = if scan_qr {
+        QRScanner::scan_encrypted_interactive()?
+    } else if let Some(input_path) = input {
         load_encrypted_from_file(&input_path)?
     } else if let Some(data_str) = data {
         load_encrypted_from_data(&data_str)?
     } else {
-        return Err(crate::error::QRCryptError::InvalidInput("Must provide either input file or data string".to_string()));
+        return Err(crate::error::QRCryptError::InvalidInput("Must provide either input file, data string, or --scan-qr".to_string()));
     };
 
     // Get password
@@ -214,10 +219,14 @@ fn handle_split(
 fn handle_reconstruct(
     shares: Vec<std::path::PathBuf>,
     data: Vec<String>,
+    scan_qr: bool,
+    max_scans: Option<u8>,
     output: Option<std::path::PathBuf>,
 ) -> Result<()> {
     // Load shares
-    let share_data = if !shares.is_empty() {
+    let share_data = if scan_qr {
+        QRScanner::scan_shares_interactive(max_scans)?
+    } else if !shares.is_empty() {
         load_shares_from_files(&shares)?
     } else if !data.is_empty() {
         load_shares_from_data(&data)?
@@ -247,9 +256,14 @@ fn handle_reconstruct(
 fn handle_validate(
     shares: Vec<std::path::PathBuf>,
     data: Vec<String>,
+    scan_qr: bool,
+    count: Option<u8>,
 ) -> Result<()> {
     // Load shares
-    let share_data = if !shares.is_empty() {
+    let share_data = if scan_qr {
+        let scan_count = count.unwrap_or(5); // Default to 5 if not specified
+        QRScanner::scan_for_validation(scan_count)?
+    } else if !shares.is_empty() {
         load_shares_from_files(&shares)?
     } else if !data.is_empty() {
         load_shares_from_data(&data)?

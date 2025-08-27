@@ -7,11 +7,15 @@ A secure Rust CLI tool for storing crypto wallet seed phrases and other sensitiv
 - 🔐 **AES-256-GCM Encryption**: Military-grade encryption for your sensitive data
 - 🔑 **Argon2 Key Derivation**: Secure password-based key derivation
 - 📱 **QR Code Generation**: Convert encrypted data into scannable QR codes
+- 📷 **QR Code Scanning**: Read QR codes from images or webcam (simulated)
 - 🧩 **Shamir's Secret Sharing**: Split secrets into multiple shares (e.g., 3-of-5)
+- 🤖 **Smart Reconstruction**: Automatically stops when enough shares are scanned
 - 🗑️ **Memory Safety**: Secure memory handling with automatic clearing
 - ⚡ **Open Source**: Fully auditable and transparent
 
 ## Installation
+
+### Standard Installation
 
 Make sure you have Rust installed, then build from source:
 
@@ -22,6 +26,40 @@ cargo build --release
 ```
 
 The binary will be available at `target/release/qrcrypt`.
+
+### 🛡️ Recommended: Tails Installation (Best Practice)
+
+For maximum security when handling cryptocurrency seed phrases, we **strongly recommend** using [Tails OS](https://tails.net/) - a security-focused, amnesic Linux distribution that leaves no traces after shutdown.
+
+#### Why Use Tails?
+- **Air-gapped security**: Disconnect from internet during use
+- **Amnesic**: No traces left on the computer after shutdown
+- **Pre-hardened**: Built-in security features and privacy protections
+- **Offline operation**: Perfect for QRCrypt's offline-first design
+
+#### Tails Installation Steps
+
+1. **Download and verify Tails** from [tails.net](https://tails.net/)
+2. **Boot Tails** on a dedicated computer (preferably offline)
+3. **Install Rust toolchain**:
+   ```bash
+   sudo apt update
+   sudo apt install rustc cargo build-essential git
+   ```
+4. **Get QRCrypt** (via USB drive or cloning):
+   ```bash
+   # If you have the source on USB
+   cp -r /media/amnesia/USB/QRCrypt ~/
+   
+   # Or clone if you have internet (then disconnect)
+   git clone <repository-url>
+   ```
+5. **Build QRCrypt**:
+   ```bash
+   cd QRCrypt
+   cargo build --release
+   ```
+6. **Disconnect from internet** before handling real seed phrases
 
 ## Quick Start
 
@@ -42,12 +80,20 @@ qrcrypt split --threshold 3 --total 5 --output-dir ./shares --secret "abandon ab
 
 ### 4. Decrypt QR Code
 ```bash
+# From file
 qrcrypt decrypt --input my_wallet.json
+
+# Or scan QR code interactively
+qrcrypt decrypt --scan-qr
 ```
 
 ### 5. Reconstruct Secret from Shares
 ```bash
+# From files
 qrcrypt reconstruct --shares ./shares/share_1_of_5_share_1.json ./shares/share_2_of_5_share_2.json ./shares/share_3_of_5_share_3.json
+
+# Or scan QR codes interactively (stops automatically when enough collected)
+qrcrypt reconstruct --scan-qr
 ```
 
 ## Commands
@@ -75,6 +121,7 @@ qrcrypt decrypt [OPTIONS]
 Options:
   -i, --input <INPUT>      JSON file containing encrypted data
   -d, --data <DATA>        JSON string containing encrypted data
+      --scan-qr            Scan QR code from webcam/camera
   -o, --output <OUTPUT>    Save decrypted output to file
 ```
 
@@ -103,9 +150,11 @@ Reconstruct secret from Shamir shares.
 qrcrypt reconstruct [OPTIONS]
 
 Options:
-  -s, --shares <SHARES>...  Paths to share files (JSON format)
-  -d, --data <DATA>...      JSON strings containing share data
-  -o, --output <OUTPUT>     Save reconstructed output to file
+  -s, --shares <SHARES>...     Paths to share files (JSON format)
+  -d, --data <DATA>...         JSON strings containing share data
+      --scan-qr                Scan QR codes from webcam (auto-stops when sufficient)
+      --max-scans <MAX_SCANS>  Maximum QR codes to scan (optional)
+  -o, --output <OUTPUT>        Save reconstructed output to file
 ```
 
 ### `validate`
@@ -117,6 +166,8 @@ qrcrypt validate [OPTIONS]
 Options:
   -s, --shares <SHARES>...  Paths to share files (JSON format)
   -d, --data <DATA>...      JSON strings containing share data
+      --scan-qr             Scan QR codes from webcam for validation
+      --count <COUNT>       Number of QR codes to scan (required with --scan-qr)
 ```
 
 ### `example`
@@ -160,15 +211,82 @@ Options:
 
 ⚠️ **Important Security Notes:**
 
-1. **Password Strength**: Use strong, unique passwords for encryption
-2. **Secure Storage**: Store QR codes and shares in different secure locations
-3. **Physical Security**: QR codes can be scanned - protect printed copies
-4. **Test Recovery**: Always test decryption/reconstruction before relying on backups
-5. **Multiple Backups**: Don't rely on a single backup method
+### Critical Security Practices
+1. **Use Tails OS**: For maximum security, always use [Tails](https://tails.net/) when handling real cryptocurrency seeds
+2. **Air-gapped Operation**: Disconnect from internet before processing real seed phrases
+3. **Password Strength**: Use strong, unique passwords for encryption
+4. **Secure Storage**: Store QR codes and shares in different secure locations
+5. **Physical Security**: QR codes can be scanned - protect printed copies
+6. **Test Recovery**: Always test decryption/reconstruction before relying on backups
+7. **Multiple Backups**: Don't rely on a single backup method
+
+### Tails-Specific Security Benefits
+- **Amnesic**: All traces automatically deleted on shutdown
+- **Pre-hardened**: Built-in security and privacy protections
+- **Offline capable**: No network required for QRCrypt operations
+- **Minimal attack surface**: Reduced risk of malware or keyloggers
+- **Memory protection**: Enhanced protection against memory-based attacks
+
+### Operational Security (OpSec)
+- **Dedicated hardware**: Use a computer exclusively for seed management
+- **Clean environment**: Ensure no cameras, recording devices, or observers
+- **Multiple locations**: Store backup shares in geographically distributed locations
+- **Physical destruction**: Securely destroy any temporary storage media
+- **Verification**: Always verify reconstructed seeds in a test wallet first
 
 ## Example Workflows
 
-### Simple Backup
+### 🛡️ Secure Tails Workflow (Recommended)
+
+#### Initial Setup in Tails
+```bash
+# Boot Tails, install dependencies, build QRCrypt (see installation above)
+# IMPORTANT: Disconnect from internet before proceeding
+
+# 1. Create secure workspace
+mkdir ~/secure_backup
+cd ~/secure_backup
+
+# 2. Generate or input your real seed phrase
+# (Type carefully - this is your actual wallet seed!)
+echo "your actual 24 word seed phrase goes here..." > seed.txt
+
+# 3. Create encrypted backup
+~/QRCrypt/target/release/qrcrypt encrypt --file seed.txt --output wallet_backup.png
+
+# 4. Create Shamir shares for distributed storage
+~/QRCrypt/target/release/qrcrypt split --threshold 3 --total 5 --output-dir ./shares --file seed.txt --info
+
+# 5. Securely delete original
+shred -vfz -n 3 seed.txt
+
+# 6. Copy results to multiple USB drives for different locations
+# 7. Print QR codes on paper for offline storage
+# 8. Shutdown Tails (all traces automatically deleted)
+```
+
+#### Recovery in Tails
+```bash
+# Boot Tails, build QRCrypt, disconnect internet
+# Insert USB with backup files
+
+# Option 1: Decrypt single encrypted backup
+~/QRCrypt/target/release/qrcrypt decrypt --input /media/amnesia/USB/wallet_backup.json
+
+# Option 2: Reconstruct from Shamir shares (need 3 of 5)
+# From files
+~/QRCrypt/target/release/qrcrypt reconstruct \
+  --shares /media/amnesia/USB1/share_1_of_5_share_1.json \
+  --shares /media/amnesia/USB2/share_2_of_5_share_2.json \
+  --shares /media/amnesia/USB3/share_3_of_5_share_3.json
+
+# Or scan printed QR codes (no threshold exposure!)
+~/QRCrypt/target/release/qrcrypt reconstruct --scan-qr
+```
+
+### Standard Workflows
+
+#### Simple Backup
 ```bash
 # Generate and encrypt a seed phrase
 qrcrypt example --words 24 > my_seed.txt
@@ -179,7 +297,7 @@ rm my_seed.txt  # Securely delete original
 qrcrypt decrypt --input backup.json
 ```
 
-### Distributed Backup (3-of-5)
+#### Distributed Backup (3-of-5)
 ```bash
 # Split seed into 5 shares, requiring 3 to recover
 qrcrypt split --threshold 3 --total 5 --output-dir ./backup_shares --file my_seed.txt --info

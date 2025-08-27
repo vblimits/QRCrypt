@@ -4,7 +4,7 @@ use std::io::{self, Write};
 use crate::error::{QRCryptError, Result};
 use crate::qr::{QRData, QRReader};
 use crate::shamir::ShamirShare;
-use crate::crypto::EncryptedData;
+use crate::crypto::{EncryptedData, LayeredData};
 
 pub struct QRScanner;
 
@@ -135,6 +135,14 @@ impl QRScanner {
         
         let qr_data = Self::scan_from_webcam("Hold up your encrypted QR code")?;
         QRReader::parse_encrypted_data(&qr_data)
+    }
+
+    /// Scan a single layered QR code with plausible deniability
+    pub fn scan_layered_interactive() -> Result<LayeredData> {
+        println!("🕵️  Scanning layered QR code (plausible deniability)...");
+        
+        let qr_data = Self::scan_from_webcam("Hold up your layered QR code")?;
+        QRReader::parse_layered_data(&qr_data)
     }
 
     /// Scan QR codes for validation (specified count)

@@ -5,7 +5,7 @@ use rpassword;
 use bip39::{Language, Mnemonic};
 use crate::error::{QRCryptError, Result};
 use crate::shamir::ShamirShare;
-use crate::crypto::EncryptedData;
+use crate::crypto::{EncryptedData, LayeredData};
 use crate::qr::QRReader;
 
 pub fn read_password(prompt: &str) -> Result<String> {
@@ -97,6 +97,28 @@ pub fn load_encrypted_from_data(data: &str) -> Result<EncryptedData> {
     } else {
         serde_json::from_str::<EncryptedData>(data)
             .map_err(|e| QRCryptError::InvalidInput(format!("Invalid encrypted data format: {}", e)))
+    }
+}
+
+pub fn load_layered_from_file(path: &Path) -> Result<LayeredData> {
+    let content = read_file_content(path)?;
+    
+    // Try to parse as QRData first, then as direct LayeredData
+    if let Ok(qr_data) = QRReader::parse_qr_data(&content) {
+        QRReader::parse_layered_data(&qr_data)
+    } else {
+        serde_json::from_str::<LayeredData>(&content)
+            .map_err(|e| QRCryptError::InvalidInput(format!("Invalid layered data format: {}", e)))
+    }
+}
+
+pub fn load_layered_from_data(data: &str) -> Result<LayeredData> {
+    // Try to parse as QRData first, then as direct LayeredData
+    if let Ok(qr_data) = QRReader::parse_qr_data(data) {
+        QRReader::parse_layered_data(&qr_data)
+    } else {
+        serde_json::from_str::<LayeredData>(data)
+            .map_err(|e| QRCryptError::InvalidInput(format!("Invalid layered data format: {}", e)))
     }
 }
 
@@ -288,6 +310,92 @@ pub fn generate_example_seed(word_count: u8) -> Result<String> {
     result.push_str(" about"); // Always end with "about" for consistency
     
     Ok(result)
+}
+
+pub fn generate_decoy_seed(word_count: u8, scenario: &str) -> Result<String> {
+    use rand::seq::SliceRandom;
+    use rand::thread_rng;
+    
+    let wordlist = Language::English.word_list();
+    let mut rng = thread_rng();
+    
+    if ![12, 15, 18, 21, 24].contains(&word_count) {
+        return Err(QRCryptError::InvalidInput("Word count must be 12, 15, 18, 21, or 24".to_string()));
+    }
+    
+    let decoy_words: Vec<&str> = match scenario {
+        "lowvalue" => {
+            // Generate a realistic but low-value looking seed
+            // Mix common words with some wallet-like terms
+            let common_crypto_words = [
+                "wallet", "bitcoin", "crypto", "secure", "private", "public", "address",
+                "balance", "trade", "exchange", "market", "price", "invest", "hold"
+            ];
+            
+            let mut selected = Vec::new();
+            
+            // Add some crypto-related words to make it believable
+            for &word in common_crypto_words.iter().take(3) {
+                if wordlist.contains(&word) {
+                    selected.push(word);
+                    if selected.len() >= word_count as usize / 3 { break; }
+                }
+            }
+            
+            // Fill the rest with random BIP39 words
+            while selected.len() < word_count as usize {
+                let word = wordlist.choose(&mut rng).unwrap();
+                if !selected.contains(word) {
+                    selected.push(word);
+                }
+            }
+            
+            selected.shuffle(&mut rng);
+            selected
+        },
+        "empty" => {
+            // Generate a seed that looks like an empty/test wallet
+            let empty_words = [
+                "test", "demo", "example", "empty", "zero", "null", "void", "blank",
+                "sample", "trial", "practice", "dummy", "fake", "mock", "template"
+            ];
+            
+            let mut selected = Vec::new();
+            
+            // Add empty-looking words
+            for &word in empty_words.iter() {
+                if wordlist.contains(&word) && selected.len() < word_count as usize / 2 {
+                    selected.push(word);
+                }
+            }
+            
+            // Fill with random words
+            while selected.len() < word_count as usize {
+                let word = wordlist.choose(&mut rng).unwrap();
+                if !selected.contains(word) {
+                    selected.push(word);
+                }
+            }
+            
+            selected.shuffle(&mut rng);
+            selected
+        },
+        "random" | _ => {
+            // Generate completely random but valid BIP39 words
+            wordlist.choose_multiple(&mut rng, word_count as usize).copied().collect()
+        }
+    };
+    
+    Ok(decoy_words.join(" "))
+}
+
+pub fn generate_decoy_hint(scenario: &str) -> Option<String> {
+    match scenario {
+        "lowvalue" => Some("Old test wallet - ~$50 in BTC".to_string()),
+        "empty" => Some("Demo wallet for learning - no real funds".to_string()),
+        "random" => Some("Practice seed phrase".to_string()),
+        _ => None,
+    }
 }
 
 pub fn print_success(message: &str) {

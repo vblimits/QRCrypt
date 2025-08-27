@@ -10,7 +10,7 @@ use std::fs;
 use qrcode::EcLevel;
 
 use crate::cli::{Cli, Commands};
-use crate::crypto::{Crypto, SecretData};
+use crate::crypto::{Crypto, SecretData, LayeredData};
 use crate::shamir::ShamirSecretSharing;
 use crate::qr::QRGenerator;
 use crate::error::Result;
@@ -53,6 +53,11 @@ fn run_command(command: Commands) -> Result<()> {
         }
         Commands::ValidatePhrase { phrase, file, skip_checksum } => {
             handle_validate_phrase(phrase, file, skip_checksum)
+        }
+        Commands::DecoyEncrypt { output, real_secret, real_file, decoy_secret, decoy_file, 
+                                decoy_type, decoy_words, scale, border, skip_word_check } => {
+            handle_decoy_encrypt(output, real_secret, real_file, decoy_secret, decoy_file,
+                                decoy_type, decoy_words, scale, border, skip_word_check)
         }
     }
 }
@@ -122,6 +127,81 @@ fn handle_encrypt(
 }
 
 fn handle_decrypt(
+    input: Option<std::path::PathBuf>,
+    data: Option<String>,
+    scan_qr: bool,
+    output: Option<std::path::PathBuf>,
+) -> Result<()> {
+    // First try to detect if we have layered data
+    let is_layered = if let Some(ref input_path) = input {
+        // Try to load as layered data first
+        load_layered_from_file(input_path).is_ok()
+    } else if let Some(ref data_str) = data {
+        load_layered_from_data(data_str).is_ok()
+    } else {
+        false // For scan_qr, we'll detect dynamically
+    };
+
+    if is_layered || scan_qr {
+        // Handle layered decryption
+        let layered_data = if scan_qr {
+            // For scanning, we need to detect the QR type dynamically
+            // For now, try to scan as layered first
+            match QRScanner::scan_layered_interactive() {
+                Ok(data) => data,
+                Err(_) => {
+                    // Fall back to regular encrypted scan
+                    print_info("QR doesn't contain layered data, trying regular decryption...");
+                    return handle_regular_decrypt(input, data, scan_qr, output);
+                }
+            }
+        } else if let Some(input_path) = input {
+            load_layered_from_file(&input_path)?
+        } else if let Some(data_str) = data {
+            load_layered_from_data(&data_str)?
+        } else {
+            return Err(crate::error::QRCryptError::InvalidInput("Must provide either input file, data string, or --scan-qr".to_string()));
+        };
+
+        // Get password
+        let password = read_password("Enter password (will try both decoy and real layers): ")?;
+
+        // Try to decrypt layered data
+        let crypto = Crypto::new();
+        match crypto.decrypt_layered(&layered_data, &password) {
+            Ok((decrypted_data, is_real)) => {
+                if is_real {
+                    print_success("🔓 Successfully decrypted REAL secret data!");
+                } else {
+                    print_warning("🎭 Successfully decrypted DECOY data.");
+                    if let Some(hint) = &layered_data.decoy_hint {
+                        print_info(&format!("Decoy hint: {}", hint));
+                    }
+                }
+
+                // Output the result
+                if let Some(output_path) = output {
+                    write_file_content(&output_path, &decrypted_data.data)?;
+                    print_success(&format!("Decrypted data saved to: {}", output_path.display()));
+                } else {
+                    println!("\nDecrypted secret:");
+                    println!("{}", decrypted_data.data);
+                }
+            }
+            Err(_) => {
+                print_error("❌ Password doesn't match any layer (neither decoy nor real data)");
+                return Err(crate::error::QRCryptError::Decryption("Invalid password for layered data".to_string()));
+            }
+        }
+    } else {
+        // Handle regular decryption
+        return handle_regular_decrypt(input, data, scan_qr, output);
+    }
+
+    Ok(())
+}
+
+fn handle_regular_decrypt(
     input: Option<std::path::PathBuf>,
     data: Option<String>,
     scan_qr: bool,
@@ -379,5 +459,120 @@ fn handle_validate_phrase(
     
     print_success("✅ Seed phrase validation complete!");
     
+    Ok(())
+}
+
+fn handle_decoy_encrypt(
+    output: std::path::PathBuf,
+    real_secret: Option<String>,
+    real_file: Option<std::path::PathBuf>,
+    decoy_secret: Option<String>,
+    decoy_file: Option<std::path::PathBuf>,
+    decoy_type: String,
+    decoy_words: u8,
+    scale: u32,
+    border: u32,
+    skip_word_check: bool,
+) -> Result<()> {
+    println!("🕵️  Creating plausible deniability QR code...\n");
+    
+    // Get real secret data
+    let real_secret_text = if let Some(file_path) = real_file {
+        read_file_content(&file_path)?
+    } else if let Some(text) = real_secret {
+        text
+    } else {
+        read_secret_input("Enter your REAL secret to hide: ")?
+    };
+
+    if real_secret_text.trim().is_empty() {
+        return Err(crate::error::QRCryptError::InvalidInput("Real secret cannot be empty".to_string()));
+    }
+
+    // Validate real secret (unless bypassed)
+    if !skip_word_check {
+        if let Err(e) = validate_seed_phrase(&real_secret_text) {
+            print_warning(&format!("Real seed phrase validation warning: {}", e));
+            if !confirm_action("Continue anyway")? {
+                return Err(crate::error::QRCryptError::InvalidInput("Real seed phrase validation failed".to_string()));
+            }
+        }
+    }
+
+    // Get decoy secret data
+    let decoy_secret_text = if let Some(file_path) = decoy_file {
+        read_file_content(&file_path)?
+    } else if let Some(text) = decoy_secret {
+        text
+    } else {
+        print_info(&format!("Generating {} decoy seed phrase with {} words...", decoy_type, decoy_words));
+        generate_decoy_seed(decoy_words, &decoy_type)?
+    };
+
+    if decoy_secret_text.trim().is_empty() {
+        return Err(crate::error::QRCryptError::InvalidInput("Decoy secret cannot be empty".to_string()));
+    }
+
+    print_info(&format!("Decoy seed phrase: {}", decoy_secret_text));
+    
+    // Get passwords
+    let real_password = read_password("Enter STRONG password for your real secret: ")?;
+    if real_password.trim().is_empty() {
+        return Err(crate::error::QRCryptError::InvalidInput("Real password cannot be empty".to_string()));
+    }
+
+    let decoy_password = read_password("Enter WEAK password for decoy (should be easy to guess/crack): ")?;
+    if decoy_password.trim().is_empty() {
+        return Err(crate::error::QRCryptError::InvalidInput("Decoy password cannot be empty".to_string()));
+    }
+
+    // Create layered encryption
+    let crypto = Crypto::new();
+    let real_data = SecretData::new(real_secret_text);
+    let decoy_data = SecretData::new(decoy_secret_text.clone());
+    let decoy_hint = generate_decoy_hint(&decoy_type);
+    
+    let layered_data = crypto.encrypt_with_decoy(&real_data, &real_password, 
+                                               &decoy_data, &decoy_password, 
+                                               decoy_hint)?;
+
+    // Generate QR code with appropriate error correction
+    let total_data_size = serde_json::to_string(&layered_data)?.len();
+    let error_correction = if total_data_size > 1500 {
+        EcLevel::L // Low error correction for large layered data
+    } else {
+        EcLevel::M // Medium error correction
+    };
+    
+    let qr_generator = QRGenerator::with_settings(error_correction, scale, border);
+    qr_generator.save_layered_qr(&layered_data, &output)?;
+
+    print_success(&format!("🕵️  Plausible deniability QR code saved to: {}", output.display()));
+    
+    // Save JSON data as well
+    let json_output = output.with_extension("json");
+    write_file_content(&json_output, &serde_json::to_string_pretty(&layered_data)?)?;
+    print_info(&format!("JSON data also saved to: {}", json_output.display()));
+
+    // Show security info
+    println!("\n🔒 Security Information:");
+    print_warning("DECOY PASSWORD (weak, meant to be crackable):");
+    println!("   Password: {}", decoy_password);
+    if let Some(hint) = &layered_data.decoy_hint {
+        println!("   Appears to be: {}", hint);
+    }
+    println!("   Will reveal: \"{}...\"", decoy_secret_text.split_whitespace().take(3).collect::<Vec<_>>().join(" "));
+    
+    print_success("REAL PASSWORD (keep secret):");
+    println!("   Password: [HIDDEN]");
+    println!("   Contains your actual valuable secrets");
+    
+    print_warning("\n⚠️  OPSEC Tips:");
+    println!("   • Give attackers the weak decoy password under coercion");
+    println!("   • Make the decoy password easy to guess (dictionary word, etc.)");
+    println!("   • The decoy should look like a real but low-value wallet");
+    println!("   • Never reveal or write down your strong real password");
+    println!("   • Consider using this with Tails OS for maximum security");
+
     Ok(())
 }

@@ -169,6 +169,49 @@ pub enum Commands {
         #[arg(long)]
         skip_checksum: bool,
     },
+
+    /// Create plausible deniability QR with decoy and hidden data
+    DecoyEncrypt {
+        /// Output file path for the layered QR code
+        #[arg(short, long)]
+        output: PathBuf,
+
+        /// Real secret data to hide (if not provided, will prompt)
+        #[arg(long)]
+        real_secret: Option<String>,
+
+        /// Read real secret from file instead of input
+        #[arg(long, conflicts_with = "real_secret")]
+        real_file: Option<PathBuf>,
+
+        /// Decoy data (if not provided, will generate automatically)
+        #[arg(long)]
+        decoy_secret: Option<String>,
+
+        /// Read decoy data from file
+        #[arg(long, conflicts_with = "decoy_secret")]
+        decoy_file: Option<PathBuf>,
+
+        /// Type of decoy to generate: lowvalue, empty, random
+        #[arg(long, default_value = "lowvalue")]
+        decoy_type: String,
+
+        /// Number of words for auto-generated decoy (12, 15, 18, 21, 24)
+        #[arg(long, default_value = "12")]
+        decoy_words: u8,
+
+        /// QR code scale (pixels per module)
+        #[arg(long, default_value = "8")]
+        scale: u32,
+
+        /// QR code border width (modules)
+        #[arg(long, default_value = "4")]
+        border: u32,
+
+        /// Skip BIP39 word validation for real secret
+        #[arg(long)]
+        skip_word_check: bool,
+    },
 }
 
 impl Cli {

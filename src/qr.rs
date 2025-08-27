@@ -3,7 +3,7 @@ use image::{DynamicImage, ImageFormat};
 use serde::{Deserialize, Serialize};
 use std::path::Path;
 use crate::error::{QRCryptError, Result};
-use crate::crypto::EncryptedData;
+use crate::crypto::{EncryptedData, LayeredData};
 use crate::shamir::ShamirShare;
 
 #[derive(Serialize, Deserialize)]
@@ -16,6 +16,7 @@ pub struct QRData {
 pub enum QRDataType {
     EncryptedSecret,
     ShamirShare,
+    LayeredSecret,
 }
 
 pub struct QRGenerator {
@@ -72,6 +73,16 @@ impl QRGenerator {
             .iter()
             .map(|share| self.generate_shamir_qr(share))
             .collect()
+    }
+
+    pub fn generate_layered_qr(&self, layered_data: &LayeredData) -> Result<DynamicImage> {
+        let qr_data = QRData {
+            data_type: QRDataType::LayeredSecret,
+            content: serde_json::to_string(layered_data)?,
+        };
+
+        let json_data = serde_json::to_string(&qr_data)?;
+        self.create_qr_image(&json_data)
     }
 
     fn create_qr_image(&self, data: &str) -> Result<DynamicImage> {
@@ -132,6 +143,11 @@ impl QRGenerator {
 
     pub fn save_encrypted_qr(&self, encrypted_data: &EncryptedData, path: &Path) -> Result<()> {
         let image = self.generate_encrypted_qr(encrypted_data)?;
+        self.save_qr_image(&image, path)
+    }
+
+    pub fn save_layered_qr(&self, layered_data: &LayeredData, path: &Path) -> Result<()> {
+        let image = self.generate_layered_qr(layered_data)?;
         self.save_qr_image(&image, path)
     }
 
@@ -211,6 +227,16 @@ impl QRReader {
                     .map_err(|e| QRCryptError::QRParsing(format!("Failed to parse Shamir share: {}", e)))
             }
             _ => Err(QRCryptError::QRParsing("QR code does not contain Shamir share data".to_string())),
+        }
+    }
+
+    pub fn parse_layered_data(qr_data: &QRData) -> Result<LayeredData> {
+        match qr_data.data_type {
+            QRDataType::LayeredSecret => {
+                serde_json::from_str(&qr_data.content)
+                    .map_err(|e| QRCryptError::QRParsing(format!("Failed to parse layered data: {}", e)))
+            }
+            _ => Err(QRCryptError::QRParsing("QR code does not contain layered secret data".to_string())),
         }
     }
 }

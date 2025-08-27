@@ -19,6 +19,14 @@ pub struct EncryptedData {
     pub version: u8,
 }
 
+#[derive(Serialize, Deserialize, Clone)]
+pub struct LayeredData {
+    pub decoy_layer: EncryptedData,
+    pub hidden_layer: Option<EncryptedData>,
+    pub version: u8,
+    pub decoy_hint: Option<String>, // Optional hint to make decoy believable
+}
+
 #[derive(Zeroize, ZeroizeOnDrop)]
 pub struct SecretData {
     pub data: String,
@@ -146,5 +154,37 @@ impl Crypto {
             Err(QRCryptError::Decryption(_)) => Ok(false),
             Err(e) => Err(e),
         }
+    }
+
+    // Plausible deniability: create layered encryption with decoy data
+    pub fn encrypt_with_decoy(&self, real_data: &SecretData, real_password: &str, 
+                              decoy_data: &SecretData, decoy_password: &str,
+                              decoy_hint: Option<String>) -> Result<LayeredData> {
+        let decoy_layer = self.encrypt(decoy_data, decoy_password)?;
+        let hidden_layer = Some(self.encrypt(real_data, real_password)?);
+        
+        Ok(LayeredData {
+            decoy_layer,
+            hidden_layer,
+            version: 1,
+            decoy_hint,
+        })
+    }
+
+    // Try to decrypt layered data with given password
+    pub fn decrypt_layered(&self, layered: &LayeredData, password: &str) -> Result<(SecretData, bool)> {
+        // First try the decoy layer
+        if let Ok(decoy_data) = self.decrypt(&layered.decoy_layer, password) {
+            return Ok((decoy_data, false)); // false = this is decoy data
+        }
+        
+        // Then try the hidden layer if it exists
+        if let Some(hidden_layer) = &layered.hidden_layer {
+            if let Ok(real_data) = self.decrypt(hidden_layer, password) {
+                return Ok((real_data, true)); // true = this is real data
+            }
+        }
+        
+        Err(QRCryptError::Decryption("Password does not match any layer".to_string()))
     }
 }

@@ -34,6 +34,10 @@ pub enum Commands {
         /// QR code border width (modules)
         #[arg(long, default_value = "4")]
         border: u32,
+
+        /// Skip BIP39 word validation (allow invalid words)
+        #[arg(long)]
+        skip_word_check: bool,
     },
 
     /// Decrypt a QR code and display the secret
@@ -92,6 +96,10 @@ pub enum Commands {
         /// Generate info file with reconstruction instructions
         #[arg(long)]
         info: bool,
+
+        /// Skip BIP39 word validation (allow invalid words)
+        #[arg(long)]
+        skip_word_check: bool,
     },
 
     /// Reconstruct secret from Shamir shares
@@ -145,6 +153,21 @@ pub enum Commands {
         /// Number of words (12, 15, 18, 21, 24 for BIP39)
         #[arg(short, long, default_value = "12")]
         words: u8,
+    },
+
+    /// Validate a BIP39 seed phrase for typos and correctness
+    ValidatePhrase {
+        /// Seed phrase to validate (if not provided, will prompt)
+        #[arg(short, long)]
+        phrase: Option<String>,
+
+        /// Read phrase from file instead of input
+        #[arg(short, long, conflicts_with = "phrase")]
+        file: Option<PathBuf>,
+
+        /// Skip BIP39 checksum validation (only check words)
+        #[arg(long)]
+        skip_checksum: bool,
     },
 }
 

@@ -33,5 +33,8 @@ rand = "0.8"
 sharks = "0.5"
 bincode = "1.3"
 
+# BIP39 word list validation
+bip39 = "2.0"
+
 # QR code reading
 rqrr = "0.6"

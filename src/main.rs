@@ -33,14 +33,14 @@ fn main() {
 
 fn run_command(command: Commands) -> Result<()> {
     match command {
-        Commands::Encrypt { output, secret, file, scale, border } => {
-            handle_encrypt(output, secret, file, scale, border)
+        Commands::Encrypt { output, secret, file, scale, border, skip_word_check } => {
+            handle_encrypt(output, secret, file, scale, border, skip_word_check)
         }
         Commands::Decrypt { input, data, scan_qr, output } => {
             handle_decrypt(input, data, scan_qr, output)
         }
-        Commands::Split { threshold, total, output_dir, prefix, secret, file, scale, border, info } => {
-            handle_split(threshold, total, output_dir, prefix, secret, file, scale, border, info)
+        Commands::Split { threshold, total, output_dir, prefix, secret, file, scale, border, info, skip_word_check } => {
+            handle_split(threshold, total, output_dir, prefix, secret, file, scale, border, info, skip_word_check)
         }
         Commands::Reconstruct { shares, data, scan_qr, max_scans, output } => {
             handle_reconstruct(shares, data, scan_qr, max_scans, output)
@@ -51,6 +51,9 @@ fn run_command(command: Commands) -> Result<()> {
         Commands::Example { example_type, words } => {
             handle_example(example_type, words)
         }
+        Commands::ValidatePhrase { phrase, file, skip_checksum } => {
+            handle_validate_phrase(phrase, file, skip_checksum)
+        }
     }
 }
 
@@ -60,6 +63,7 @@ fn handle_encrypt(
     file: Option<std::path::PathBuf>,
     scale: u32,
     border: u32,
+    skip_word_check: bool,
 ) -> Result<()> {
     // Get secret data
     let secret_text = if let Some(file_path) = file {
@@ -74,9 +78,16 @@ fn handle_encrypt(
         return Err(crate::error::QRCryptError::InvalidInput("Secret cannot be empty".to_string()));
     }
 
-    // Validate if it looks like a seed phrase
-    if let Err(_) = validate_seed_phrase(&secret_text) {
-        print_warning("Input doesn't appear to be a valid seed phrase format");
+    // Validate if it looks like a seed phrase (unless bypassed)
+    if !skip_word_check {
+        if let Err(e) = validate_seed_phrase(&secret_text) {
+            print_warning(&format!("Seed phrase validation warning: {}", e));
+            if !confirm_action("Continue anyway")? {
+                return Err(crate::error::QRCryptError::InvalidInput("Seed phrase validation failed".to_string()));
+            }
+        }
+    } else {
+        print_warning("⚠️  Skipping BIP39 word validation (--skip-word-check flag used)");
     }
 
     // Get password
@@ -156,6 +167,7 @@ fn handle_split(
     scale: u32,
     border: u32,
     info: bool,
+    skip_word_check: bool,
 ) -> Result<()> {
     // Get secret data
     let secret_text = if let Some(file_path) = file {
@@ -170,8 +182,16 @@ fn handle_split(
         return Err(crate::error::QRCryptError::InvalidInput("Secret cannot be empty".to_string()));
     }
 
-    // Validate if it looks like a seed phrase
-    validate_seed_phrase(&secret_text)?;
+    // Validate seed phrase including BIP39 words (unless bypassed)
+    if !skip_word_check {
+        if let Err(e) = validate_seed_phrase(&secret_text) {
+            print_error(&format!("Seed phrase validation failed: {}", e));
+            return Err(e);
+        }
+    } else {
+        print_warning("⚠️  Skipping BIP39 word validation (--skip-word-check flag used)");
+        print_warning("⚠️  This may result in unrecoverable shares if words contain typos!");
+    }
 
     // Create output directory
     fs::create_dir_all(&output_dir)?;
@@ -308,6 +328,56 @@ fn handle_example(example_type: String, words: u8) -> Result<()> {
             return Err(crate::error::QRCryptError::InvalidInput(format!("Unknown example type: {}", example_type)));
         }
     }
+    
+    Ok(())
+}
+
+fn handle_validate_phrase(
+    phrase: Option<String>,
+    file: Option<std::path::PathBuf>,
+    skip_checksum: bool,
+) -> Result<()> {
+    // Get the phrase to validate
+    let phrase_text = if let Some(file_path) = file {
+        read_file_content(&file_path)?
+    } else if let Some(text) = phrase {
+        text
+    } else {
+        read_secret_input("Enter seed phrase to validate: ")?
+    };
+
+    if phrase_text.trim().is_empty() {
+        return Err(crate::error::QRCryptError::InvalidInput("Phrase cannot be empty".to_string()));
+    }
+
+    println!("🔍 Validating seed phrase...\n");
+
+    // Always validate words against BIP39 list
+    if let Err(e) = validate_seed_phrase(&phrase_text) {
+        print_error("❌ Seed phrase validation failed:");
+        println!("{}", e);
+        return Err(e);
+    }
+
+    print_success("✅ All words are valid BIP39 words!");
+    
+    // Optionally validate full BIP39 mnemonic with checksum
+    if !skip_checksum {
+        println!("\n🔐 Checking BIP39 mnemonic validity (including checksum)...");
+        validate_full_bip39_mnemonic(&phrase_text)?;
+    } else {
+        println!("⚠️  Skipping BIP39 checksum validation (--skip-checksum flag used)");
+    }
+
+    let word_count = phrase_text.split_whitespace().count();
+    println!("\n📊 Seed phrase summary:");
+    println!("  • Word count: {}", word_count);
+    println!("  • All words valid: ✅");
+    if !skip_checksum {
+        println!("  • BIP39 checksum: ✅ (if no warnings above)");
+    }
+    
+    print_success("✅ Seed phrase validation complete!");
     
     Ok(())
 }

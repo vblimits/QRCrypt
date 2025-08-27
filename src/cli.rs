@@ -1,0 +1,182 @@
+use clap::{Parser, Subcommand};
+use std::path::PathBuf;
+
+#[derive(Parser)]
+#[command(name = "qrcrypt")]
+#[command(about = "Secure storage of crypto wallet seed phrases in encrypted QR codes")]
+#[command(version = "0.1.0")]
+#[command(author = "QRCrypt Team")]
+pub struct Cli {
+    #[command(subcommand)]
+    pub command: Commands,
+}
+
+#[derive(Subcommand)]
+pub enum Commands {
+    /// Encrypt and generate QR code for a secret
+    Encrypt {
+        /// Output file path for the QR code
+        #[arg(short, long)]
+        output: PathBuf,
+
+        /// Secret text to encrypt (if not provided, will prompt)
+        #[arg(short, long)]
+        secret: Option<String>,
+
+        /// Read secret from file instead of input
+        #[arg(short, long, conflicts_with = "secret")]
+        file: Option<PathBuf>,
+
+        /// QR code scale (pixels per module)
+        #[arg(long, default_value = "8")]
+        scale: u32,
+
+        /// QR code border width (modules)
+        #[arg(long, default_value = "4")]
+        border: u32,
+    },
+
+    /// Decrypt a QR code and display the secret
+    Decrypt {
+        /// JSON file containing encrypted data or path to read QR data
+        #[arg(short, long)]
+        input: Option<PathBuf>,
+
+        /// JSON string containing encrypted data
+        #[arg(short, long, conflicts_with = "input")]
+        data: Option<String>,
+
+        /// Save decrypted output to file
+        #[arg(short, long)]
+        output: Option<PathBuf>,
+    },
+
+    /// Split secret using Shamir's Secret Sharing and generate QR codes
+    Split {
+        /// Number of shares required to reconstruct the secret (threshold)
+        #[arg(short, long)]
+        threshold: u8,
+
+        /// Total number of shares to generate
+        #[arg(short = 'n', long)]
+        total: u8,
+
+        /// Output directory for QR code files
+        #[arg(short, long)]
+        output_dir: PathBuf,
+
+        /// Prefix for output filenames
+        #[arg(long, default_value = "share")]
+        prefix: String,
+
+        /// Secret text to split (if not provided, will prompt)
+        #[arg(short, long)]
+        secret: Option<String>,
+
+        /// Read secret from file instead of input
+        #[arg(short, long, conflicts_with = "secret")]
+        file: Option<PathBuf>,
+
+        /// QR code scale (pixels per module)
+        #[arg(long, default_value = "8")]
+        scale: u32,
+
+        /// QR code border width (modules)
+        #[arg(long, default_value = "4")]
+        border: u32,
+
+        /// Generate info file with reconstruction instructions
+        #[arg(long)]
+        info: bool,
+    },
+
+    /// Reconstruct secret from Shamir shares
+    Reconstruct {
+        /// Paths to share files (JSON format)
+        #[arg(short, long)]
+        shares: Vec<PathBuf>,
+
+        /// JSON strings containing share data
+        #[arg(short, long, conflicts_with = "shares")]
+        data: Vec<String>,
+
+        /// Save reconstructed output to file
+        #[arg(short, long)]
+        output: Option<PathBuf>,
+    },
+
+    /// Validate Shamir shares without reconstructing
+    Validate {
+        /// Paths to share files (JSON format)
+        #[arg(short, long)]
+        shares: Vec<PathBuf>,
+
+        /// JSON strings containing share data
+        #[arg(short, long, conflicts_with = "shares")]
+        data: Vec<String>,
+    },
+
+    /// Generate example seed phrase for testing
+    Example {
+        /// Type of example to generate
+        #[arg(short, long, default_value = "bip39")]
+        example_type: String,
+
+        /// Number of words (12, 15, 18, 21, 24 for BIP39)
+        #[arg(short, long, default_value = "12")]
+        words: u8,
+    },
+}
+
+impl Cli {
+    pub fn parse_args() -> Self {
+        Self::parse()
+    }
+
+    pub fn validate(&self) -> Result<(), String> {
+        match &self.command {
+            Commands::Encrypt { scale, border, .. } => {
+                if *scale == 0 {
+                    return Err("Scale must be greater than 0".to_string());
+                }
+                if *border > 20 {
+                    return Err("Border must be 20 or less".to_string());
+                }
+            }
+            Commands::Split { threshold, total, scale, border, .. } => {
+                if *threshold == 0 || *total == 0 {
+                    return Err("Threshold and total must be greater than 0".to_string());
+                }
+                if *threshold > *total {
+                    return Err("Threshold cannot be greater than total shares".to_string());
+                }
+                if *total > 255 {
+                    return Err("Total shares cannot exceed 255".to_string());
+                }
+                if *scale == 0 {
+                    return Err("Scale must be greater than 0".to_string());
+                }
+                if *border > 20 {
+                    return Err("Border must be 20 or less".to_string());
+                }
+            }
+            Commands::Reconstruct { shares, data, .. } => {
+                if shares.is_empty() && data.is_empty() {
+                    return Err("Must provide either share files or share data".to_string());
+                }
+            }
+            Commands::Validate { shares, data, .. } => {
+                if shares.is_empty() && data.is_empty() {
+                    return Err("Must provide either share files or share data".to_string());
+                }
+            }
+            Commands::Example { words, .. } => {
+                if ![12, 15, 18, 21, 24].contains(words) {
+                    return Err("Word count must be 12, 15, 18, 21, or 24".to_string());
+                }
+            }
+            _ => {}
+        }
+        Ok(())
+    }
+}

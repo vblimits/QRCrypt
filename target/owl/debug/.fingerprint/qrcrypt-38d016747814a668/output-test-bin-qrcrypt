@@ -1,0 +1,1368 @@
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core] start borrowck of DefId(0:33 ~ qrcrypt[05b6]::crypto::NONCE_SIZE)
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core::analyze] facts of DefId(0:33 ~ qrcrypt[05b6]::crypto::NONCE_SIZE) prepared; start analyze of DefId(0:33 ~ qrcrypt[05b6]::crypto::NONCE_SIZE)
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core] borrow checked: 1 / 227
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core] start borrowck of DefId(0:253 ~ qrcrypt[05b6]::crypto::_)
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core::analyze] facts of DefId(0:253 ~ qrcrypt[05b6]::crypto::_) prepared; start analyze of DefId(0:253 ~ qrcrypt[05b6]::crypto::_)
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core] borrow checked: 2 / 227
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core] start borrowck of DefId(0:258 ~ qrcrypt[05b6]::crypto::_#1)
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core::analyze] facts of DefId(0:258 ~ qrcrypt[05b6]::crypto::_#1) prepared; start analyze of DefId(0:258 ~ qrcrypt[05b6]::crypto::_#1)
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core] borrow checked: 3 / 227
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core] start borrowck of DefId(0:303 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::FIELDS)
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.236Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] facts of DefId(0:303 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::FIELDS) prepared; start analyze of DefId(0:303 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::FIELDS)
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core] borrow checked: 4 / 227
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core] start borrowck of DefId(0:321 ~ qrcrypt[05b6]::shamir::_)
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] facts of DefId(0:321 ~ qrcrypt[05b6]::shamir::_) prepared; start analyze of DefId(0:321 ~ qrcrypt[05b6]::shamir::_)
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core] borrow checked: 5 / 227
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core] start borrowck of DefId(0:326 ~ qrcrypt[05b6]::shamir::_#1)
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] facts of DefId(0:326 ~ qrcrypt[05b6]::shamir::_#1) prepared; start analyze of DefId(0:326 ~ qrcrypt[05b6]::shamir::_#1)
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core] borrow checked: 6 / 227
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core] start borrowck of DefId(0:373 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::FIELDS)
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] facts of DefId(0:373 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::FIELDS) prepared; start analyze of DefId(0:373 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::FIELDS)
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core] borrow checked: 7 / 227
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core] start borrowck of DefId(0:379 ~ qrcrypt[05b6]::shamir::tests::test_split_and_reconstruct)
+2025-08-27T02:19:03.237Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.238Z INFO  [rustowlc::core] start borrowck of DefId(0:380 ~ qrcrypt[05b6]::shamir::tests::test_split_and_reconstruct::{closure#0})
+2025-08-27T02:19:03.238Z INFO  [rustowlc::core::analyze] facts of DefId(0:380 ~ qrcrypt[05b6]::shamir::tests::test_split_and_reconstruct::{closure#0}) prepared; start analyze of DefId(0:380 ~ qrcrypt[05b6]::shamir::tests::test_split_and_reconstruct::{closure#0})
+2025-08-27T02:19:03.238Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.238Z INFO  [rustowlc::core] borrow checked: 8 / 227
+2025-08-27T02:19:03.238Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.238Z INFO  [rustowlc::core::analyze] facts of DefId(0:379 ~ qrcrypt[05b6]::shamir::tests::test_split_and_reconstruct) prepared; start analyze of DefId(0:379 ~ qrcrypt[05b6]::shamir::tests::test_split_and_reconstruct)
+2025-08-27T02:19:03.238Z INFO  [rustowlc::core] borrow checked: 9 / 227
+2025-08-27T02:19:03.238Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core] start borrowck of DefId(0:383 ~ qrcrypt[05b6]::shamir::tests::test_insufficient_shares)
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core] start borrowck of DefId(0:384 ~ qrcrypt[05b6]::shamir::tests::test_insufficient_shares::{closure#0})
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core::analyze] facts of DefId(0:384 ~ qrcrypt[05b6]::shamir::tests::test_insufficient_shares::{closure#0}) prepared; start analyze of DefId(0:384 ~ qrcrypt[05b6]::shamir::tests::test_insufficient_shares::{closure#0})
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core] borrow checked: 10 / 227
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core::analyze] facts of DefId(0:383 ~ qrcrypt[05b6]::shamir::tests::test_insufficient_shares) prepared; start analyze of DefId(0:383 ~ qrcrypt[05b6]::shamir::tests::test_insufficient_shares)
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core] borrow checked: 11 / 227
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core] start borrowck of DefId(0:387 ~ qrcrypt[05b6]::shamir::tests::test_validate_shares)
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core] start borrowck of DefId(0:388 ~ qrcrypt[05b6]::shamir::tests::test_validate_shares::{closure#0})
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core::analyze] facts of DefId(0:388 ~ qrcrypt[05b6]::shamir::tests::test_validate_shares::{closure#0}) prepared; start analyze of DefId(0:388 ~ qrcrypt[05b6]::shamir::tests::test_validate_shares::{closure#0})
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.239Z INFO  [rustowlc::core] borrow checked: 12 / 227
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] facts of DefId(0:387 ~ qrcrypt[05b6]::shamir::tests::test_validate_shares) prepared; start analyze of DefId(0:387 ~ qrcrypt[05b6]::shamir::tests::test_validate_shares)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] borrow checked: 13 / 227
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] start borrowck of DefId(0:393 ~ qrcrypt[05b6]::qr::_)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] facts of DefId(0:393 ~ qrcrypt[05b6]::qr::_) prepared; start analyze of DefId(0:393 ~ qrcrypt[05b6]::qr::_)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] borrow checked: 14 / 227
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] start borrowck of DefId(0:398 ~ qrcrypt[05b6]::qr::_#1)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] facts of DefId(0:398 ~ qrcrypt[05b6]::qr::_#1) prepared; start analyze of DefId(0:398 ~ qrcrypt[05b6]::qr::_#1)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] borrow checked: 15 / 227
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] start borrowck of DefId(0:439 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::FIELDS)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] facts of DefId(0:439 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::FIELDS) prepared; start analyze of DefId(0:439 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::FIELDS)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] borrow checked: 16 / 227
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] start borrowck of DefId(0:445 ~ qrcrypt[05b6]::qr::_#2)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] facts of DefId(0:445 ~ qrcrypt[05b6]::qr::_#2) prepared; start analyze of DefId(0:445 ~ qrcrypt[05b6]::qr::_#2)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] borrow checked: 17 / 227
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] start borrowck of DefId(0:450 ~ qrcrypt[05b6]::qr::_#3)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] facts of DefId(0:450 ~ qrcrypt[05b6]::qr::_#3) prepared; start analyze of DefId(0:450 ~ qrcrypt[05b6]::qr::_#3)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] borrow checked: 18 / 227
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core] start borrowck of DefId(0:487 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::VARIANTS)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] facts of DefId(0:487 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::VARIANTS) prepared; start analyze of DefId(0:487 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::VARIANTS)
+2025-08-27T02:19:03.240Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core] borrow checked: 19 / 227
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core] start borrowck of DefId(0:491 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_encrypted)
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core] start borrowck of DefId(0:492 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_encrypted::{closure#0})
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core::analyze] facts of DefId(0:492 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_encrypted::{closure#0}) prepared; start analyze of DefId(0:492 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_encrypted::{closure#0})
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core] borrow checked: 20 / 227
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core::analyze] facts of DefId(0:491 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_encrypted) prepared; start analyze of DefId(0:491 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_encrypted)
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core] borrow checked: 21 / 227
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core] start borrowck of DefId(0:495 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_shamir)
+2025-08-27T02:19:03.241Z INFO  [rustowlc::core] start borrowck of DefId(0:496 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_shamir::{closure#0})
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] facts of DefId(0:496 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_shamir::{closure#0}) prepared; start analyze of DefId(0:496 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_shamir::{closure#0})
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core] borrow checked: 22 / 227
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] facts of DefId(0:495 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_shamir) prepared; start analyze of DefId(0:495 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_shamir)
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core] borrow checked: 23 / 227
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core] start borrowck of DefId(0:499 ~ qrcrypt[05b6]::qr::tests::test_qr_data_parsing)
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core] start borrowck of DefId(0:500 ~ qrcrypt[05b6]::qr::tests::test_qr_data_parsing::{closure#0})
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] facts of DefId(0:500 ~ qrcrypt[05b6]::qr::tests::test_qr_data_parsing::{closure#0}) prepared; start analyze of DefId(0:500 ~ qrcrypt[05b6]::qr::tests::test_qr_data_parsing::{closure#0})
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core] borrow checked: 24 / 227
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.242Z INFO  [rustowlc::core::analyze] facts of DefId(0:499 ~ qrcrypt[05b6]::qr::tests::test_qr_data_parsing) prepared; start analyze of DefId(0:499 ~ qrcrypt[05b6]::qr::tests::test_qr_data_parsing)
+2025-08-27T02:19:03.243Z INFO  [rustowlc::core] borrow checked: 25 / 227
+2025-08-27T02:19:03.243Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.243Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.249Z INFO  [rustowlc::core] start borrowck of DefId(0:45 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{constant#0})
+2025-08-27T02:19:03.249Z INFO  [rustowlc::core::analyze] facts of DefId(0:45 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{constant#0}) prepared; start analyze of DefId(0:45 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{constant#0})
+2025-08-27T02:19:03.249Z INFO  [rustowlc::core] borrow checked: 26 / 227
+2025-08-27T02:19:03.249Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.249Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.287Z INFO  [rustowlc::core] start borrowck of DefId(0:203 ~ qrcrypt[05b6]::error::{impl#0}::source)
+2025-08-27T02:19:03.288Z INFO  [rustowlc::core::analyze] facts of DefId(0:203 ~ qrcrypt[05b6]::error::{impl#0}::source) prepared; start analyze of DefId(0:203 ~ qrcrypt[05b6]::error::{impl#0}::source)
+2025-08-27T02:19:03.288Z INFO  [rustowlc::core] borrow checked: 27 / 227
+2025-08-27T02:19:03.288Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.288Z INFO  [rustowlc::core] start borrowck of DefId(0:206 ~ qrcrypt[05b6]::error::{impl#1}::fmt)
+2025-08-27T02:19:03.291Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] facts of DefId(0:206 ~ qrcrypt[05b6]::error::{impl#1}::fmt) prepared; start analyze of DefId(0:206 ~ qrcrypt[05b6]::error::{impl#1}::fmt)
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core] borrow checked: 28 / 227
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core] start borrowck of DefId(0:209 ~ qrcrypt[05b6]::error::{impl#2}::from)
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] facts of DefId(0:209 ~ qrcrypt[05b6]::error::{impl#2}::from) prepared; start analyze of DefId(0:209 ~ qrcrypt[05b6]::error::{impl#2}::from)
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core] borrow checked: 29 / 227
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core] start borrowck of DefId(0:211 ~ qrcrypt[05b6]::error::{impl#3}::from)
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] facts of DefId(0:211 ~ qrcrypt[05b6]::error::{impl#3}::from) prepared; start analyze of DefId(0:211 ~ qrcrypt[05b6]::error::{impl#3}::from)
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core] borrow checked: 30 / 227
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core] start borrowck of DefId(0:213 ~ qrcrypt[05b6]::error::{impl#4}::from)
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] facts of DefId(0:213 ~ qrcrypt[05b6]::error::{impl#4}::from) prepared; start analyze of DefId(0:213 ~ qrcrypt[05b6]::error::{impl#4}::from)
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core] borrow checked: 31 / 227
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core] start borrowck of DefId(0:215 ~ qrcrypt[05b6]::error::{impl#5}::from)
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] facts of DefId(0:215 ~ qrcrypt[05b6]::error::{impl#5}::from) prepared; start analyze of DefId(0:215 ~ qrcrypt[05b6]::error::{impl#5}::from)
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.307Z INFO  [rustowlc::core] borrow checked: 32 / 227
+2025-08-27T02:19:03.308Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.308Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.308Z INFO  [rustowlc::core] start borrowck of DefId(0:217 ~ qrcrypt[05b6]::error::{impl#6}::fmt)
+2025-08-27T02:19:03.313Z INFO  [rustowlc::core::analyze] facts of DefId(0:217 ~ qrcrypt[05b6]::error::{impl#6}::fmt) prepared; start analyze of DefId(0:217 ~ qrcrypt[05b6]::error::{impl#6}::fmt)
+2025-08-27T02:19:03.313Z INFO  [rustowlc::core] borrow checked: 33 / 227
+2025-08-27T02:19:03.313Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.313Z INFO  [rustowlc::core] start borrowck of DefId(0:256 ~ qrcrypt[05b6]::crypto::_::{impl#0}::serialize)
+2025-08-27T02:19:03.324Z INFO  [rustowlc::core::analyze] facts of DefId(0:256 ~ qrcrypt[05b6]::crypto::_::{impl#0}::serialize) prepared; start analyze of DefId(0:256 ~ qrcrypt[05b6]::crypto::_::{impl#0}::serialize)
+2025-08-27T02:19:03.325Z INFO  [rustowlc::core] borrow checked: 34 / 227
+2025-08-27T02:19:03.325Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.325Z INFO  [rustowlc::core] start borrowck of DefId(0:262 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize)
+2025-08-27T02:19:03.325Z INFO  [rustowlc::core::analyze] facts of DefId(0:262 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize) prepared; start analyze of DefId(0:262 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize)
+2025-08-27T02:19:03.325Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.325Z INFO  [rustowlc::core] borrow checked: 35 / 227
+2025-08-27T02:19:03.325Z INFO  [rustowlc::core] start borrowck of DefId(0:280 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::expecting)
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core::analyze] facts of DefId(0:280 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::expecting) prepared; start analyze of DefId(0:280 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::expecting)
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core] borrow checked: 36 / 227
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core] start borrowck of DefId(0:281 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::visit_u64)
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core::analyze] facts of DefId(0:281 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::visit_u64) prepared; start analyze of DefId(0:281 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::visit_u64)
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core] borrow checked: 37 / 227
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.326Z INFO  [rustowlc::core] start borrowck of DefId(0:283 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::visit_str)
+2025-08-27T02:19:03.327Z INFO  [rustowlc::core::analyze] facts of DefId(0:283 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::visit_str) prepared; start analyze of DefId(0:283 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::visit_str)
+2025-08-27T02:19:03.327Z INFO  [rustowlc::core] borrow checked: 38 / 227
+2025-08-27T02:19:03.327Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.327Z INFO  [rustowlc::core] start borrowck of DefId(0:285 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::visit_bytes)
+2025-08-27T02:19:03.327Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.327Z INFO  [rustowlc::core::analyze] facts of DefId(0:285 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::visit_bytes) prepared; start analyze of DefId(0:285 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#0}::visit_bytes)
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core] borrow checked: 39 / 227
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core] start borrowck of DefId(0:289 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#1}::deserialize)
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core::analyze] facts of DefId(0:289 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#1}::deserialize) prepared; start analyze of DefId(0:289 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#1}::deserialize)
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core] borrow checked: 40 / 227
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core] start borrowck of DefId(0:298 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#2}::expecting)
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core::analyze] facts of DefId(0:298 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#2}::expecting) prepared; start analyze of DefId(0:298 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#2}::expecting)
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core] borrow checked: 41 / 227
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core] start borrowck of DefId(0:299 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#2}::visit_seq)
+2025-08-27T02:19:03.328Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.329Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.335Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.344Z INFO  [rustowlc::core::analyze] facts of DefId(0:299 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#2}::visit_seq) prepared; start analyze of DefId(0:299 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#2}::visit_seq)
+2025-08-27T02:19:03.345Z INFO  [rustowlc::core] borrow checked: 42 / 227
+2025-08-27T02:19:03.345Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.346Z INFO  [rustowlc::core] start borrowck of DefId(0:301 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#2}::visit_map)
+2025-08-27T02:19:03.347Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.356Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.381Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.396Z INFO  [rustowlc::core::analyze] facts of DefId(0:301 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#2}::visit_map) prepared; start analyze of DefId(0:301 ~ qrcrypt[05b6]::crypto::_#1::{impl#0}::deserialize::{impl#2}::visit_map)
+2025-08-27T02:19:03.398Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.398Z INFO  [rustowlc::core] borrow checked: 43 / 227
+2025-08-27T02:19:03.398Z INFO  [rustowlc::core] start borrowck of DefId(0:305 ~ qrcrypt[05b6]::crypto::{impl#3}::clone)
+2025-08-27T02:19:03.398Z INFO  [rustowlc::core::analyze] facts of DefId(0:305 ~ qrcrypt[05b6]::crypto::{impl#3}::clone) prepared; start analyze of DefId(0:305 ~ qrcrypt[05b6]::crypto::{impl#3}::clone)
+2025-08-27T02:19:03.398Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.398Z INFO  [rustowlc::core] borrow checked: 44 / 227
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core] start borrowck of DefId(0:309 ~ qrcrypt[05b6]::crypto::{impl#4}::zeroize)
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] facts of DefId(0:309 ~ qrcrypt[05b6]::crypto::{impl#4}::zeroize) prepared; start analyze of DefId(0:309 ~ qrcrypt[05b6]::crypto::{impl#4}::zeroize)
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core] borrow checked: 45 / 227
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core] start borrowck of DefId(0:311 ~ qrcrypt[05b6]::crypto::{impl#5}::drop)
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] facts of DefId(0:311 ~ qrcrypt[05b6]::crypto::{impl#5}::drop) prepared; start analyze of DefId(0:311 ~ qrcrypt[05b6]::crypto::{impl#5}::drop)
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core] borrow checked: 46 / 227
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core] start borrowck of DefId(0:35 ~ qrcrypt[05b6]::crypto::{impl#0}::new)
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] facts of DefId(0:35 ~ qrcrypt[05b6]::crypto::{impl#0}::new) prepared; start analyze of DefId(0:35 ~ qrcrypt[05b6]::crypto::{impl#0}::new)
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core] borrow checked: 47 / 227
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core] start borrowck of DefId(0:39 ~ qrcrypt[05b6]::crypto::{impl#1}::default)
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] facts of DefId(0:39 ~ qrcrypt[05b6]::crypto::{impl#1}::default) prepared; start analyze of DefId(0:39 ~ qrcrypt[05b6]::crypto::{impl#1}::default)
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core] borrow checked: 48 / 227
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core] start borrowck of DefId(0:41 ~ qrcrypt[05b6]::crypto::{impl#2}::new)
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] facts of DefId(0:41 ~ qrcrypt[05b6]::crypto::{impl#2}::new) prepared; start analyze of DefId(0:41 ~ qrcrypt[05b6]::crypto::{impl#2}::new)
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core] borrow checked: 49 / 227
+2025-08-27T02:19:03.399Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.400Z INFO  [rustowlc::core] start borrowck of DefId(0:42 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt)
+2025-08-27T02:19:03.400Z INFO  [rustowlc::core] start borrowck of DefId(0:43 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{closure#0})
+2025-08-27T02:19:03.401Z INFO  [rustowlc::core::analyze] facts of DefId(0:43 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{closure#0}) prepared; start analyze of DefId(0:43 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{closure#0})
+2025-08-27T02:19:03.401Z INFO  [rustowlc::core] borrow checked: 50 / 227
+2025-08-27T02:19:03.401Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.401Z INFO  [rustowlc::core] start borrowck of DefId(0:44 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{closure#1})
+2025-08-27T02:19:03.401Z INFO  [rustowlc::core::analyze] facts of DefId(0:44 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{closure#1}) prepared; start analyze of DefId(0:44 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{closure#1})
+2025-08-27T02:19:03.401Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.401Z INFO  [rustowlc::core] borrow checked: 51 / 227
+2025-08-27T02:19:03.401Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.401Z INFO  [rustowlc::core] start borrowck of DefId(0:46 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{closure#2})
+2025-08-27T02:19:03.402Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.402Z INFO  [rustowlc::core::analyze] facts of DefId(0:46 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{closure#2}) prepared; start analyze of DefId(0:46 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt::{closure#2})
+2025-08-27T02:19:03.402Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.402Z INFO  [rustowlc::core] borrow checked: 52 / 227
+2025-08-27T02:19:03.403Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.416Z INFO  [rustowlc::core::analyze] facts of DefId(0:42 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt) prepared; start analyze of DefId(0:42 ~ qrcrypt[05b6]::crypto::{impl#2}::encrypt)
+2025-08-27T02:19:03.417Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.417Z INFO  [rustowlc::core] borrow checked: 53 / 227
+2025-08-27T02:19:03.418Z INFO  [rustowlc::core] start borrowck of DefId(0:47 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt)
+2025-08-27T02:19:03.418Z INFO  [rustowlc::core] start borrowck of DefId(0:48 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#0})
+2025-08-27T02:19:03.418Z INFO  [rustowlc::core::analyze] facts of DefId(0:48 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#0}) prepared; start analyze of DefId(0:48 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#0})
+2025-08-27T02:19:03.419Z INFO  [rustowlc::core] borrow checked: 54 / 227
+2025-08-27T02:19:03.419Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.419Z INFO  [rustowlc::core] start borrowck of DefId(0:49 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#1})
+2025-08-27T02:19:03.419Z INFO  [rustowlc::core::analyze] facts of DefId(0:49 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#1}) prepared; start analyze of DefId(0:49 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#1})
+2025-08-27T02:19:03.419Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.419Z INFO  [rustowlc::core] borrow checked: 55 / 227
+2025-08-27T02:19:03.419Z INFO  [rustowlc::core] start borrowck of DefId(0:50 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#2})
+2025-08-27T02:19:03.419Z INFO  [rustowlc::core::analyze] facts of DefId(0:50 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#2}) prepared; start analyze of DefId(0:50 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#2})
+2025-08-27T02:19:03.420Z INFO  [rustowlc::core] borrow checked: 56 / 227
+2025-08-27T02:19:03.420Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.420Z INFO  [rustowlc::core] start borrowck of DefId(0:51 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#3})
+2025-08-27T02:19:03.420Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.420Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.420Z INFO  [rustowlc::core::analyze] facts of DefId(0:51 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#3}) prepared; start analyze of DefId(0:51 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#3})
+2025-08-27T02:19:03.420Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.420Z INFO  [rustowlc::core] borrow checked: 57 / 227
+2025-08-27T02:19:03.420Z INFO  [rustowlc::core] start borrowck of DefId(0:52 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#4})
+2025-08-27T02:19:03.420Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.421Z INFO  [rustowlc::core::analyze] facts of DefId(0:52 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#4}) prepared; start analyze of DefId(0:52 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt::{closure#4})
+2025-08-27T02:19:03.421Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.421Z INFO  [rustowlc::core] borrow checked: 58 / 227
+2025-08-27T02:19:03.422Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.422Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.446Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.464Z INFO  [rustowlc::core::analyze] facts of DefId(0:47 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt) prepared; start analyze of DefId(0:47 ~ qrcrypt[05b6]::crypto::{impl#2}::decrypt)
+2025-08-27T02:19:03.466Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.466Z INFO  [rustowlc::core] borrow checked: 59 / 227
+2025-08-27T02:19:03.466Z INFO  [rustowlc::core] start borrowck of DefId(0:53 ~ qrcrypt[05b6]::crypto::{impl#2}::verify_password)
+2025-08-27T02:19:03.466Z INFO  [rustowlc::core] start borrowck of DefId(0:54 ~ qrcrypt[05b6]::crypto::{impl#2}::verify_password::{closure#0})
+2025-08-27T02:19:03.467Z INFO  [rustowlc::core::analyze] facts of DefId(0:54 ~ qrcrypt[05b6]::crypto::{impl#2}::verify_password::{closure#0}) prepared; start analyze of DefId(0:54 ~ qrcrypt[05b6]::crypto::{impl#2}::verify_password::{closure#0})
+2025-08-27T02:19:03.467Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.467Z INFO  [rustowlc::core] borrow checked: 60 / 227
+2025-08-27T02:19:03.467Z INFO  [rustowlc::core] start borrowck of DefId(0:55 ~ qrcrypt[05b6]::crypto::{impl#2}::verify_password::{closure#1})
+2025-08-27T02:19:03.467Z INFO  [rustowlc::core::analyze] facts of DefId(0:55 ~ qrcrypt[05b6]::crypto::{impl#2}::verify_password::{closure#1}) prepared; start analyze of DefId(0:55 ~ qrcrypt[05b6]::crypto::{impl#2}::verify_password::{closure#1})
+2025-08-27T02:19:03.468Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.468Z INFO  [rustowlc::core] borrow checked: 61 / 227
+2025-08-27T02:19:03.468Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.469Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.471Z INFO  [rustowlc::core::analyze] facts of DefId(0:53 ~ qrcrypt[05b6]::crypto::{impl#2}::verify_password) prepared; start analyze of DefId(0:53 ~ qrcrypt[05b6]::crypto::{impl#2}::verify_password)
+2025-08-27T02:19:03.472Z INFO  [rustowlc::core] borrow checked: 62 / 227
+2025-08-27T02:19:03.472Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.472Z INFO  [rustowlc::core] start borrowck of DefId(0:324 ~ qrcrypt[05b6]::shamir::_::{impl#0}::serialize)
+2025-08-27T02:19:03.485Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.488Z INFO  [rustowlc::core::analyze] facts of DefId(0:324 ~ qrcrypt[05b6]::shamir::_::{impl#0}::serialize) prepared; start analyze of DefId(0:324 ~ qrcrypt[05b6]::shamir::_::{impl#0}::serialize)
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core] borrow checked: 63 / 227
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core] start borrowck of DefId(0:330 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize)
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core::analyze] facts of DefId(0:330 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize) prepared; start analyze of DefId(0:330 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize)
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core] borrow checked: 64 / 227
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core] start borrowck of DefId(0:350 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::expecting)
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core::analyze] facts of DefId(0:350 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::expecting) prepared; start analyze of DefId(0:350 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::expecting)
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core] borrow checked: 65 / 227
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.489Z INFO  [rustowlc::core] start borrowck of DefId(0:351 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::visit_u64)
+2025-08-27T02:19:03.490Z INFO  [rustowlc::core::analyze] facts of DefId(0:351 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::visit_u64) prepared; start analyze of DefId(0:351 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::visit_u64)
+2025-08-27T02:19:03.490Z INFO  [rustowlc::core] borrow checked: 66 / 227
+2025-08-27T02:19:03.490Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.490Z INFO  [rustowlc::core] start borrowck of DefId(0:353 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::visit_str)
+2025-08-27T02:19:03.490Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.490Z INFO  [rustowlc::core::analyze] facts of DefId(0:353 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::visit_str) prepared; start analyze of DefId(0:353 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::visit_str)
+2025-08-27T02:19:03.490Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.490Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.490Z INFO  [rustowlc::core] borrow checked: 67 / 227
+2025-08-27T02:19:03.490Z INFO  [rustowlc::core] start borrowck of DefId(0:355 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::visit_bytes)
+2025-08-27T02:19:03.491Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.491Z INFO  [rustowlc::core::analyze] facts of DefId(0:355 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::visit_bytes) prepared; start analyze of DefId(0:355 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#0}::visit_bytes)
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core] borrow checked: 68 / 227
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core] start borrowck of DefId(0:359 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#1}::deserialize)
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core::analyze] facts of DefId(0:359 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#1}::deserialize) prepared; start analyze of DefId(0:359 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#1}::deserialize)
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core] borrow checked: 69 / 227
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core] start borrowck of DefId(0:368 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#2}::expecting)
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core::analyze] facts of DefId(0:368 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#2}::expecting) prepared; start analyze of DefId(0:368 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#2}::expecting)
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core] borrow checked: 70 / 227
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core] start borrowck of DefId(0:369 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#2}::visit_seq)
+2025-08-27T02:19:03.492Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.495Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.513Z INFO  [rustowlc::core::analyze] facts of DefId(0:369 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#2}::visit_seq) prepared; start analyze of DefId(0:369 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#2}::visit_seq)
+2025-08-27T02:19:03.514Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.514Z INFO  [rustowlc::core] borrow checked: 71 / 227
+2025-08-27T02:19:03.514Z INFO  [rustowlc::core] start borrowck of DefId(0:371 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#2}::visit_map)
+2025-08-27T02:19:03.526Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.527Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.554Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.559Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.575Z INFO  [rustowlc::core::analyze] facts of DefId(0:371 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#2}::visit_map) prepared; start analyze of DefId(0:371 ~ qrcrypt[05b6]::shamir::_#1::{impl#0}::deserialize::{impl#2}::visit_map)
+2025-08-27T02:19:03.577Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.577Z INFO  [rustowlc::core] borrow checked: 72 / 227
+2025-08-27T02:19:03.577Z INFO  [rustowlc::core] start borrowck of DefId(0:375 ~ qrcrypt[05b6]::shamir::{impl#1}::clone)
+2025-08-27T02:19:03.578Z INFO  [rustowlc::core::analyze] facts of DefId(0:375 ~ qrcrypt[05b6]::shamir::{impl#1}::clone) prepared; start analyze of DefId(0:375 ~ qrcrypt[05b6]::shamir::{impl#1}::clone)
+2025-08-27T02:19:03.578Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.578Z INFO  [rustowlc::core] borrow checked: 73 / 227
+2025-08-27T02:19:03.578Z INFO  [rustowlc::core] start borrowck of DefId(0:377 ~ qrcrypt[05b6]::shamir::{impl#2}::fmt)
+2025-08-27T02:19:03.579Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.580Z INFO  [rustowlc::core::analyze] facts of DefId(0:377 ~ qrcrypt[05b6]::shamir::{impl#2}::fmt) prepared; start analyze of DefId(0:377 ~ qrcrypt[05b6]::shamir::{impl#2}::fmt)
+2025-08-27T02:19:03.580Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.580Z INFO  [rustowlc::core] borrow checked: 74 / 227
+2025-08-27T02:19:03.580Z INFO  [rustowlc::core] start borrowck of DefId(0:72 ~ qrcrypt[05b6]::shamir::{impl#0}::split_secret)
+2025-08-27T02:19:03.580Z INFO  [rustowlc::core] start borrowck of DefId(0:73 ~ qrcrypt[05b6]::shamir::{impl#0}::split_secret::{closure#0})
+2025-08-27T02:19:03.581Z INFO  [rustowlc::core::analyze] facts of DefId(0:73 ~ qrcrypt[05b6]::shamir::{impl#0}::split_secret::{closure#0}) prepared; start analyze of DefId(0:73 ~ qrcrypt[05b6]::shamir::{impl#0}::split_secret::{closure#0})
+2025-08-27T02:19:03.581Z INFO  [rustowlc::core] borrow checked: 75 / 227
+2025-08-27T02:19:03.581Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.581Z INFO  [rustowlc::core] start borrowck of DefId(0:74 ~ qrcrypt[05b6]::shamir::{impl#0}::split_secret::{closure#1})
+2025-08-27T02:19:03.581Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.581Z INFO  [rustowlc::core::analyze] facts of DefId(0:74 ~ qrcrypt[05b6]::shamir::{impl#0}::split_secret::{closure#1}) prepared; start analyze of DefId(0:74 ~ qrcrypt[05b6]::shamir::{impl#0}::split_secret::{closure#1})
+2025-08-27T02:19:03.582Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.582Z INFO  [rustowlc::core] borrow checked: 76 / 227
+2025-08-27T02:19:03.583Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.584Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.586Z INFO  [rustowlc::core::analyze] facts of DefId(0:72 ~ qrcrypt[05b6]::shamir::{impl#0}::split_secret) prepared; start analyze of DefId(0:72 ~ qrcrypt[05b6]::shamir::{impl#0}::split_secret)
+2025-08-27T02:19:03.586Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.586Z INFO  [rustowlc::core] borrow checked: 77 / 227
+2025-08-27T02:19:03.587Z INFO  [rustowlc::core] start borrowck of DefId(0:75 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret)
+2025-08-27T02:19:03.587Z INFO  [rustowlc::core] start borrowck of DefId(0:76 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#0})
+2025-08-27T02:19:03.587Z INFO  [rustowlc::core] start borrowck of DefId(0:77 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#0}::{closure#0})
+2025-08-27T02:19:03.588Z INFO  [rustowlc::core::analyze] facts of DefId(0:77 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#0}::{closure#0}) prepared; start analyze of DefId(0:77 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#0}::{closure#0})
+2025-08-27T02:19:03.588Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.588Z INFO  [rustowlc::core] borrow checked: 78 / 227
+2025-08-27T02:19:03.589Z INFO  [rustowlc::core::analyze] facts of DefId(0:76 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#0}) prepared; start analyze of DefId(0:76 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#0})
+2025-08-27T02:19:03.589Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.589Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.589Z INFO  [rustowlc::core] borrow checked: 79 / 227
+2025-08-27T02:19:03.589Z INFO  [rustowlc::core] start borrowck of DefId(0:78 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#1})
+2025-08-27T02:19:03.590Z INFO  [rustowlc::core::analyze] facts of DefId(0:78 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#1}) prepared; start analyze of DefId(0:78 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#1})
+2025-08-27T02:19:03.590Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.590Z INFO  [rustowlc::core] borrow checked: 80 / 227
+2025-08-27T02:19:03.590Z INFO  [rustowlc::core] start borrowck of DefId(0:79 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#2})
+2025-08-27T02:19:03.591Z INFO  [rustowlc::core::analyze] facts of DefId(0:79 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#2}) prepared; start analyze of DefId(0:79 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret::{closure#2})
+2025-08-27T02:19:03.591Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.591Z INFO  [rustowlc::core] borrow checked: 81 / 227
+2025-08-27T02:19:03.591Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.591Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.592Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.597Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.618Z INFO  [rustowlc::core::analyze] facts of DefId(0:75 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret) prepared; start analyze of DefId(0:75 ~ qrcrypt[05b6]::shamir::{impl#0}::reconstruct_secret)
+2025-08-27T02:19:03.619Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.619Z INFO  [rustowlc::core] borrow checked: 82 / 227
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core] start borrowck of DefId(0:80 ~ qrcrypt[05b6]::shamir::{impl#0}::validate_shares)
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core] start borrowck of DefId(0:81 ~ qrcrypt[05b6]::shamir::{impl#0}::validate_shares::{closure#0})
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core::analyze] facts of DefId(0:81 ~ qrcrypt[05b6]::shamir::{impl#0}::validate_shares::{closure#0}) prepared; start analyze of DefId(0:81 ~ qrcrypt[05b6]::shamir::{impl#0}::validate_shares::{closure#0})
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core] borrow checked: 83 / 227
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core] start borrowck of DefId(0:82 ~ qrcrypt[05b6]::shamir::{impl#0}::validate_shares::{closure#1})
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core::analyze] facts of DefId(0:82 ~ qrcrypt[05b6]::shamir::{impl#0}::validate_shares::{closure#1}) prepared; start analyze of DefId(0:82 ~ qrcrypt[05b6]::shamir::{impl#0}::validate_shares::{closure#1})
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core] borrow checked: 84 / 227
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.620Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.637Z INFO  [rustowlc::core::analyze] facts of DefId(0:80 ~ qrcrypt[05b6]::shamir::{impl#0}::validate_shares) prepared; start analyze of DefId(0:80 ~ qrcrypt[05b6]::shamir::{impl#0}::validate_shares)
+2025-08-27T02:19:03.639Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.639Z INFO  [rustowlc::core] borrow checked: 85 / 227
+2025-08-27T02:19:03.639Z INFO  [rustowlc::core] start borrowck of DefId(0:381 ~ qrcrypt[05b6]::shamir::tests::test_split_and_reconstruct#1)
+2025-08-27T02:19:03.647Z INFO  [rustowlc::core::analyze] facts of DefId(0:381 ~ qrcrypt[05b6]::shamir::tests::test_split_and_reconstruct#1) prepared; start analyze of DefId(0:381 ~ qrcrypt[05b6]::shamir::tests::test_split_and_reconstruct#1)
+2025-08-27T02:19:03.647Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.647Z INFO  [rustowlc::core] borrow checked: 86 / 227
+2025-08-27T02:19:03.648Z INFO  [rustowlc::core] start borrowck of DefId(0:385 ~ qrcrypt[05b6]::shamir::tests::test_insufficient_shares#1)
+2025-08-27T02:19:03.648Z INFO  [rustowlc::core::analyze] facts of DefId(0:385 ~ qrcrypt[05b6]::shamir::tests::test_insufficient_shares#1) prepared; start analyze of DefId(0:385 ~ qrcrypt[05b6]::shamir::tests::test_insufficient_shares#1)
+2025-08-27T02:19:03.648Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.648Z INFO  [rustowlc::core] borrow checked: 87 / 227
+2025-08-27T02:19:03.649Z INFO  [rustowlc::core] start borrowck of DefId(0:389 ~ qrcrypt[05b6]::shamir::tests::test_validate_shares#1)
+2025-08-27T02:19:03.649Z INFO  [rustowlc::core::analyze] facts of DefId(0:389 ~ qrcrypt[05b6]::shamir::tests::test_validate_shares#1) prepared; start analyze of DefId(0:389 ~ qrcrypt[05b6]::shamir::tests::test_validate_shares#1)
+2025-08-27T02:19:03.650Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.650Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.650Z INFO  [rustowlc::core] borrow checked: 88 / 227
+2025-08-27T02:19:03.650Z INFO  [rustowlc::core] start borrowck of DefId(0:396 ~ qrcrypt[05b6]::qr::_::{impl#0}::serialize)
+2025-08-27T02:19:03.653Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.654Z INFO  [rustowlc::core::analyze] facts of DefId(0:396 ~ qrcrypt[05b6]::qr::_::{impl#0}::serialize) prepared; start analyze of DefId(0:396 ~ qrcrypt[05b6]::qr::_::{impl#0}::serialize)
+2025-08-27T02:19:03.655Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.655Z INFO  [rustowlc::core] borrow checked: 89 / 227
+2025-08-27T02:19:03.655Z INFO  [rustowlc::core] start borrowck of DefId(0:402 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize)
+2025-08-27T02:19:03.655Z INFO  [rustowlc::core::analyze] facts of DefId(0:402 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize) prepared; start analyze of DefId(0:402 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize)
+2025-08-27T02:19:03.655Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.655Z INFO  [rustowlc::core] borrow checked: 90 / 227
+2025-08-27T02:19:03.655Z INFO  [rustowlc::core] start borrowck of DefId(0:416 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::expecting)
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core::analyze] facts of DefId(0:416 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::expecting) prepared; start analyze of DefId(0:416 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::expecting)
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core] borrow checked: 91 / 227
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core] start borrowck of DefId(0:417 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::visit_u64)
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core::analyze] facts of DefId(0:417 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::visit_u64) prepared; start analyze of DefId(0:417 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::visit_u64)
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core] borrow checked: 92 / 227
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core] start borrowck of DefId(0:419 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::visit_str)
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core::analyze] facts of DefId(0:419 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::visit_str) prepared; start analyze of DefId(0:419 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::visit_str)
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core] borrow checked: 93 / 227
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core] start borrowck of DefId(0:421 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::visit_bytes)
+2025-08-27T02:19:03.656Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core::analyze] facts of DefId(0:421 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::visit_bytes) prepared; start analyze of DefId(0:421 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#0}::visit_bytes)
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core] borrow checked: 94 / 227
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core] start borrowck of DefId(0:425 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#1}::deserialize)
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core::analyze] facts of DefId(0:425 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#1}::deserialize) prepared; start analyze of DefId(0:425 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#1}::deserialize)
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core] borrow checked: 95 / 227
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core] start borrowck of DefId(0:434 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#2}::expecting)
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core::analyze] facts of DefId(0:434 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#2}::expecting) prepared; start analyze of DefId(0:434 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#2}::expecting)
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core] borrow checked: 96 / 227
+2025-08-27T02:19:03.657Z INFO  [rustowlc::core] start borrowck of DefId(0:435 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#2}::visit_seq)
+2025-08-27T02:19:03.658Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.658Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.662Z INFO  [rustowlc::core::analyze] facts of DefId(0:435 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#2}::visit_seq) prepared; start analyze of DefId(0:435 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#2}::visit_seq)
+2025-08-27T02:19:03.663Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.663Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.663Z INFO  [rustowlc::core] borrow checked: 97 / 227
+2025-08-27T02:19:03.663Z INFO  [rustowlc::core] start borrowck of DefId(0:437 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#2}::visit_map)
+2025-08-27T02:19:03.668Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.678Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.679Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.682Z INFO  [rustowlc::core::analyze] facts of DefId(0:437 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#2}::visit_map) prepared; start analyze of DefId(0:437 ~ qrcrypt[05b6]::qr::_#1::{impl#0}::deserialize::{impl#2}::visit_map)
+2025-08-27T02:19:03.684Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.684Z INFO  [rustowlc::core] borrow checked: 98 / 227
+2025-08-27T02:19:03.684Z INFO  [rustowlc::core] start borrowck of DefId(0:448 ~ qrcrypt[05b6]::qr::_#2::{impl#0}::serialize)
+2025-08-27T02:19:03.684Z INFO  [rustowlc::core::analyze] facts of DefId(0:448 ~ qrcrypt[05b6]::qr::_#2::{impl#0}::serialize) prepared; start analyze of DefId(0:448 ~ qrcrypt[05b6]::qr::_#2::{impl#0}::serialize)
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core] borrow checked: 99 / 227
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core] start borrowck of DefId(0:454 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize)
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core::analyze] facts of DefId(0:454 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize) prepared; start analyze of DefId(0:454 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize)
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core] borrow checked: 100 / 227
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core] start borrowck of DefId(0:466 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::expecting)
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core::analyze] facts of DefId(0:466 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::expecting) prepared; start analyze of DefId(0:466 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::expecting)
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core] borrow checked: 101 / 227
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core] start borrowck of DefId(0:467 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::visit_u64)
+2025-08-27T02:19:03.685Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core::analyze] facts of DefId(0:467 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::visit_u64) prepared; start analyze of DefId(0:467 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::visit_u64)
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core] borrow checked: 102 / 227
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core] start borrowck of DefId(0:469 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::visit_str)
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core::analyze] facts of DefId(0:469 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::visit_str) prepared; start analyze of DefId(0:469 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::visit_str)
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core] borrow checked: 103 / 227
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.686Z INFO  [rustowlc::core] start borrowck of DefId(0:471 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::visit_bytes)
+2025-08-27T02:19:03.687Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.687Z INFO  [rustowlc::core::analyze] facts of DefId(0:471 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::visit_bytes) prepared; start analyze of DefId(0:471 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#0}::visit_bytes)
+2025-08-27T02:19:03.687Z INFO  [rustowlc::core] borrow checked: 104 / 227
+2025-08-27T02:19:03.687Z INFO  [rustowlc::core] start borrowck of DefId(0:475 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#1}::deserialize)
+2025-08-27T02:19:03.687Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.688Z INFO  [rustowlc::core::analyze] facts of DefId(0:475 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#1}::deserialize) prepared; start analyze of DefId(0:475 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#1}::deserialize)
+2025-08-27T02:19:03.688Z INFO  [rustowlc::core] borrow checked: 105 / 227
+2025-08-27T02:19:03.688Z INFO  [rustowlc::core] start borrowck of DefId(0:484 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#2}::expecting)
+2025-08-27T02:19:03.688Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.688Z INFO  [rustowlc::core::analyze] facts of DefId(0:484 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#2}::expecting) prepared; start analyze of DefId(0:484 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#2}::expecting)
+2025-08-27T02:19:03.688Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.688Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.688Z INFO  [rustowlc::core] borrow checked: 106 / 227
+2025-08-27T02:19:03.688Z INFO  [rustowlc::core] start borrowck of DefId(0:485 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#2}::visit_enum)
+2025-08-27T02:19:03.688Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.689Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.692Z INFO  [rustowlc::core::analyze] facts of DefId(0:485 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#2}::visit_enum) prepared; start analyze of DefId(0:485 ~ qrcrypt[05b6]::qr::_#3::{impl#0}::deserialize::{impl#2}::visit_enum)
+2025-08-27T02:19:03.692Z INFO  [rustowlc::core] borrow checked: 107 / 227
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core] start borrowck of DefId(0:489 ~ qrcrypt[05b6]::qr::{impl#3}::fmt)
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] facts of DefId(0:489 ~ qrcrypt[05b6]::qr::{impl#3}::fmt) prepared; start analyze of DefId(0:489 ~ qrcrypt[05b6]::qr::{impl#3}::fmt)
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core] borrow checked: 108 / 227
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core] start borrowck of DefId(0:106 ~ qrcrypt[05b6]::qr::{impl#0}::default)
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] facts of DefId(0:106 ~ qrcrypt[05b6]::qr::{impl#0}::default) prepared; start analyze of DefId(0:106 ~ qrcrypt[05b6]::qr::{impl#0}::default)
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core] borrow checked: 109 / 227
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core] start borrowck of DefId(0:108 ~ qrcrypt[05b6]::qr::{impl#1}::new)
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] facts of DefId(0:108 ~ qrcrypt[05b6]::qr::{impl#1}::new) prepared; start analyze of DefId(0:108 ~ qrcrypt[05b6]::qr::{impl#1}::new)
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core] borrow checked: 110 / 227
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core] start borrowck of DefId(0:109 ~ qrcrypt[05b6]::qr::{impl#1}::with_settings)
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] facts of DefId(0:109 ~ qrcrypt[05b6]::qr::{impl#1}::with_settings) prepared; start analyze of DefId(0:109 ~ qrcrypt[05b6]::qr::{impl#1}::with_settings)
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core] borrow checked: 111 / 227
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core] start borrowck of DefId(0:110 ~ qrcrypt[05b6]::qr::{impl#1}::generate_encrypted_qr)
+2025-08-27T02:19:03.693Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.694Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.696Z INFO  [rustowlc::core::analyze] facts of DefId(0:110 ~ qrcrypt[05b6]::qr::{impl#1}::generate_encrypted_qr) prepared; start analyze of DefId(0:110 ~ qrcrypt[05b6]::qr::{impl#1}::generate_encrypted_qr)
+2025-08-27T02:19:03.696Z INFO  [rustowlc::core] borrow checked: 112 / 227
+2025-08-27T02:19:03.696Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.696Z INFO  [rustowlc::core] start borrowck of DefId(0:111 ~ qrcrypt[05b6]::qr::{impl#1}::generate_shamir_qr)
+2025-08-27T02:19:03.698Z INFO  [rustowlc::core::analyze] facts of DefId(0:111 ~ qrcrypt[05b6]::qr::{impl#1}::generate_shamir_qr) prepared; start analyze of DefId(0:111 ~ qrcrypt[05b6]::qr::{impl#1}::generate_shamir_qr)
+2025-08-27T02:19:03.699Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.699Z INFO  [rustowlc::core] borrow checked: 113 / 227
+2025-08-27T02:19:03.699Z INFO  [rustowlc::core] start borrowck of DefId(0:112 ~ qrcrypt[05b6]::qr::{impl#1}::generate_multiple_shamir_qrs)
+2025-08-27T02:19:03.699Z INFO  [rustowlc::core] start borrowck of DefId(0:113 ~ qrcrypt[05b6]::qr::{impl#1}::generate_multiple_shamir_qrs::{closure#0})
+2025-08-27T02:19:03.700Z INFO  [rustowlc::core::analyze] facts of DefId(0:113 ~ qrcrypt[05b6]::qr::{impl#1}::generate_multiple_shamir_qrs::{closure#0}) prepared; start analyze of DefId(0:113 ~ qrcrypt[05b6]::qr::{impl#1}::generate_multiple_shamir_qrs::{closure#0})
+2025-08-27T02:19:03.700Z INFO  [rustowlc::core] borrow checked: 114 / 227
+2025-08-27T02:19:03.700Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.700Z INFO  [rustowlc::core::analyze] facts of DefId(0:112 ~ qrcrypt[05b6]::qr::{impl#1}::generate_multiple_shamir_qrs) prepared; start analyze of DefId(0:112 ~ qrcrypt[05b6]::qr::{impl#1}::generate_multiple_shamir_qrs)
+2025-08-27T02:19:03.700Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.700Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.700Z INFO  [rustowlc::core] borrow checked: 115 / 227
+2025-08-27T02:19:03.701Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.701Z INFO  [rustowlc::core] start borrowck of DefId(0:114 ~ qrcrypt[05b6]::qr::{impl#1}::create_qr_image)
+2025-08-27T02:19:03.701Z INFO  [rustowlc::core] start borrowck of DefId(0:115 ~ qrcrypt[05b6]::qr::{impl#1}::create_qr_image::{closure#0})
+2025-08-27T02:19:03.701Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.701Z INFO  [rustowlc::core::analyze] facts of DefId(0:115 ~ qrcrypt[05b6]::qr::{impl#1}::create_qr_image::{closure#0}) prepared; start analyze of DefId(0:115 ~ qrcrypt[05b6]::qr::{impl#1}::create_qr_image::{closure#0})
+2025-08-27T02:19:03.702Z INFO  [rustowlc::core] borrow checked: 116 / 227
+2025-08-27T02:19:03.702Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.702Z INFO  [rustowlc::core] start borrowck of DefId(0:116 ~ qrcrypt[05b6]::qr::{impl#1}::create_qr_image::{closure#1})
+2025-08-27T02:19:03.702Z INFO  [rustowlc::core::analyze] facts of DefId(0:116 ~ qrcrypt[05b6]::qr::{impl#1}::create_qr_image::{closure#1}) prepared; start analyze of DefId(0:116 ~ qrcrypt[05b6]::qr::{impl#1}::create_qr_image::{closure#1})
+2025-08-27T02:19:03.702Z INFO  [rustowlc::core] borrow checked: 117 / 227
+2025-08-27T02:19:03.702Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.702Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.703Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.703Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.706Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.718Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.730Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.753Z INFO  [rustowlc::core::analyze] facts of DefId(0:114 ~ qrcrypt[05b6]::qr::{impl#1}::create_qr_image) prepared; start analyze of DefId(0:114 ~ qrcrypt[05b6]::qr::{impl#1}::create_qr_image)
+2025-08-27T02:19:03.755Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.755Z INFO  [rustowlc::core] borrow checked: 118 / 227
+2025-08-27T02:19:03.756Z INFO  [rustowlc::core] start borrowck of DefId(0:117 ~ qrcrypt[05b6]::qr::{impl#1}::save_qr_image)
+2025-08-27T02:19:03.756Z INFO  [rustowlc::core] start borrowck of DefId(0:118 ~ qrcrypt[05b6]::qr::{impl#1}::save_qr_image::{closure#0})
+2025-08-27T02:19:03.756Z INFO  [rustowlc::core::analyze] facts of DefId(0:118 ~ qrcrypt[05b6]::qr::{impl#1}::save_qr_image::{closure#0}) prepared; start analyze of DefId(0:118 ~ qrcrypt[05b6]::qr::{impl#1}::save_qr_image::{closure#0})
+2025-08-27T02:19:03.757Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.757Z INFO  [rustowlc::core] borrow checked: 119 / 227
+2025-08-27T02:19:03.757Z INFO  [rustowlc::core::analyze] facts of DefId(0:117 ~ qrcrypt[05b6]::qr::{impl#1}::save_qr_image) prepared; start analyze of DefId(0:117 ~ qrcrypt[05b6]::qr::{impl#1}::save_qr_image)
+2025-08-27T02:19:03.757Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.758Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.758Z INFO  [rustowlc::core] borrow checked: 120 / 227
+2025-08-27T02:19:03.758Z INFO  [rustowlc::core] start borrowck of DefId(0:119 ~ qrcrypt[05b6]::qr::{impl#1}::save_encrypted_qr)
+2025-08-27T02:19:03.758Z INFO  [rustowlc::core::analyze] facts of DefId(0:119 ~ qrcrypt[05b6]::qr::{impl#1}::save_encrypted_qr) prepared; start analyze of DefId(0:119 ~ qrcrypt[05b6]::qr::{impl#1}::save_encrypted_qr)
+2025-08-27T02:19:03.759Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.759Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.759Z INFO  [rustowlc::core] borrow checked: 121 / 227
+2025-08-27T02:19:03.759Z INFO  [rustowlc::core] start borrowck of DefId(0:120 ~ qrcrypt[05b6]::qr::{impl#1}::save_shamir_qrs)
+2025-08-27T02:19:03.760Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.773Z INFO  [rustowlc::core::analyze] facts of DefId(0:120 ~ qrcrypt[05b6]::qr::{impl#1}::save_shamir_qrs) prepared; start analyze of DefId(0:120 ~ qrcrypt[05b6]::qr::{impl#1}::save_shamir_qrs)
+2025-08-27T02:19:03.774Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.775Z INFO  [rustowlc::core] borrow checked: 122 / 227
+2025-08-27T02:19:03.775Z INFO  [rustowlc::core] start borrowck of DefId(0:121 ~ qrcrypt[05b6]::qr::{impl#1}::generate_info_text)
+2025-08-27T02:19:03.777Z INFO  [rustowlc::core::analyze] facts of DefId(0:121 ~ qrcrypt[05b6]::qr::{impl#1}::generate_info_text) prepared; start analyze of DefId(0:121 ~ qrcrypt[05b6]::qr::{impl#1}::generate_info_text)
+2025-08-27T02:19:03.778Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.778Z INFO  [rustowlc::core] borrow checked: 123 / 227
+2025-08-27T02:19:03.778Z INFO  [rustowlc::core] start borrowck of DefId(0:125 ~ qrcrypt[05b6]::qr::{impl#2}::parse_qr_data)
+2025-08-27T02:19:03.778Z INFO  [rustowlc::core] start borrowck of DefId(0:126 ~ qrcrypt[05b6]::qr::{impl#2}::parse_qr_data::{closure#0})
+2025-08-27T02:19:03.779Z INFO  [rustowlc::core::analyze] facts of DefId(0:126 ~ qrcrypt[05b6]::qr::{impl#2}::parse_qr_data::{closure#0}) prepared; start analyze of DefId(0:126 ~ qrcrypt[05b6]::qr::{impl#2}::parse_qr_data::{closure#0})
+2025-08-27T02:19:03.779Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.779Z INFO  [rustowlc::core] borrow checked: 124 / 227
+2025-08-27T02:19:03.779Z INFO  [rustowlc::core::analyze] facts of DefId(0:125 ~ qrcrypt[05b6]::qr::{impl#2}::parse_qr_data) prepared; start analyze of DefId(0:125 ~ qrcrypt[05b6]::qr::{impl#2}::parse_qr_data)
+2025-08-27T02:19:03.779Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.779Z INFO  [rustowlc::core] borrow checked: 125 / 227
+2025-08-27T02:19:03.779Z INFO  [rustowlc::core] start borrowck of DefId(0:127 ~ qrcrypt[05b6]::qr::{impl#2}::parse_encrypted_data)
+2025-08-27T02:19:03.779Z INFO  [rustowlc::core] start borrowck of DefId(0:128 ~ qrcrypt[05b6]::qr::{impl#2}::parse_encrypted_data::{closure#0})
+2025-08-27T02:19:03.779Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.780Z INFO  [rustowlc::core::analyze] facts of DefId(0:128 ~ qrcrypt[05b6]::qr::{impl#2}::parse_encrypted_data::{closure#0}) prepared; start analyze of DefId(0:128 ~ qrcrypt[05b6]::qr::{impl#2}::parse_encrypted_data::{closure#0})
+2025-08-27T02:19:03.780Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.780Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.780Z INFO  [rustowlc::core] borrow checked: 126 / 227
+2025-08-27T02:19:03.780Z INFO  [rustowlc::core::analyze] facts of DefId(0:127 ~ qrcrypt[05b6]::qr::{impl#2}::parse_encrypted_data) prepared; start analyze of DefId(0:127 ~ qrcrypt[05b6]::qr::{impl#2}::parse_encrypted_data)
+2025-08-27T02:19:03.781Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.781Z INFO  [rustowlc::core] borrow checked: 127 / 227
+2025-08-27T02:19:03.781Z INFO  [rustowlc::core] start borrowck of DefId(0:129 ~ qrcrypt[05b6]::qr::{impl#2}::parse_shamir_share)
+2025-08-27T02:19:03.781Z INFO  [rustowlc::core] start borrowck of DefId(0:130 ~ qrcrypt[05b6]::qr::{impl#2}::parse_shamir_share::{closure#0})
+2025-08-27T02:19:03.781Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.781Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.781Z INFO  [rustowlc::core::analyze] facts of DefId(0:130 ~ qrcrypt[05b6]::qr::{impl#2}::parse_shamir_share::{closure#0}) prepared; start analyze of DefId(0:130 ~ qrcrypt[05b6]::qr::{impl#2}::parse_shamir_share::{closure#0})
+2025-08-27T02:19:03.782Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.782Z INFO  [rustowlc::core] borrow checked: 128 / 227
+2025-08-27T02:19:03.782Z INFO  [rustowlc::core::analyze] facts of DefId(0:129 ~ qrcrypt[05b6]::qr::{impl#2}::parse_shamir_share) prepared; start analyze of DefId(0:129 ~ qrcrypt[05b6]::qr::{impl#2}::parse_shamir_share)
+2025-08-27T02:19:03.782Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.782Z INFO  [rustowlc::core] borrow checked: 129 / 227
+2025-08-27T02:19:03.782Z INFO  [rustowlc::core] start borrowck of DefId(0:493 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_encrypted#1)
+2025-08-27T02:19:03.782Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.783Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.784Z INFO  [rustowlc::core::analyze] facts of DefId(0:493 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_encrypted#1) prepared; start analyze of DefId(0:493 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_encrypted#1)
+2025-08-27T02:19:03.784Z INFO  [rustowlc::core] borrow checked: 130 / 227
+2025-08-27T02:19:03.784Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.785Z INFO  [rustowlc::core] start borrowck of DefId(0:497 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_shamir#1)
+2025-08-27T02:19:03.787Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.787Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.790Z INFO  [rustowlc::core::analyze] facts of DefId(0:497 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_shamir#1) prepared; start analyze of DefId(0:497 ~ qrcrypt[05b6]::qr::tests::test_qr_generation_shamir#1)
+2025-08-27T02:19:03.791Z INFO  [rustowlc::core] borrow checked: 131 / 227
+2025-08-27T02:19:03.791Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.791Z INFO  [rustowlc::core] start borrowck of DefId(0:501 ~ qrcrypt[05b6]::qr::tests::test_qr_data_parsing#1)
+2025-08-27T02:19:03.796Z INFO  [rustowlc::core::analyze] facts of DefId(0:501 ~ qrcrypt[05b6]::qr::tests::test_qr_data_parsing#1) prepared; start analyze of DefId(0:501 ~ qrcrypt[05b6]::qr::tests::test_qr_data_parsing#1)
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core] borrow checked: 132 / 227
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core] start borrowck of DefId(0:504 ~ qrcrypt[05b6]::cli::{impl#2}::command)
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core::analyze] facts of DefId(0:504 ~ qrcrypt[05b6]::cli::{impl#2}::command) prepared; start analyze of DefId(0:504 ~ qrcrypt[05b6]::cli::{impl#2}::command)
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core] borrow checked: 133 / 227
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core] start borrowck of DefId(0:506 ~ qrcrypt[05b6]::cli::{impl#2}::command_for_update)
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core::analyze] facts of DefId(0:506 ~ qrcrypt[05b6]::cli::{impl#2}::command_for_update) prepared; start analyze of DefId(0:506 ~ qrcrypt[05b6]::cli::{impl#2}::command_for_update)
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.797Z INFO  [rustowlc::core] borrow checked: 134 / 227
+2025-08-27T02:19:03.798Z INFO  [rustowlc::core] start borrowck of DefId(0:509 ~ qrcrypt[05b6]::cli::{impl#3}::from_arg_matches)
+2025-08-27T02:19:03.798Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.798Z INFO  [rustowlc::core::analyze] facts of DefId(0:509 ~ qrcrypt[05b6]::cli::{impl#3}::from_arg_matches) prepared; start analyze of DefId(0:509 ~ qrcrypt[05b6]::cli::{impl#3}::from_arg_matches)
+2025-08-27T02:19:03.798Z INFO  [rustowlc::core] borrow checked: 135 / 227
+2025-08-27T02:19:03.798Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.798Z INFO  [rustowlc::core] start borrowck of DefId(0:510 ~ qrcrypt[05b6]::cli::{impl#3}::from_arg_matches_mut)
+2025-08-27T02:19:03.798Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.799Z INFO  [rustowlc::core::analyze] facts of DefId(0:510 ~ qrcrypt[05b6]::cli::{impl#3}::from_arg_matches_mut) prepared; start analyze of DefId(0:510 ~ qrcrypt[05b6]::cli::{impl#3}::from_arg_matches_mut)
+2025-08-27T02:19:03.799Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.799Z INFO  [rustowlc::core] borrow checked: 136 / 227
+2025-08-27T02:19:03.799Z INFO  [rustowlc::core] start borrowck of DefId(0:511 ~ qrcrypt[05b6]::cli::{impl#3}::update_from_arg_matches)
+2025-08-27T02:19:03.799Z INFO  [rustowlc::core::analyze] facts of DefId(0:511 ~ qrcrypt[05b6]::cli::{impl#3}::update_from_arg_matches) prepared; start analyze of DefId(0:511 ~ qrcrypt[05b6]::cli::{impl#3}::update_from_arg_matches)
+2025-08-27T02:19:03.799Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.799Z INFO  [rustowlc::core] borrow checked: 137 / 227
+2025-08-27T02:19:03.799Z INFO  [rustowlc::core] start borrowck of DefId(0:512 ~ qrcrypt[05b6]::cli::{impl#3}::update_from_arg_matches_mut)
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core::analyze] facts of DefId(0:512 ~ qrcrypt[05b6]::cli::{impl#3}::update_from_arg_matches_mut) prepared; start analyze of DefId(0:512 ~ qrcrypt[05b6]::cli::{impl#3}::update_from_arg_matches_mut)
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core] borrow checked: 138 / 227
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core] start borrowck of DefId(0:514 ~ qrcrypt[05b6]::cli::{impl#4}::group_id)
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core::analyze] facts of DefId(0:514 ~ qrcrypt[05b6]::cli::{impl#4}::group_id) prepared; start analyze of DefId(0:514 ~ qrcrypt[05b6]::cli::{impl#4}::group_id)
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core] borrow checked: 139 / 227
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core] start borrowck of DefId(0:515 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args)
+2025-08-27T02:19:03.800Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.801Z INFO  [rustowlc::core::analyze] facts of DefId(0:515 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args) prepared; start analyze of DefId(0:515 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args)
+2025-08-27T02:19:03.801Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.801Z INFO  [rustowlc::core] borrow checked: 140 / 227
+2025-08-27T02:19:03.801Z INFO  [rustowlc::core] start borrowck of DefId(0:517 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args::{constant#0})
+2025-08-27T02:19:03.801Z INFO  [rustowlc::core::analyze] facts of DefId(0:517 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args::{constant#0}) prepared; start analyze of DefId(0:517 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args::{constant#0})
+2025-08-27T02:19:03.801Z INFO  [rustowlc::core] borrow checked: 141 / 227
+2025-08-27T02:19:03.801Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.801Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.801Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.801Z INFO  [rustowlc::core] start borrowck of DefId(0:518 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args_for_update)
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core::analyze] facts of DefId(0:518 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args_for_update) prepared; start analyze of DefId(0:518 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args_for_update)
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core] borrow checked: 142 / 227
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core] start borrowck of DefId(0:520 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args_for_update::{constant#0})
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core::analyze] facts of DefId(0:520 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args_for_update::{constant#0}) prepared; start analyze of DefId(0:520 ~ qrcrypt[05b6]::cli::{impl#4}::augment_args_for_update::{constant#0})
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core] borrow checked: 143 / 227
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core] start borrowck of DefId(0:531 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches)
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core::analyze] facts of DefId(0:531 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches) prepared; start analyze of DefId(0:531 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches)
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.802Z INFO  [rustowlc::core] borrow checked: 144 / 227
+2025-08-27T02:19:03.803Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.803Z INFO  [rustowlc::core] start borrowck of DefId(0:532 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut)
+2025-08-27T02:19:03.803Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] start borrowck of DefId(0:533 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#0})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] facts of DefId(0:533 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#0}) prepared; start analyze of DefId(0:533 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#0})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] borrow checked: 145 / 227
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] start borrowck of DefId(0:534 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#1})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] facts of DefId(0:534 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#1}) prepared; start analyze of DefId(0:534 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#1})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] borrow checked: 146 / 227
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] start borrowck of DefId(0:535 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#2})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] facts of DefId(0:535 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#2}) prepared; start analyze of DefId(0:535 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#2})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] borrow checked: 147 / 227
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] start borrowck of DefId(0:536 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#3})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] facts of DefId(0:536 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#3}) prepared; start analyze of DefId(0:536 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#3})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] borrow checked: 148 / 227
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] start borrowck of DefId(0:537 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#4})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] facts of DefId(0:537 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#4}) prepared; start analyze of DefId(0:537 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#4})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] borrow checked: 149 / 227
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] start borrowck of DefId(0:538 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#5})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] facts of DefId(0:538 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#5}) prepared; start analyze of DefId(0:538 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#5})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] borrow checked: 150 / 227
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] start borrowck of DefId(0:539 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#6})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] facts of DefId(0:539 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#6}) prepared; start analyze of DefId(0:539 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#6})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] borrow checked: 151 / 227
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core] start borrowck of DefId(0:540 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#7})
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.804Z INFO  [rustowlc::core::analyze] facts of DefId(0:540 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#7}) prepared; start analyze of DefId(0:540 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#7})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] borrow checked: 152 / 227
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] start borrowck of DefId(0:541 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#8})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] facts of DefId(0:541 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#8}) prepared; start analyze of DefId(0:541 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#8})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] borrow checked: 153 / 227
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] start borrowck of DefId(0:542 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#9})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] facts of DefId(0:542 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#9}) prepared; start analyze of DefId(0:542 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#9})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] borrow checked: 154 / 227
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] start borrowck of DefId(0:543 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#10})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] facts of DefId(0:543 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#10}) prepared; start analyze of DefId(0:543 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#10})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] borrow checked: 155 / 227
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] start borrowck of DefId(0:544 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#11})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] facts of DefId(0:544 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#11}) prepared; start analyze of DefId(0:544 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#11})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] borrow checked: 156 / 227
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] start borrowck of DefId(0:545 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#12})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] facts of DefId(0:545 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#12}) prepared; start analyze of DefId(0:545 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#12})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] borrow checked: 157 / 227
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] start borrowck of DefId(0:546 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#13})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] facts of DefId(0:546 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#13}) prepared; start analyze of DefId(0:546 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#13})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] borrow checked: 158 / 227
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] start borrowck of DefId(0:547 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#14})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] facts of DefId(0:547 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#14}) prepared; start analyze of DefId(0:547 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#14})
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] borrow checked: 159 / 227
+2025-08-27T02:19:03.805Z INFO  [rustowlc::core] start borrowck of DefId(0:548 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#15})
+2025-08-27T02:19:03.806Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.806Z INFO  [rustowlc::core::analyze] facts of DefId(0:548 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#15}) prepared; start analyze of DefId(0:548 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut::{closure#15})
+2025-08-27T02:19:03.806Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.806Z INFO  [rustowlc::core] borrow checked: 160 / 227
+2025-08-27T02:19:03.806Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.807Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.857Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.979Z INFO  [rustowlc::core::analyze] facts of DefId(0:532 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut) prepared; start analyze of DefId(0:532 ~ qrcrypt[05b6]::cli::{impl#5}::from_arg_matches_mut)
+2025-08-27T02:19:03.982Z INFO  [rustowlc::core] borrow checked: 161 / 227
+2025-08-27T02:19:03.982Z INFO  [rustowlc::core] start borrowck of DefId(0:549 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches)
+2025-08-27T02:19:03.982Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.983Z INFO  [rustowlc::core::analyze] facts of DefId(0:549 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches) prepared; start analyze of DefId(0:549 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches)
+2025-08-27T02:19:03.983Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.983Z INFO  [rustowlc::core] borrow checked: 162 / 227
+2025-08-27T02:19:03.983Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.983Z INFO  [rustowlc::core] start borrowck of DefId(0:550 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut)
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core] start borrowck of DefId(0:552 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#0})
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] facts of DefId(0:552 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#0}) prepared; start analyze of DefId(0:552 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#0})
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core] borrow checked: 163 / 227
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core] start borrowck of DefId(0:553 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#1})
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] facts of DefId(0:553 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#1}) prepared; start analyze of DefId(0:553 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#1})
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core] borrow checked: 164 / 227
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core] start borrowck of DefId(0:554 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#2})
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] facts of DefId(0:554 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#2}) prepared; start analyze of DefId(0:554 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#2})
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core] borrow checked: 165 / 227
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core] start borrowck of DefId(0:555 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#3})
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] facts of DefId(0:555 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#3}) prepared; start analyze of DefId(0:555 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#3})
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core] borrow checked: 166 / 227
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.984Z INFO  [rustowlc::core] start borrowck of DefId(0:556 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#4})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] facts of DefId(0:556 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#4}) prepared; start analyze of DefId(0:556 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#4})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] borrow checked: 167 / 227
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] start borrowck of DefId(0:557 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#5})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] facts of DefId(0:557 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#5}) prepared; start analyze of DefId(0:557 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#5})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] borrow checked: 168 / 227
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] start borrowck of DefId(0:558 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#6})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] facts of DefId(0:558 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#6}) prepared; start analyze of DefId(0:558 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#6})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] borrow checked: 169 / 227
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] start borrowck of DefId(0:559 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#7})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] facts of DefId(0:559 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#7}) prepared; start analyze of DefId(0:559 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#7})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] borrow checked: 170 / 227
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] start borrowck of DefId(0:560 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#8})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] facts of DefId(0:560 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#8}) prepared; start analyze of DefId(0:560 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#8})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] borrow checked: 171 / 227
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] start borrowck of DefId(0:561 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#9})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] facts of DefId(0:561 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#9}) prepared; start analyze of DefId(0:561 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#9})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] borrow checked: 172 / 227
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] start borrowck of DefId(0:562 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#10})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] facts of DefId(0:562 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#10}) prepared; start analyze of DefId(0:562 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#10})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] borrow checked: 173 / 227
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] start borrowck of DefId(0:563 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#11})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] facts of DefId(0:563 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#11}) prepared; start analyze of DefId(0:563 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#11})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] borrow checked: 174 / 227
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] start borrowck of DefId(0:564 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#12})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] facts of DefId(0:564 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#12}) prepared; start analyze of DefId(0:564 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#12})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] borrow checked: 175 / 227
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core] start borrowck of DefId(0:565 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#13})
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.985Z INFO  [rustowlc::core::analyze] facts of DefId(0:565 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#13}) prepared; start analyze of DefId(0:565 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#13})
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core] borrow checked: 176 / 227
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core] start borrowck of DefId(0:566 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#14})
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core::analyze] facts of DefId(0:566 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#14}) prepared; start analyze of DefId(0:566 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#14})
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core] borrow checked: 177 / 227
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core] start borrowck of DefId(0:567 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#15})
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core::analyze] facts of DefId(0:567 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#15}) prepared; start analyze of DefId(0:567 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut::{closure#15})
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core] borrow checked: 178 / 227
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:03.986Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:04.351Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:04.363Z INFO  [rustowlc::core::analyze] facts of DefId(0:550 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut) prepared; start analyze of DefId(0:550 ~ qrcrypt[05b6]::cli::{impl#5}::update_from_arg_matches_mut)
+2025-08-27T02:19:04.369Z INFO  [rustowlc::core] borrow checked: 179 / 227
+2025-08-27T02:19:04.369Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:04.370Z INFO  [rustowlc::core] start borrowck of DefId(0:569 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands)
+2025-08-27T02:19:05.188Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:05.773Z INFO  [rustowlc::core::analyze] facts of DefId(0:569 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands) prepared; start analyze of DefId(0:569 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands)
+2025-08-27T02:19:05.783Z INFO  [rustowlc::core] borrow checked: 180 / 227
+2025-08-27T02:19:05.783Z INFO  [rustowlc::core] start borrowck of DefId(0:571 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#0})
+2025-08-27T02:19:05.783Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] facts of DefId(0:571 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#0}) prepared; start analyze of DefId(0:571 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#0})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] borrow checked: 181 / 227
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] start borrowck of DefId(0:572 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#1})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] facts of DefId(0:572 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#1}) prepared; start analyze of DefId(0:572 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#1})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] borrow checked: 182 / 227
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] start borrowck of DefId(0:573 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#2})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] facts of DefId(0:573 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#2}) prepared; start analyze of DefId(0:573 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#2})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] borrow checked: 183 / 227
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] start borrowck of DefId(0:574 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#3})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] facts of DefId(0:574 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#3}) prepared; start analyze of DefId(0:574 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#3})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] borrow checked: 184 / 227
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] start borrowck of DefId(0:575 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#4})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] facts of DefId(0:575 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#4}) prepared; start analyze of DefId(0:575 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#4})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] borrow checked: 185 / 227
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] start borrowck of DefId(0:576 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#5})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] facts of DefId(0:576 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#5}) prepared; start analyze of DefId(0:576 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands::{constant#5})
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core] borrow checked: 186 / 227
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:05.784Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:05.785Z INFO  [rustowlc::core] start borrowck of DefId(0:577 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update)
+2025-08-27T02:19:07.460Z INFO  [rustowlc::core::analyze] facts of DefId(0:577 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update) prepared; start analyze of DefId(0:577 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update)
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core] borrow checked: 187 / 227
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core] start borrowck of DefId(0:579 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#0})
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core::analyze] facts of DefId(0:579 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#0}) prepared; start analyze of DefId(0:579 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#0})
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core] borrow checked: 188 / 227
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core] start borrowck of DefId(0:580 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#1})
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core::analyze] facts of DefId(0:580 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#1}) prepared; start analyze of DefId(0:580 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#1})
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core] borrow checked: 189 / 227
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core] start borrowck of DefId(0:581 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#2})
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core::analyze] facts of DefId(0:581 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#2}) prepared; start analyze of DefId(0:581 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#2})
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core] borrow checked: 190 / 227
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core] start borrowck of DefId(0:582 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#3})
+2025-08-27T02:19:07.470Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] facts of DefId(0:582 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#3}) prepared; start analyze of DefId(0:582 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#3})
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core] borrow checked: 191 / 227
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core] start borrowck of DefId(0:583 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#4})
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] facts of DefId(0:583 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#4}) prepared; start analyze of DefId(0:583 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#4})
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core] borrow checked: 192 / 227
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core] start borrowck of DefId(0:584 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#5})
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] facts of DefId(0:584 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#5}) prepared; start analyze of DefId(0:584 ~ qrcrypt[05b6]::cli::{impl#6}::augment_subcommands_for_update::{constant#5})
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core] borrow checked: 193 / 227
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.471Z INFO  [rustowlc::core] start borrowck of DefId(0:585 ~ qrcrypt[05b6]::cli::{impl#6}::has_subcommand)
+2025-08-27T02:19:07.473Z INFO  [rustowlc::core::analyze] facts of DefId(0:585 ~ qrcrypt[05b6]::cli::{impl#6}::has_subcommand) prepared; start analyze of DefId(0:585 ~ qrcrypt[05b6]::cli::{impl#6}::has_subcommand)
+2025-08-27T02:19:07.473Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.473Z INFO  [rustowlc::core] borrow checked: 194 / 227
+2025-08-27T02:19:07.473Z INFO  [rustowlc::core] start borrowck of DefId(0:143 ~ qrcrypt[05b6]::cli::{impl#0}::parse_args)
+2025-08-27T02:19:07.473Z INFO  [rustowlc::core::analyze] facts of DefId(0:143 ~ qrcrypt[05b6]::cli::{impl#0}::parse_args) prepared; start analyze of DefId(0:143 ~ qrcrypt[05b6]::cli::{impl#0}::parse_args)
+2025-08-27T02:19:07.473Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.473Z INFO  [rustowlc::core] borrow checked: 195 / 227
+2025-08-27T02:19:07.473Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.473Z INFO  [rustowlc::core] start borrowck of DefId(0:144 ~ qrcrypt[05b6]::cli::{impl#0}::validate)
+2025-08-27T02:19:07.477Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.484Z INFO  [rustowlc::core::analyze] facts of DefId(0:144 ~ qrcrypt[05b6]::cli::{impl#0}::validate) prepared; start analyze of DefId(0:144 ~ qrcrypt[05b6]::cli::{impl#0}::validate)
+2025-08-27T02:19:07.485Z INFO  [rustowlc::core] borrow checked: 196 / 227
+2025-08-27T02:19:07.485Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.485Z INFO  [rustowlc::core] start borrowck of DefId(0:158 ~ qrcrypt[05b6]::utils::read_password)
+2025-08-27T02:19:07.485Z INFO  [rustowlc::core] start borrowck of DefId(0:159 ~ qrcrypt[05b6]::utils::read_password::{closure#0})
+2025-08-27T02:19:07.486Z INFO  [rustowlc::core::analyze] facts of DefId(0:159 ~ qrcrypt[05b6]::utils::read_password::{closure#0}) prepared; start analyze of DefId(0:159 ~ qrcrypt[05b6]::utils::read_password::{closure#0})
+2025-08-27T02:19:07.486Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.486Z INFO  [rustowlc::core] borrow checked: 197 / 227
+2025-08-27T02:19:07.487Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.488Z INFO  [rustowlc::core::analyze] facts of DefId(0:158 ~ qrcrypt[05b6]::utils::read_password) prepared; start analyze of DefId(0:158 ~ qrcrypt[05b6]::utils::read_password)
+2025-08-27T02:19:07.488Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.488Z INFO  [rustowlc::core] borrow checked: 198 / 227
+2025-08-27T02:19:07.488Z INFO  [rustowlc::core] start borrowck of DefId(0:160 ~ qrcrypt[05b6]::utils::read_secret_input)
+2025-08-27T02:19:07.492Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.493Z INFO  [rustowlc::core::analyze] facts of DefId(0:160 ~ qrcrypt[05b6]::utils::read_secret_input) prepared; start analyze of DefId(0:160 ~ qrcrypt[05b6]::utils::read_secret_input)
+2025-08-27T02:19:07.493Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.493Z INFO  [rustowlc::core] borrow checked: 199 / 227
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core] start borrowck of DefId(0:161 ~ qrcrypt[05b6]::utils::read_file_content)
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core] start borrowck of DefId(0:162 ~ qrcrypt[05b6]::utils::read_file_content::{closure#0})
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core::analyze] facts of DefId(0:162 ~ qrcrypt[05b6]::utils::read_file_content::{closure#0}) prepared; start analyze of DefId(0:162 ~ qrcrypt[05b6]::utils::read_file_content::{closure#0})
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core] borrow checked: 200 / 227
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core] start borrowck of DefId(0:163 ~ qrcrypt[05b6]::utils::read_file_content::{closure#1})
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core::analyze] facts of DefId(0:163 ~ qrcrypt[05b6]::utils::read_file_content::{closure#1}) prepared; start analyze of DefId(0:163 ~ qrcrypt[05b6]::utils::read_file_content::{closure#1})
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core] borrow checked: 201 / 227
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core::analyze] facts of DefId(0:161 ~ qrcrypt[05b6]::utils::read_file_content) prepared; start analyze of DefId(0:161 ~ qrcrypt[05b6]::utils::read_file_content)
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core] borrow checked: 202 / 227
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.494Z INFO  [rustowlc::core] start borrowck of DefId(0:164 ~ qrcrypt[05b6]::utils::write_file_content)
+2025-08-27T02:19:07.495Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.495Z INFO  [rustowlc::core::analyze] facts of DefId(0:164 ~ qrcrypt[05b6]::utils::write_file_content) prepared; start analyze of DefId(0:164 ~ qrcrypt[05b6]::utils::write_file_content)
+2025-08-27T02:19:07.496Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.496Z INFO  [rustowlc::core] borrow checked: 203 / 227
+2025-08-27T02:19:07.496Z INFO  [rustowlc::core] start borrowck of DefId(0:165 ~ qrcrypt[05b6]::utils::load_shares_from_files)
+2025-08-27T02:19:07.496Z INFO  [rustowlc::core] start borrowck of DefId(0:167 ~ qrcrypt[05b6]::utils::load_shares_from_files::{closure#0})
+2025-08-27T02:19:07.497Z INFO  [rustowlc::core::analyze] facts of DefId(0:167 ~ qrcrypt[05b6]::utils::load_shares_from_files::{closure#0}) prepared; start analyze of DefId(0:167 ~ qrcrypt[05b6]::utils::load_shares_from_files::{closure#0})
+2025-08-27T02:19:07.497Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.497Z INFO  [rustowlc::core] borrow checked: 204 / 227
+2025-08-27T02:19:07.498Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.499Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.506Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.506Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.506Z INFO  [rustowlc::core::analyze] facts of DefId(0:165 ~ qrcrypt[05b6]::utils::load_shares_from_files) prepared; start analyze of DefId(0:165 ~ qrcrypt[05b6]::utils::load_shares_from_files)
+2025-08-27T02:19:07.507Z INFO  [rustowlc::core] borrow checked: 205 / 227
+2025-08-27T02:19:07.507Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.507Z INFO  [rustowlc::core] start borrowck of DefId(0:168 ~ qrcrypt[05b6]::utils::load_shares_from_data)
+2025-08-27T02:19:07.508Z INFO  [rustowlc::core] start borrowck of DefId(0:169 ~ qrcrypt[05b6]::utils::load_shares_from_data::{closure#0})
+2025-08-27T02:19:07.508Z INFO  [rustowlc::core::analyze] facts of DefId(0:169 ~ qrcrypt[05b6]::utils::load_shares_from_data::{closure#0}) prepared; start analyze of DefId(0:169 ~ qrcrypt[05b6]::utils::load_shares_from_data::{closure#0})
+2025-08-27T02:19:07.509Z INFO  [rustowlc::core] borrow checked: 206 / 227
+2025-08-27T02:19:07.509Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.509Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.514Z INFO  [rustowlc::core::analyze] facts of DefId(0:168 ~ qrcrypt[05b6]::utils::load_shares_from_data) prepared; start analyze of DefId(0:168 ~ qrcrypt[05b6]::utils::load_shares_from_data)
+2025-08-27T02:19:07.515Z INFO  [rustowlc::core] borrow checked: 207 / 227
+2025-08-27T02:19:07.515Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.515Z INFO  [rustowlc::core] start borrowck of DefId(0:170 ~ qrcrypt[05b6]::utils::load_encrypted_from_file)
+2025-08-27T02:19:07.515Z INFO  [rustowlc::core] start borrowck of DefId(0:171 ~ qrcrypt[05b6]::utils::load_encrypted_from_file::{closure#0})
+2025-08-27T02:19:07.516Z INFO  [rustowlc::core::analyze] facts of DefId(0:171 ~ qrcrypt[05b6]::utils::load_encrypted_from_file::{closure#0}) prepared; start analyze of DefId(0:171 ~ qrcrypt[05b6]::utils::load_encrypted_from_file::{closure#0})
+2025-08-27T02:19:07.516Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.516Z INFO  [rustowlc::core] borrow checked: 208 / 227
+2025-08-27T02:19:07.517Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.517Z INFO  [rustowlc::core::analyze] facts of DefId(0:170 ~ qrcrypt[05b6]::utils::load_encrypted_from_file) prepared; start analyze of DefId(0:170 ~ qrcrypt[05b6]::utils::load_encrypted_from_file)
+2025-08-27T02:19:07.518Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.518Z INFO  [rustowlc::core] borrow checked: 209 / 227
+2025-08-27T02:19:07.518Z INFO  [rustowlc::core] start borrowck of DefId(0:172 ~ qrcrypt[05b6]::utils::load_encrypted_from_data)
+2025-08-27T02:19:07.518Z INFO  [rustowlc::core] start borrowck of DefId(0:173 ~ qrcrypt[05b6]::utils::load_encrypted_from_data::{closure#0})
+2025-08-27T02:19:07.519Z INFO  [rustowlc::core::analyze] facts of DefId(0:173 ~ qrcrypt[05b6]::utils::load_encrypted_from_data::{closure#0}) prepared; start analyze of DefId(0:173 ~ qrcrypt[05b6]::utils::load_encrypted_from_data::{closure#0})
+2025-08-27T02:19:07.519Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.519Z INFO  [rustowlc::core] borrow checked: 210 / 227
+2025-08-27T02:19:07.519Z INFO  [rustowlc::core::analyze] facts of DefId(0:172 ~ qrcrypt[05b6]::utils::load_encrypted_from_data) prepared; start analyze of DefId(0:172 ~ qrcrypt[05b6]::utils::load_encrypted_from_data)
+2025-08-27T02:19:07.519Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.519Z INFO  [rustowlc::core] borrow checked: 211 / 227
+2025-08-27T02:19:07.520Z INFO  [rustowlc::core] start borrowck of DefId(0:174 ~ qrcrypt[05b6]::utils::validate_seed_phrase)
+2025-08-27T02:19:07.520Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.520Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.523Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.526Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.527Z INFO  [rustowlc::core::analyze] facts of DefId(0:174 ~ qrcrypt[05b6]::utils::validate_seed_phrase) prepared; start analyze of DefId(0:174 ~ qrcrypt[05b6]::utils::validate_seed_phrase)
+2025-08-27T02:19:07.528Z INFO  [rustowlc::core] borrow checked: 212 / 227
+2025-08-27T02:19:07.528Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.528Z INFO  [rustowlc::core] start borrowck of DefId(0:175 ~ qrcrypt[05b6]::utils::generate_example_seed)
+2025-08-27T02:19:07.529Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.544Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.551Z INFO  [rustowlc::core::analyze] facts of DefId(0:175 ~ qrcrypt[05b6]::utils::generate_example_seed) prepared; start analyze of DefId(0:175 ~ qrcrypt[05b6]::utils::generate_example_seed)
+2025-08-27T02:19:07.553Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.553Z INFO  [rustowlc::core] borrow checked: 213 / 227
+2025-08-27T02:19:07.553Z INFO  [rustowlc::core] start borrowck of DefId(0:176 ~ qrcrypt[05b6]::utils::print_success)
+2025-08-27T02:19:07.554Z INFO  [rustowlc::core::analyze] facts of DefId(0:176 ~ qrcrypt[05b6]::utils::print_success) prepared; start analyze of DefId(0:176 ~ qrcrypt[05b6]::utils::print_success)
+2025-08-27T02:19:07.554Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.554Z INFO  [rustowlc::core] borrow checked: 214 / 227
+2025-08-27T02:19:07.554Z INFO  [rustowlc::core] start borrowck of DefId(0:177 ~ qrcrypt[05b6]::utils::print_warning)
+2025-08-27T02:19:07.554Z INFO  [rustowlc::core::analyze] facts of DefId(0:177 ~ qrcrypt[05b6]::utils::print_warning) prepared; start analyze of DefId(0:177 ~ qrcrypt[05b6]::utils::print_warning)
+2025-08-27T02:19:07.555Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.555Z INFO  [rustowlc::core] borrow checked: 215 / 227
+2025-08-27T02:19:07.555Z INFO  [rustowlc::core] start borrowck of DefId(0:178 ~ qrcrypt[05b6]::utils::print_error)
+2025-08-27T02:19:07.555Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.555Z INFO  [rustowlc::core::analyze] facts of DefId(0:178 ~ qrcrypt[05b6]::utils::print_error) prepared; start analyze of DefId(0:178 ~ qrcrypt[05b6]::utils::print_error)
+2025-08-27T02:19:07.555Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.555Z INFO  [rustowlc::core] borrow checked: 216 / 227
+2025-08-27T02:19:07.555Z INFO  [rustowlc::core] start borrowck of DefId(0:179 ~ qrcrypt[05b6]::utils::print_info)
+2025-08-27T02:19:07.556Z INFO  [rustowlc::core::analyze] facts of DefId(0:179 ~ qrcrypt[05b6]::utils::print_info) prepared; start analyze of DefId(0:179 ~ qrcrypt[05b6]::utils::print_info)
+2025-08-27T02:19:07.556Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.556Z INFO  [rustowlc::core] borrow checked: 217 / 227
+2025-08-27T02:19:07.556Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.556Z INFO  [rustowlc::core] start borrowck of DefId(0:180 ~ qrcrypt[05b6]::utils::confirm_action)
+2025-08-27T02:19:07.556Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.557Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.561Z INFO  [rustowlc::core::analyze] facts of DefId(0:180 ~ qrcrypt[05b6]::utils::confirm_action) prepared; start analyze of DefId(0:180 ~ qrcrypt[05b6]::utils::confirm_action)
+2025-08-27T02:19:07.562Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.562Z INFO  [rustowlc::core] borrow checked: 218 / 227
+2025-08-27T02:19:07.562Z INFO  [rustowlc::core] start borrowck of DefId(0:193 ~ qrcrypt[05b6]::main)
+2025-08-27T02:19:07.566Z INFO  [rustowlc::core::analyze] facts of DefId(0:193 ~ qrcrypt[05b6]::main) prepared; start analyze of DefId(0:193 ~ qrcrypt[05b6]::main)
+2025-08-27T02:19:07.567Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.567Z INFO  [rustowlc::core] borrow checked: 219 / 227
+2025-08-27T02:19:07.567Z INFO  [rustowlc::core] start borrowck of DefId(0:194 ~ qrcrypt[05b6]::run_command)
+2025-08-27T02:19:07.572Z INFO  [rustowlc::core::analyze] facts of DefId(0:194 ~ qrcrypt[05b6]::run_command) prepared; start analyze of DefId(0:194 ~ qrcrypt[05b6]::run_command)
+2025-08-27T02:19:07.573Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.574Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.574Z INFO  [rustowlc::core] borrow checked: 220 / 227
+2025-08-27T02:19:07.574Z INFO  [rustowlc::core] start borrowck of DefId(0:195 ~ qrcrypt[05b6]::handle_encrypt)
+2025-08-27T02:19:07.580Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.584Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.600Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.654Z INFO  [rustowlc::core::analyze] facts of DefId(0:195 ~ qrcrypt[05b6]::handle_encrypt) prepared; start analyze of DefId(0:195 ~ qrcrypt[05b6]::handle_encrypt)
+2025-08-27T02:19:07.658Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.658Z INFO  [rustowlc::core] borrow checked: 221 / 227
+2025-08-27T02:19:07.658Z INFO  [rustowlc::core] start borrowck of DefId(0:196 ~ qrcrypt[05b6]::handle_decrypt)
+2025-08-27T02:19:07.689Z INFO  [rustowlc::core::analyze] facts of DefId(0:196 ~ qrcrypt[05b6]::handle_decrypt) prepared; start analyze of DefId(0:196 ~ qrcrypt[05b6]::handle_decrypt)
+2025-08-27T02:19:07.692Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.692Z INFO  [rustowlc::core] borrow checked: 222 / 227
+2025-08-27T02:19:07.692Z INFO  [rustowlc::core] start borrowck of DefId(0:197 ~ qrcrypt[05b6]::handle_split)
+2025-08-27T02:19:07.755Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.823Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:07.927Z INFO  [rustowlc::core::analyze] facts of DefId(0:197 ~ qrcrypt[05b6]::handle_split) prepared; start analyze of DefId(0:197 ~ qrcrypt[05b6]::handle_split)
+2025-08-27T02:19:07.934Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.934Z INFO  [rustowlc::core] borrow checked: 223 / 227
+2025-08-27T02:19:07.935Z INFO  [rustowlc::core] start borrowck of DefId(0:198 ~ qrcrypt[05b6]::handle_reconstruct)
+2025-08-27T02:19:07.972Z INFO  [rustowlc::core::analyze] facts of DefId(0:198 ~ qrcrypt[05b6]::handle_reconstruct) prepared; start analyze of DefId(0:198 ~ qrcrypt[05b6]::handle_reconstruct)
+2025-08-27T02:19:07.976Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:07.976Z INFO  [rustowlc::core] borrow checked: 224 / 227
+2025-08-27T02:19:07.976Z INFO  [rustowlc::core] start borrowck of DefId(0:199 ~ qrcrypt[05b6]::handle_validate)
+2025-08-27T02:19:08.005Z INFO  [rustowlc::core::analyze] facts of DefId(0:199 ~ qrcrypt[05b6]::handle_validate) prepared; start analyze of DefId(0:199 ~ qrcrypt[05b6]::handle_validate)
+2025-08-27T02:19:08.012Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:08.012Z INFO  [rustowlc::core] borrow checked: 225 / 227
+2025-08-27T02:19:08.012Z INFO  [rustowlc::core] start borrowck of DefId(0:200 ~ qrcrypt[05b6]::handle_example)
+2025-08-27T02:19:08.021Z INFO  [rustowlc::core::analyze] facts of DefId(0:200 ~ qrcrypt[05b6]::handle_example) prepared; start analyze of DefId(0:200 ~ qrcrypt[05b6]::handle_example)
+2025-08-27T02:19:08.024Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:08.024Z INFO  [rustowlc::core] borrow checked: 226 / 227
+2025-08-27T02:19:08.024Z INFO  [rustowlc::core] start borrowck of DefId(0:658 ~ qrcrypt[05b6]::main#1)
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core::analyze] facts of DefId(0:658 ~ qrcrypt[05b6]::main#1) prepared; start analyze of DefId(0:658 ~ qrcrypt[05b6]::main#1)
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core::analyze] start re-computing borrow check with dump: true
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core] borrow checked: 227 / 227
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.025Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.033Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.035Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.035Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.037Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.037Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.037Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.037Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.040Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.040Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.040Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.040Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.040Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.041Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.041Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:08.043Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.043Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.046Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.047Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.049Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.049Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.050Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/error.rs
+2025-08-27T02:19:08.050Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/error.rs
+2025-08-27T02:19:08.050Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/error.rs
+2025-08-27T02:19:08.050Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/error.rs
+2025-08-27T02:19:08.050Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/error.rs
+2025-08-27T02:19:08.051Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.051Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.052Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.053Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.053Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.054Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.055Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:08.056Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.061Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/error.rs
+2025-08-27T02:19:08.079Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.099Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/error.rs
+2025-08-27T02:19:08.105Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:08.135Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.136Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.136Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.136Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.136Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.140Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.140Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.140Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.144Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.147Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.147Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.150Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.154Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.157Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.162Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.190Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.192Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.194Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.204Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.205Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.205Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.206Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.206Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.207Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.207Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.209Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.224Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.281Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.320Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/crypto.rs
+2025-08-27T02:19:08.339Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.341Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.341Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.349Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.351Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.353Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.355Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.357Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.360Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.368Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.368Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.368Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.371Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.374Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.375Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.375Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.376Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.376Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.376Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.377Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.377Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.411Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.420Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.439Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.448Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.448Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.449Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.449Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.461Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:08.467Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.467Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.468Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.468Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.469Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.471Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.471Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.471Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.471Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.472Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.473Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.473Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.480Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.481Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.483Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.490Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.497Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.555Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/shamir.rs
+2025-08-27T02:19:08.587Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.591Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.593Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.597Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.598Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.602Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.606Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.607Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.611Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.613Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.625Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.635Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.635Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.636Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.636Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.637Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.661Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.661Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.662Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.662Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.663Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.663Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.663Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.736Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.736Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.736Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.736Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.736Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.736Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.737Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.738Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.775Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.899Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/qr.rs
+2025-08-27T02:19:08.900Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.900Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.900Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:08.901Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.018Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.161Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:09.251Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.251Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.252Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.253Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.255Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.257Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.257Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.258Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.258Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.261Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.263Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.270Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:09.274Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.276Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.279Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.281Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.282Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.286Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.297Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.311Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.325Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.326Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.328Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.329Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.331Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.340Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.356Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/main.rs
+2025-08-27T02:19:09.371Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/main.rs
+2025-08-27T02:19:09.457Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/utils.rs
+2025-08-27T02:19:09.540Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/main.rs
+2025-08-27T02:19:09.676Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/main.rs
+2025-08-27T02:19:09.676Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/main.rs
+2025-08-27T02:19:09.698Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/main.rs
+2025-08-27T02:19:09.797Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/main.rs
+2025-08-27T02:19:09.875Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/main.rs
+2025-08-27T02:19:10.300Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/main.rs
+2025-08-27T02:19:10.300Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:10.522Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+2025-08-27T02:19:11.067Z INFO  [rustowlc::core::analyze] borrow check finished
+2025-08-27T02:19:11.292Z INFO  [rustowlc::core] analyzed one item of /home/ian/Documents/Projects/QRCrypt/src/cli.rs
+{"$message_type":"diagnostic","message":"method `verify_password` is never used","code":{"code":"dead_code","explanation":null},"level":"warning","spans":[{"file_name":"src/crypto.rs","byte_start":867,"byte_end":878,"line_start":43,"line_end":43,"column_start":1,"column_end":12,"is_primary":false,"text":[{"text":"impl Crypto {","highlight_start":1,"highlight_end":12}],"label":"method in this implementation","suggested_replacement":null,"suggestion_applicability":null,"expansion":null},{"file_name":"src/crypto.rs","byte_start":4553,"byte_end":4568,"line_start":135,"line_end":135,"column_start":12,"column_end":27,"is_primary":true,"text":[{"text":"    pub fn verify_password(&self, encrypted: &EncryptedData, password: &str) -> Result<bool> {","highlight_start":12,"highlight_end":27}],"label":null,"suggested_replacement":null,"suggestion_applicability":null,"expansion":null}],"children":[{"message":"`#[warn(dead_code)]` on by default","code":null,"level":"note","spans":[],"children":[],"rendered":null}],"rendered":"\u001b[0m\u001b[1m\u001b[33mwarning\u001b[0m\u001b[0m\u001b[1m: method `verify_password` is never used\u001b[0m\n\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m--> \u001b[0m\u001b[0msrc/crypto.rs:135:12\u001b[0m\n\u001b[0m    \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\n\u001b[0m\u001b[1m\u001b[38;5;12m43\u001b[0m\u001b[0m  \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m \u001b[0m\u001b[0mimpl Crypto {\u001b[0m\n\u001b[0m    \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m-----------\u001b[0m\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12mmethod in this implementation\u001b[0m\n\u001b[0m\u001b[1m\u001b[38;5;12m...\u001b[0m\n\u001b[0m\u001b[1m\u001b[38;5;12m135\u001b[0m\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m \u001b[0m\u001b[0m    pub fn verify_password(&self, encrypted: &EncryptedData, password: &str) -> Result<bool> {\u001b[0m\n\u001b[0m    \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m            \u001b[0m\u001b[0m\u001b[1m\u001b[33m^^^^^^^^^^^^^^^\u001b[0m\n\u001b[0m    \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\n\u001b[0m    \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m= \u001b[0m\u001b[0m\u001b[1mnote\u001b[0m\u001b[0m: `#[warn(dead_code)]` on by default\u001b[0m\n\n"}
+{"$message_type":"diagnostic","message":"field `border` is never read","code":{"code":"dead_code","explanation":null},"level":"warning","spans":[{"file_name":"src/qr.rs","byte_start":466,"byte_end":477,"line_start":21,"line_end":21,"column_start":12,"column_end":23,"is_primary":false,"text":[{"text":"pub struct QRGenerator {","highlight_start":12,"highlight_end":23}],"label":"field in this struct","suggested_replacement":null,"suggestion_applicability":null,"expansion":null},{"file_name":"src/qr.rs","byte_start":531,"byte_end":537,"line_start":24,"line_end":24,"column_start":5,"column_end":11,"is_primary":true,"text":[{"text":"    border: u32,","highlight_start":5,"highlight_end":11}],"label":null,"suggested_replacement":null,"suggestion_applicability":null,"expansion":null}],"children":[],"rendered":"\u001b[0m\u001b[1m\u001b[33mwarning\u001b[0m\u001b[0m\u001b[1m: field `border` is never read\u001b[0m\n\u001b[0m  \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m--> \u001b[0m\u001b[0msrc/qr.rs:24:5\u001b[0m\n\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\n\u001b[0m\u001b[1m\u001b[38;5;12m21\u001b[0m\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m \u001b[0m\u001b[0mpub struct QRGenerator {\u001b[0m\n\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m            \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m-----------\u001b[0m\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12mfield in this struct\u001b[0m\n\u001b[0m\u001b[1m\u001b[38;5;12m...\u001b[0m\n\u001b[0m\u001b[1m\u001b[38;5;12m24\u001b[0m\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m \u001b[0m\u001b[0m    border: u32,\u001b[0m\n\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m     \u001b[0m\u001b[0m\u001b[1m\u001b[33m^^^^^^\u001b[0m\n\n"}
+{"$message_type":"diagnostic","message":"function `confirm_action` is never used","code":{"code":"dead_code","explanation":null},"level":"warning","spans":[{"file_name":"src/utils.rs","byte_start":5617,"byte_end":5631,"line_start":167,"line_end":167,"column_start":8,"column_end":22,"is_primary":true,"text":[{"text":"pub fn confirm_action(prompt: &str) -> Result<bool> {","highlight_start":8,"highlight_end":22}],"label":null,"suggested_replacement":null,"suggestion_applicability":null,"expansion":null}],"children":[],"rendered":"\u001b[0m\u001b[1m\u001b[33mwarning\u001b[0m\u001b[0m\u001b[1m: function `confirm_action` is never used\u001b[0m\n\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m--> \u001b[0m\u001b[0msrc/utils.rs:167:8\u001b[0m\n\u001b[0m    \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\n\u001b[0m\u001b[1m\u001b[38;5;12m167\u001b[0m\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m \u001b[0m\u001b[0mpub fn confirm_action(prompt: &str) -> Result<bool> {\u001b[0m\n\u001b[0m    \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m        \u001b[0m\u001b[0m\u001b[1m\u001b[33m^^^^^^^^^^^^^^\u001b[0m\n\n"}
+{"$message_type":"diagnostic","message":"comparison is useless due to type limits","code":{"code":"unused_comparisons","explanation":null},"level":"warning","spans":[{"file_name":"src/shamir.rs","byte_start":913,"byte_end":931,"line_start":31,"line_end":31,"column_start":12,"column_end":30,"is_primary":true,"text":[{"text":"        if total_shares > 255 {","highlight_start":12,"highlight_end":30}],"label":null,"suggested_replacement":null,"suggestion_applicability":null,"expansion":null}],"children":[{"message":"`#[warn(unused_comparisons)]` on by default","code":null,"level":"note","spans":[],"children":[],"rendered":null}],"rendered":"\u001b[0m\u001b[1m\u001b[33mwarning\u001b[0m\u001b[0m\u001b[1m: comparison is useless due to type limits\u001b[0m\n\u001b[0m  \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m--> \u001b[0m\u001b[0msrc/shamir.rs:31:12\u001b[0m\n\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\n\u001b[0m\u001b[1m\u001b[38;5;12m31\u001b[0m\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m \u001b[0m\u001b[0m        if total_shares > 255 {\u001b[0m\n\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m            \u001b[0m\u001b[0m\u001b[1m\u001b[33m^^^^^^^^^^^^^^^^^^\u001b[0m\n\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\n\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m= \u001b[0m\u001b[0m\u001b[1mnote\u001b[0m\u001b[0m: `#[warn(unused_comparisons)]` on by default\u001b[0m\n\n"}
+{"$message_type":"diagnostic","message":"comparison is useless due to type limits","code":{"code":"unused_comparisons","explanation":null},"level":"warning","spans":[{"file_name":"src/cli.rs","byte_start":4524,"byte_end":4536,"line_start":153,"line_end":153,"column_start":20,"column_end":32,"is_primary":true,"text":[{"text":"                if *total > 255 {","highlight_start":20,"highlight_end":32}],"label":null,"suggested_replacement":null,"suggestion_applicability":null,"expansion":null}],"children":[],"rendered":"\u001b[0m\u001b[1m\u001b[33mwarning\u001b[0m\u001b[0m\u001b[1m: comparison is useless due to type limits\u001b[0m\n\u001b[0m   \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m--> \u001b[0m\u001b[0msrc/cli.rs:153:20\u001b[0m\n\u001b[0m    \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\n\u001b[0m\u001b[1m\u001b[38;5;12m153\u001b[0m\u001b[0m \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m \u001b[0m\u001b[0m                if *total > 255 {\u001b[0m\n\u001b[0m    \u001b[0m\u001b[0m\u001b[1m\u001b[38;5;12m|\u001b[0m\u001b[0m                    \u001b[0m\u001b[0m\u001b[1m\u001b[33m^^^^^^^^^^^^\u001b[0m\n\n"}
+{"$message_type":"diagnostic","message":"5 warnings emitted","code":null,"level":"warning","spans":[],"children":[],"rendered":"\u001b[0m\u001b[1m\u001b[33mwarning\u001b[0m\u001b[0m\u001b[1m: 5 warnings emitted\u001b[0m\n\n"}

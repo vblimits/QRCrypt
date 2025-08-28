@@ -48,6 +48,11 @@ impl QRGenerator {
         }
     }
 
+    #[allow(dead_code)]
+    pub fn get_border(&self) -> u32 {
+        self.border
+    }
+
     pub fn generate_encrypted_qr(&self, encrypted_data: &EncryptedData) -> Result<DynamicImage> {
         let qr_data = QRData {
             data_type: QRDataType::EncryptedSecret,
@@ -68,12 +73,6 @@ impl QRGenerator {
         self.create_qr_image(&json_data)
     }
 
-    pub fn generate_multiple_shamir_qrs(&self, shares: &[ShamirShare]) -> Result<Vec<DynamicImage>> {
-        shares
-            .iter()
-            .map(|share| self.generate_shamir_qr(share))
-            .collect()
-    }
 
     pub fn generate_layered_qr(&self, layered_data: &LayeredData) -> Result<DynamicImage> {
         let qr_data = QRData {
@@ -267,7 +266,9 @@ mod tests {
         let shares = ShamirSecretSharing::split_secret(secret, 3, 5).unwrap();
         
         let qr_gen = QRGenerator::new();
-        let images = qr_gen.generate_multiple_shamir_qrs(&shares).unwrap();
+        let images: Vec<_> = shares.iter()
+            .map(|share| qr_gen.generate_shamir_qr(share).unwrap())
+            .collect();
         
         assert_eq!(images.len(), 5);
         for image in images {

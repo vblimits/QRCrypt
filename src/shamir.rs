@@ -28,10 +28,7 @@ impl ShamirSecretSharing {
             return Err(QRCryptError::ShamirError("Threshold cannot be greater than total shares".to_string()));
         }
         
-        if total_shares > 255 {
-            return Err(QRCryptError::ShamirError("Total shares cannot exceed 255".to_string()));
-        }
-
+        // Note: total_shares is u8, so max value is already 255
         let sharks = Sharks(threshold);
         let mut dealer = sharks.dealer(secret.as_bytes());
         

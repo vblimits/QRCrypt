@@ -10,7 +10,7 @@ use std::fs;
 use qrcode::EcLevel;
 
 use crate::cli::{Cli, Commands};
-use crate::crypto::{Crypto, SecretData, LayeredData};
+use crate::crypto::{Crypto, SecretData};
 use crate::shamir::ShamirSecretSharing;
 use crate::qr::QRGenerator;
 use crate::error::Result;

@@ -236,9 +236,7 @@ impl Cli {
                 if *threshold > *total {
                     return Err("Threshold cannot be greater than total shares".to_string());
                 }
-                if *total > 255 {
-                    return Err("Total shares cannot exceed 255".to_string());
-                }
+                // Note: total is u8, so max value is already 255
                 if *scale == 0 {
                     return Err("Scale must be greater than 0".to_string());
                 }

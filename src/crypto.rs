@@ -140,21 +140,6 @@ impl Crypto {
         Ok(SecretData::new(data))
     }
 
-    pub fn verify_password(&self, encrypted: &EncryptedData, password: &str) -> Result<bool> {
-        let salt = SaltString::from_b64(&encrypted.salt)
-            .map_err(|e| QRCryptError::Decryption(format!("Invalid salt: {}", e)))?;
-        
-        let _password_hash = self.argon2
-            .hash_password(password.as_bytes(), &salt)
-            .map_err(|e| QRCryptError::Decryption(format!("Password hashing failed: {}", e)))?;
-        
-        // Try to decrypt a small portion to verify password
-        match self.decrypt(encrypted, password) {
-            Ok(_) => Ok(true),
-            Err(QRCryptError::Decryption(_)) => Ok(false),
-            Err(e) => Err(e),
-        }
-    }
 
     // Plausible deniability: create layered encryption with decoy data
     pub fn encrypt_with_decoy(&self, real_data: &SecretData, real_password: &str, 

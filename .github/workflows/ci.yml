@@ -34,7 +34,7 @@ jobs:
       if: matrix.os == 'ubuntu-latest'
       run: |
         sudo apt-get update
-        sudo apt-get install -y libfontconfig1-dev libfreetype6-dev
+        sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libopencv-dev libclang-dev llvm-dev
 
     - name: Cache cargo registry
       uses: actions/cache@v3
@@ -94,13 +94,16 @@ jobs:
     - name: Install system dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y libfontconfig1-dev libfreetype6-dev
+        sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libopencv-dev libclang-dev llvm-dev
 
     - name: Check build
       run: cargo build --verbose
 
     - name: Check release build
       run: cargo build --release --verbose
+
+    - name: Check camera feature build
+      run: cargo build --release --features camera --verbose
 
   auto-release:
     name: Auto Release
@@ -126,7 +129,7 @@ jobs:
     - name: Install system dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y libfontconfig1-dev libfreetype6-dev
+        sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libopencv-dev libclang-dev llvm-dev
 
     - name: Get current version and auto-increment patch
       id: version
@@ -205,12 +208,12 @@ jobs:
             target: x86_64-unknown-linux-gnu
             name: qrcrypt-linux-x86_64
             asset_name: qrcrypt-linux-x86_64.tar.gz
-            deps: sudo apt-get update && sudo apt-get install -y libfontconfig1-dev libfreetype6-dev
+            deps: sudo apt-get update && sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libopencv-dev libclang-dev llvm-dev
           - os: ubuntu-latest
             target: x86_64-unknown-linux-musl
             name: qrcrypt-linux-x86_64-static
             asset_name: qrcrypt-linux-x86_64-static.tar.gz
-            deps: sudo apt-get update && sudo apt-get install -y libfontconfig1-dev libfreetype6-dev musl-tools
+            deps: sudo apt-get update && sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libopencv-dev libclang-dev llvm-dev musl-tools
           - os: windows-latest
             target: x86_64-pc-windows-msvc
             name: qrcrypt-windows-x86_64.exe

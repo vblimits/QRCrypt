@@ -103,6 +103,8 @@ QRCrypt includes optional real-time camera support for scanning QR codes. By def
 
 **Without camera support:** The application works perfectly fine without camera libraries and falls back to manual input modes where you can paste QR data or provide image file paths.
 
+> 📦 **Release Binaries**: The automated release binaries are built without camera support for maximum compatibility. To get camera features, build from source with `--features camera` after installing OpenCV.
+
 ### 🛡️ Recommended: Tails Installation (Best Practice)
 
 For maximum security when handling cryptocurrency seed phrases, we **strongly recommend** using [Tails OS](https://tails.net/) - a security-focused, amnesic Linux distribution that leaves no traces after shutdown.

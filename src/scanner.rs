@@ -100,7 +100,7 @@ impl QRScanner {
                     let decoded_string = String::from_utf8_lossy(&decoded_text).to_string();
                     if !decoded_string.is_empty() {
                         // Draw bounding box around detected QR code
-                        if bbox.len() > 0 {
+                        if !bbox.is_empty() {
                             let color = opencv::core::Scalar::new(0.0, 255.0, 0.0, 0.0); // Green
                             for i in 0..bbox.len() {
                                 let p1: opencv::core::Point2f = bbox.get(i).unwrap();

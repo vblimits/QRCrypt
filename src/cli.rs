@@ -236,7 +236,6 @@ pub enum Commands {
         #[arg(long)]
         skip_word_check: bool,
     },
-
 }
 
 impl Cli {
@@ -254,7 +253,13 @@ impl Cli {
                     return Err("Border must be 20 or less".to_string());
                 }
             }
-            Commands::Split { threshold, total, scale, border, .. } => {
+            Commands::Split {
+                threshold,
+                total,
+                scale,
+                border,
+                ..
+            } => {
                 if *threshold == 0 || *total == 0 {
                     return Err("Threshold and total must be greater than 0".to_string());
                 }
@@ -269,14 +274,28 @@ impl Cli {
                     return Err("Border must be 20 or less".to_string());
                 }
             }
-            Commands::Reconstruct { shares, data, scan_qr, .. } => {
+            Commands::Reconstruct {
+                shares,
+                data,
+                scan_qr,
+                ..
+            } => {
                 if !scan_qr && shares.is_empty() && data.is_empty() {
-                    return Err("Must provide either share files, share data, or --scan-qr".to_string());
+                    return Err(
+                        "Must provide either share files, share data, or --scan-qr".to_string()
+                    );
                 }
             }
-            Commands::Validate { shares, data, scan_qr, .. } => {
+            Commands::Validate {
+                shares,
+                data,
+                scan_qr,
+                ..
+            } => {
                 if !scan_qr && shares.is_empty() && data.is_empty() {
-                    return Err("Must provide either share files, share data, or --scan-qr".to_string());
+                    return Err(
+                        "Must provide either share files, share data, or --scan-qr".to_string()
+                    );
                 }
             }
             Commands::Example { words, .. } => {

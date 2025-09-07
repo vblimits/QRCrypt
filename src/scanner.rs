@@ -1,10 +1,10 @@
-use rqrr::PreparedImage;
-use image::DynamicImage;
-use std::io::{self, Write};
+use crate::crypto::{EncryptedData, LayeredData};
 use crate::error::{QRCryptError, Result};
 use crate::qr::{QRData, QRReader};
 use crate::shamir::ShamirShare;
-use crate::crypto::{EncryptedData, LayeredData};
+use image::DynamicImage;
+use rqrr::PreparedImage;
+use std::io::{self, Write};
 
 pub struct QRScanner;
 
@@ -13,7 +13,7 @@ impl QRScanner {
     pub fn scan_from_image(image_path: &str) -> Result<QRData> {
         let img = image::open(image_path)
             .map_err(|e| QRCryptError::QRParsing(format!("Failed to open image: {}", e)))?;
-        
+
         Self::decode_qr_from_image(&img)
     }
 
@@ -21,21 +21,27 @@ impl QRScanner {
     pub fn scan_from_webcam(prompt: &str) -> Result<QRData> {
         println!("{}", prompt);
         println!("Please hold a QR code up to your camera and press Enter when ready...");
-        println!("(This is a simulated scan - in a real implementation, this would use camera access)");
-        
+        println!(
+            "(This is a simulated scan - in a real implementation, this would use camera access)"
+        );
+
         // Wait for user input
         print!("Press Enter to simulate scan: ");
         io::stdout().flush().map_err(QRCryptError::Io)?;
         let mut input = String::new();
-        io::stdin().read_line(&mut input).map_err(QRCryptError::Io)?;
+        io::stdin()
+            .read_line(&mut input)
+            .map_err(QRCryptError::Io)?;
 
         // For now, this is a placeholder - in real implementation would capture from webcam
         // Users can paste QR data or provide file path
         print!("Enter QR data as JSON or file path to QR image: ");
         io::stdout().flush().map_err(QRCryptError::Io)?;
-        
+
         let mut qr_input = String::new();
-        io::stdin().read_line(&mut qr_input).map_err(QRCryptError::Io)?;
+        io::stdin()
+            .read_line(&mut qr_input)
+            .map_err(QRCryptError::Io)?;
         let qr_input = qr_input.trim();
 
         // Try to parse as JSON first
@@ -48,7 +54,9 @@ impl QRScanner {
             return Self::scan_from_image(qr_input);
         }
 
-        Err(QRCryptError::QRParsing("Invalid QR data or file path".to_string()))
+        Err(QRCryptError::QRParsing(
+            "Invalid QR data or file path".to_string(),
+        ))
     }
 
     /// Scan multiple QR codes interactively for shares
@@ -62,32 +70,46 @@ impl QRScanner {
 
         loop {
             scan_count += 1;
-            
+
             println!("\n--- Scan #{} ---", scan_count);
-            
-            match Self::scan_from_webcam(&format!("Scanning QR code {}/{}", scan_count, max_count)) {
+
+            match Self::scan_from_webcam(&format!("Scanning QR code {}/{}", scan_count, max_count))
+            {
                 Ok(qr_data) => {
                     match QRReader::parse_shamir_share(&qr_data) {
                         Ok(share) => {
-                            println!("✅ Successfully scanned share {} (ID: {})", shares.len() + 1, share.share_id);
-                            
+                            println!(
+                                "✅ Successfully scanned share {} (ID: {})",
+                                shares.len() + 1,
+                                share.share_id
+                            );
+
                             // Check for duplicates
-                            if shares.iter().any(|s: &ShamirShare| s.share_id == share.share_id) {
+                            if shares
+                                .iter()
+                                .any(|s: &ShamirShare| s.share_id == share.share_id)
+                            {
                                 println!("⚠️  Duplicate share detected - skipping");
                                 continue;
                             }
-                            
+
                             shares.push(share);
-                            
+
                             // Check if we have enough shares (threshold is in the first share)
                             if let Some(first_share) = shares.first() {
                                 if shares.len() >= first_share.threshold as usize {
-                                    println!("✅ Collected sufficient shares ({}/{}) - stopping scan", 
-                                        shares.len(), first_share.threshold);
+                                    println!(
+                                        "✅ Collected sufficient shares ({}/{}) - stopping scan",
+                                        shares.len(),
+                                        first_share.threshold
+                                    );
                                     break;
                                 } else {
-                                    println!("📊 Progress: {}/{} shares needed", 
-                                        shares.len(), first_share.threshold);
+                                    println!(
+                                        "📊 Progress: {}/{} shares needed",
+                                        shares.len(),
+                                        first_share.threshold
+                                    );
                                 }
                             }
                         }
@@ -109,13 +131,20 @@ impl QRScanner {
             }
 
             // Ask if user wants to continue
-            if shares.is_empty() || (shares.first().map(|s| shares.len() < s.threshold as usize).unwrap_or(true)) {
+            if shares.is_empty()
+                || (shares
+                    .first()
+                    .map(|s| shares.len() < s.threshold as usize)
+                    .unwrap_or(true))
+            {
                 print!("Continue scanning? (Y/n): ");
                 io::stdout().flush().map_err(QRCryptError::Io)?;
-                
+
                 let mut continue_input = String::new();
-                io::stdin().read_line(&mut continue_input).map_err(QRCryptError::Io)?;
-                
+                io::stdin()
+                    .read_line(&mut continue_input)
+                    .map_err(QRCryptError::Io)?;
+
                 if continue_input.trim().to_lowercase() == "n" {
                     break;
                 }
@@ -123,7 +152,9 @@ impl QRScanner {
         }
 
         if shares.is_empty() {
-            return Err(QRCryptError::QRParsing("No valid shares were scanned".to_string()));
+            return Err(QRCryptError::QRParsing(
+                "No valid shares were scanned".to_string(),
+            ));
         }
 
         Ok(shares)
@@ -132,7 +163,7 @@ impl QRScanner {
     /// Scan a single encrypted QR code
     pub fn scan_encrypted_interactive() -> Result<EncryptedData> {
         println!("🔍 Scanning encrypted QR code...");
-        
+
         let qr_data = Self::scan_from_webcam("Hold up your encrypted QR code")?;
         QRReader::parse_encrypted_data(&qr_data)
     }
@@ -140,7 +171,7 @@ impl QRScanner {
     /// Scan a single layered QR code with plausible deniability
     pub fn scan_layered_interactive() -> Result<LayeredData> {
         println!("🕵️  Scanning layered QR code (plausible deniability)...");
-        
+
         let qr_data = Self::scan_from_webcam("Hold up your layered QR code")?;
         QRReader::parse_layered_data(&qr_data)
     }
@@ -148,53 +179,57 @@ impl QRScanner {
     /// Scan QR codes for validation (specified count)
     pub fn scan_for_validation(count: u8) -> Result<Vec<ShamirShare>> {
         let mut shares = Vec::new();
-        
+
         println!("🔍 Scanning {} QR codes for validation...", count);
-        
+
         for i in 1..=count {
             println!("\n--- Scan {}/{} ---", i, count);
-            
+
             match Self::scan_from_webcam(&format!("Scanning QR code {}", i)) {
-                Ok(qr_data) => {
-                    match QRReader::parse_shamir_share(&qr_data) {
-                        Ok(share) => {
-                            println!("✅ Successfully scanned share {} (ID: {})", i, share.share_id);
-                            shares.push(share);
-                        }
-                        Err(e) => {
-                            println!("❌ Failed to parse Shamir share: {}", e);
-                            return Err(e);
-                        }
+                Ok(qr_data) => match QRReader::parse_shamir_share(&qr_data) {
+                    Ok(share) => {
+                        println!(
+                            "✅ Successfully scanned share {} (ID: {})",
+                            i, share.share_id
+                        );
+                        shares.push(share);
                     }
-                }
+                    Err(e) => {
+                        println!("❌ Failed to parse Shamir share: {}", e);
+                        return Err(e);
+                    }
+                },
                 Err(e) => {
                     println!("❌ Failed to scan QR code: {}", e);
                     return Err(e);
                 }
             }
         }
-        
+
         Ok(shares)
     }
 
     fn decode_qr_from_image(img: &DynamicImage) -> Result<QRData> {
         // Convert to grayscale - this already gives us the right format for rqrr
         let gray_img = img.to_luma8();
-        
+
         // Prepare image for rqrr directly
         let mut prepared = PreparedImage::prepare(gray_img);
-        
+
         // Find QR codes
         let grids = prepared.detect_grids();
         if grids.is_empty() {
-            return Err(QRCryptError::QRParsing("No QR codes found in image".to_string()));
+            return Err(QRCryptError::QRParsing(
+                "No QR codes found in image".to_string(),
+            ));
         }
-        
+
         // Decode the first QR code found
         let grid = &grids[0];
-        let (_meta, content) = grid.decode()
+        let (_meta, content) = grid
+            .decode()
             .map_err(|e| QRCryptError::QRParsing(format!("Failed to decode QR code: {:?}", e)))?;
-        
+
         // Parse the content as QR data
         QRReader::parse_qr_data(&content)
     }
@@ -226,7 +261,9 @@ mod tests {
         // Generate QR code and save it
         let qr_generator = QRGenerator::new();
         let qr_image_path = format!("{}/test_encrypted.png", test_dir);
-        qr_generator.save_encrypted_qr(&encrypted_data, Path::new(&qr_image_path)).unwrap();
+        qr_generator
+            .save_encrypted_qr(&encrypted_data, Path::new(&qr_image_path))
+            .unwrap();
 
         // Verify the image file was created
         assert!(Path::new(&qr_image_path).exists());
@@ -256,7 +293,8 @@ mod tests {
         fs::create_dir_all(test_dir).unwrap();
 
         // Test data
-        let secret = "abandon ability able about above absent absorb abstract absurd abuse access account";
+        let secret =
+            "abandon ability able about above absent absorb abstract absurd abuse access account";
         let threshold = 2;
         let total_shares = 3;
 
@@ -271,8 +309,10 @@ mod tests {
         for (i, share) in shares.iter().enumerate() {
             let qr_image_path = format!("{}/share_{}.png", test_dir, i + 1);
             let qr_image = qr_generator.generate_shamir_qr(share).unwrap();
-            qr_generator.save_qr_image(&qr_image, Path::new(&qr_image_path)).unwrap();
-            
+            qr_generator
+                .save_qr_image(&qr_image, Path::new(&qr_image_path))
+                .unwrap();
+
             // Verify the image file was created
             assert!(Path::new(&qr_image_path).exists());
             saved_paths.push(qr_image_path);
@@ -323,15 +363,17 @@ mod tests {
 
         // Create Shamir shares
         let shares = ShamirSecretSharing::split_secret(secret, threshold, total_shares).unwrap();
-        
+
         let qr_generator = QRGenerator::new();
         let mut qr_paths = Vec::new();
 
         // Save first 3 shares as QR codes (minimum needed for reconstruction)
-        for i in 0..3 {
+        for (i, share) in shares.iter().take(3).enumerate() {
             let qr_image_path = format!("{}/validation_share_{}.png", test_dir, i + 1);
-            let qr_image = qr_generator.generate_shamir_qr(&shares[i]).unwrap();
-            qr_generator.save_qr_image(&qr_image, Path::new(&qr_image_path)).unwrap();
+            let qr_image = qr_generator.generate_shamir_qr(share).unwrap();
+            qr_generator
+                .save_qr_image(&qr_image, Path::new(&qr_image_path))
+                .unwrap();
             qr_paths.push(qr_image_path);
         }
 

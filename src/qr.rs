@@ -1,12 +1,11 @@
-use qrcode::{QrCode, EcLevel};
+use crate::crypto::{EncryptedData, LayeredData};
+use crate::error::{QRCryptError, Result};
+use crate::shamir::ShamirShare;
+use ab_glyph::{FontRef, PxScale};
 use image::{DynamicImage, ImageFormat, Rgba, RgbaImage};
-use imageproc::drawing::draw_text_mut;
-use rusttype::{Font, Scale};
+use qrcode::{EcLevel, QrCode};
 use serde::{Deserialize, Serialize};
 use std::path::Path;
-use crate::error::{QRCryptError, Result};
-use crate::crypto::{EncryptedData, LayeredData};
-use crate::shamir::ShamirShare;
 
 #[derive(Serialize, Deserialize)]
 pub struct QRData {
@@ -37,8 +36,8 @@ impl QRGenerator {
     pub fn new() -> Self {
         Self {
             error_correction: EcLevel::M, // Medium error correction
-            scale: 8, // 8x8 pixels per module
-            border: 4, // 4 module border
+            scale: 8,                     // 8x8 pixels per module
+            border: 4,                    // 4 module border
         }
     }
 
@@ -75,7 +74,6 @@ impl QRGenerator {
         self.create_qr_image(&json_data)
     }
 
-
     pub fn generate_layered_qr(&self, layered_data: &LayeredData) -> Result<DynamicImage> {
         let qr_data = QRData {
             data_type: QRDataType::LayeredSecret,
@@ -87,11 +85,14 @@ impl QRGenerator {
     }
 
     fn create_qr_image(&self, data: &str) -> Result<DynamicImage> {
-        let code = QrCode::with_error_correction_level(data, self.error_correction)
-            .map_err(|e| QRCryptError::QRGeneration(format!("Failed to create QR code: {:?}", e)))?;
+        let code =
+            QrCode::with_error_correction_level(data, self.error_correction).map_err(|e| {
+                QRCryptError::QRGeneration(format!("Failed to create QR code: {:?}", e))
+            })?;
 
         // Use char as the pixel type which is supported by qrcode
-        let string_image = code.render::<char>()
+        let string_image = code
+            .render::<char>()
             .light_color(' ')
             .dark_color('█')
             .build();
@@ -102,7 +103,9 @@ impl QRGenerator {
         let width = if height > 0 { lines[0].len() as u32 } else { 0 };
 
         if width == 0 || height == 0 {
-            return Err(QRCryptError::QRGeneration("Generated QR code has zero dimensions".to_string()));
+            return Err(QRCryptError::QRGeneration(
+                "Generated QR code has zero dimensions".to_string(),
+            ));
         }
 
         let mut pixels = Vec::new();
@@ -131,13 +134,16 @@ impl QRGenerator {
         }
 
         let img_buffer = image::ImageBuffer::from_raw(scaled_width, scaled_height, scaled_pixels)
-            .ok_or_else(|| QRCryptError::QRGeneration("Failed to create image buffer".to_string()))?;
+            .ok_or_else(|| {
+            QRCryptError::QRGeneration("Failed to create image buffer".to_string())
+        })?;
 
         Ok(DynamicImage::ImageLuma8(img_buffer))
     }
 
     pub fn save_qr_image(&self, image: &DynamicImage, path: &Path) -> Result<()> {
-        image.save_with_format(path, ImageFormat::Png)
+        image
+            .save_with_format(path, ImageFormat::Png)
             .map_err(|e| QRCryptError::QRGeneration(format!("Failed to save QR image: {}", e)))?;
         Ok(())
     }
@@ -159,22 +165,23 @@ impl QRGenerator {
         prefix: &str,
     ) -> Result<Vec<String>> {
         let mut file_paths = Vec::new();
-        
+
         for (i, share) in shares.iter().enumerate() {
-            let filename = format!("{}_{}_of_{}_share_{}.png", 
-                prefix, 
-                i + 1, 
+            let filename = format!(
+                "{}_{}_of_{}_share_{}.png",
+                prefix,
+                i + 1,
                 shares.len(),
                 share.share_id
             );
             let file_path = base_path.join(&filename);
-            
+
             let image = self.generate_shamir_qr(share)?;
             self.save_qr_image(&image, &file_path)?;
-            
+
             file_paths.push(filename);
         }
-        
+
         Ok(file_paths)
     }
 
@@ -188,16 +195,17 @@ impl QRGenerator {
         card_height_cm: f32,
     ) -> Result<Vec<String>> {
         let mut file_paths = Vec::new();
-        
+
         for (i, share) in shares.iter().enumerate() {
-            let filename = format!("{}_{}_of_{}_share_{}_card.png", 
-                prefix, 
-                i + 1, 
+            let filename = format!(
+                "{}_{}_of_{}_share_{}_card.png",
+                prefix,
+                i + 1,
                 shares.len(),
                 share.share_id
             );
             let file_path = base_path.join(&filename);
-            
+
             // Convert share to JSON for QR code content
             let share_json = serde_json::to_string(share)?;
             let qr_data = crate::qr::QRData {
@@ -205,30 +213,40 @@ impl QRGenerator {
                 content: share_json,
             };
             let json_data = serde_json::to_string(&qr_data)?;
-            
+
             // Generate card QR with repository URL
-            let image = self.generate_card_qr(&json_data, repo_url, card_width_cm, card_height_cm)?;
+            let image =
+                self.generate_card_qr(&json_data, repo_url, card_width_cm, card_height_cm)?;
             self.save_qr_image(&image, &file_path)?;
-            
+
             file_paths.push(filename);
         }
-        
+
         Ok(file_paths)
     }
 
-    pub fn generate_card_qr(&self, content: &str, repo_url: &str, card_width_cm: f32, card_height_cm: f32) -> Result<DynamicImage> {
+    pub fn generate_card_qr(
+        &self,
+        content: &str,
+        repo_url: &str,
+        card_width_cm: f32,
+        card_height_cm: f32,
+    ) -> Result<DynamicImage> {
         // Convert cm to pixels at 300 DPI
         let dpi = 300.0;
         let cm_to_inch = 2.54;
         let card_width_px = (card_width_cm * dpi / cm_to_inch) as u32;
         let card_height_px = (card_height_cm * dpi / cm_to_inch) as u32;
-        
+
         // Generate QR code for the content
-        let code = QrCode::with_error_correction_level(content, self.error_correction)
-            .map_err(|e| QRCryptError::QRGeneration(format!("Failed to create QR code: {:?}", e)))?;
+        let code =
+            QrCode::with_error_correction_level(content, self.error_correction).map_err(|e| {
+                QRCryptError::QRGeneration(format!("Failed to create QR code: {:?}", e))
+            })?;
 
         // Create QR image
-        let qr_img = code.render::<char>()
+        let qr_img = code
+            .render::<char>()
             .light_color(' ')
             .dark_color('█')
             .build();
@@ -236,16 +254,22 @@ impl QRGenerator {
         // Convert to pixel data
         let lines: Vec<&str> = qr_img.lines().collect();
         let qr_height = lines.len() as u32;
-        let qr_width = if qr_height > 0 { lines[0].len() as u32 } else { 0 };
+        let qr_width = if qr_height > 0 {
+            lines[0].len() as u32
+        } else {
+            0
+        };
 
         if qr_width == 0 || qr_height == 0 {
-            return Err(QRCryptError::QRGeneration("Generated QR code has zero dimensions".to_string()));
+            return Err(QRCryptError::QRGeneration(
+                "Generated QR code has zero dimensions".to_string(),
+            ));
         }
 
         // Calculate QR size - make it the full height of the card minus small margins
         let margin = 10u32; // Small margin
         let available_height = card_height_px.saturating_sub(2 * margin);
-        
+
         // QR code will be square and use full height
         let scale = available_height / qr_width;
         let final_qr_size = qr_width * scale;
@@ -275,7 +299,7 @@ impl QRGenerator {
 
         // Create card canvas
         let mut card_buffer = RgbaImage::new(card_width_px, card_height_px);
-        
+
         // Fill with white background
         for pixel in card_buffer.pixels_mut() {
             *pixel = Rgba([255u8, 255u8, 255u8, 255u8]);
@@ -293,54 +317,82 @@ impl QRGenerator {
                     let intensity = scaled_qr_pixels[qr_idx];
                     let card_x = qr_x + x;
                     let card_y = qr_y + y;
-                    
+
                     if card_x < card_width_px && card_y < card_height_px {
-                        card_buffer.put_pixel(card_x, card_y, Rgba([intensity, intensity, intensity, 255u8]));
+                        card_buffer.put_pixel(
+                            card_x,
+                            card_y,
+                            Rgba([intensity, intensity, intensity, 255u8]),
+                        );
                     }
                 }
             }
         }
 
         // Add logo and URL text
-        self.add_text_to_card(&mut card_buffer, repo_url, card_width_px, card_height_px, margin);
-        
+        self.add_text_to_card(
+            &mut card_buffer,
+            repo_url,
+            card_width_px,
+            card_height_px,
+            margin,
+        );
+
         Ok(DynamicImage::ImageRgba8(card_buffer))
     }
 
-    fn add_text_to_card(&self, card_buffer: &mut RgbaImage, repo_url: &str, card_width: u32, card_height: u32, margin: u32) {
-        use imageproc::drawing::draw_text_mut;
-        use rusttype::{Font, Scale};
-        
-        // Use the new system font loading
+    fn add_text_to_card(
+        &self,
+        card_buffer: &mut RgbaImage,
+        repo_url: &str,
+        _card_width: u32,
+        card_height: u32,
+        margin: u32,
+    ) {
+        // Use the new system font loading with ab_glyph
         if let Some(font) = self.load_system_font() {
             eprintln!("Successfully loaded system font for main text rendering");
             let text_color = Rgba([0u8, 0u8, 0u8, 255u8]);
-            
+
             // Calculate QR area to position text to the right of it
             let available_height = card_height.saturating_sub(2 * margin);
             let qr_size = available_height; // QR is square using full height
             let text_area_x = margin + qr_size + 20; // Start text 20px to the right of QR
-            
+
             // "QRCrypt" at top of text area
-            let logo_scale = Scale::uniform(72.0); // 72pt
+            let logo_scale = PxScale::from(72.0); // 72pt
             let logo_y = margin + 40;
-            draw_text_mut(card_buffer, text_color, text_area_x as i32, logo_y as i32, logo_scale, &font, "QRCrypt");
-            
+            self.draw_text_ab_glyph(
+                card_buffer,
+                &font,
+                text_color,
+                text_area_x,
+                logo_y,
+                logo_scale,
+                "QRCrypt",
+            );
+
             // URL at bottom, positioned closer to QR code right edge
-            let url_scale = Scale::uniform(24.0);
+            let url_scale = PxScale::from(24.0);
             let url_y = card_height - margin - 40;
             // Move URL much closer to QR code - almost at its right edge
             let url_x = margin + qr_size + 5; // Just 5px from QR right edge instead of 20px
-            
-            draw_text_mut(card_buffer, text_color, url_x as i32, url_y as i32, url_scale, &font, repo_url);
+
+            self.draw_text_ab_glyph(
+                card_buffer,
+                &font,
+                text_color,
+                url_x,
+                url_y,
+                url_scale,
+                repo_url,
+            );
         } else {
             eprintln!("No system font available");
         }
     }
-    
-    
 
-    fn load_system_font(&self) -> Option<Font<'static>> {
+    fn load_system_font(&self) -> Option<FontRef<'static>> {
         // Try common system font paths
         let font_paths = vec![
             // Linux fonts
@@ -350,42 +402,76 @@ impl QRGenerator {
             "/usr/share/fonts/TTF/LiberationSans-Regular.ttf",
             "/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf",
             "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf",
-            
             // macOS fonts
             "/System/Library/Fonts/Helvetica.ttc",
             "/System/Library/Fonts/Arial.ttf",
             "/Library/Fonts/Arial.ttf",
-            
             // Windows fonts
             "C:\\Windows\\Fonts\\arial.ttf",
             "C:\\Windows\\Fonts\\Arial.ttf",
             "C:\\Windows\\Fonts\\calibri.ttf",
             "C:\\Windows\\Fonts\\Calibri.ttf",
         ];
-        
+
         for path in font_paths {
             if let Ok(font_data) = std::fs::read(path) {
-                if let Some(font) = Font::try_from_vec(font_data) {
+                // Leak the font data to get 'static lifetime for FontRef
+                let font_data: &'static [u8] = Box::leak(font_data.into_boxed_slice());
+                if let Ok(font) = FontRef::try_from_slice(font_data) {
                     eprintln!("Loaded system font from: {}", path);
                     return Some(font);
                 }
             }
         }
-        
-        eprintln!("No system fonts found, trying bundled font as fallback");
-        // Fallback to bundled font if it exists
-        if let Ok(font_data) = std::fs::read("assets/DejaVuSans.ttf") {
-            if let Some(font) = Font::try_from_vec(font_data) {
-                eprintln!("Loaded bundled font as fallback");
-                return Some(font);
-            }
-        }
-        
+
         None
     }
 
+    #[allow(clippy::too_many_arguments)]
+    fn draw_text_ab_glyph(
+        &self,
+        buffer: &mut RgbaImage,
+        font: &FontRef,
+        color: Rgba<u8>,
+        x: u32,
+        y: u32,
+        scale: PxScale,
+        text: &str,
+    ) {
+        use ab_glyph::Font;
 
-    pub fn save_card_qr(&self, content: &str, repo_url: &str, path: &Path, card_width_cm: f32, card_height_cm: f32) -> Result<()> {
+        let mut cursor_x = x as f32;
+        let cursor_y =
+            y as f32 + font.ascent_unscaled() * scale.y / font.units_per_em().unwrap_or(1000.0);
+
+        for ch in text.chars() {
+            let glyph_id = font.glyph_id(ch);
+            let glyph = glyph_id.with_scale(scale);
+
+            if let Some(outlined_glyph) = font.outline_glyph(glyph) {
+                outlined_glyph.draw(|px, py, coverage| {
+                    let pixel_x = (cursor_x + px as f32) as u32;
+                    let pixel_y = (cursor_y + py as f32) as u32;
+
+                    if pixel_x < buffer.width() && pixel_y < buffer.height() && coverage > 0.5 {
+                        buffer.put_pixel(pixel_x, pixel_y, color);
+                    }
+                });
+            }
+
+            cursor_x +=
+                font.h_advance_unscaled(glyph_id) * scale.x / font.units_per_em().unwrap_or(1000.0);
+        }
+    }
+
+    pub fn save_card_qr(
+        &self,
+        content: &str,
+        repo_url: &str,
+        path: &Path,
+        card_width_cm: f32,
+        card_height_cm: f32,
+    ) -> Result<()> {
         let image = self.generate_card_qr(content, repo_url, card_width_cm, card_height_cm)?;
         self.save_qr_image(&image, path)
     }
@@ -425,31 +511,34 @@ impl QRReader {
 
     pub fn parse_encrypted_data(qr_data: &QRData) -> Result<EncryptedData> {
         match qr_data.data_type {
-            QRDataType::EncryptedSecret => {
-                serde_json::from_str(&qr_data.content)
-                    .map_err(|e| QRCryptError::QRParsing(format!("Failed to parse encrypted data: {}", e)))
-            }
-            _ => Err(QRCryptError::QRParsing("QR code does not contain encrypted data".to_string())),
+            QRDataType::EncryptedSecret => serde_json::from_str(&qr_data.content).map_err(|e| {
+                QRCryptError::QRParsing(format!("Failed to parse encrypted data: {}", e))
+            }),
+            _ => Err(QRCryptError::QRParsing(
+                "QR code does not contain encrypted data".to_string(),
+            )),
         }
     }
 
     pub fn parse_shamir_share(qr_data: &QRData) -> Result<ShamirShare> {
         match qr_data.data_type {
-            QRDataType::ShamirShare => {
-                serde_json::from_str(&qr_data.content)
-                    .map_err(|e| QRCryptError::QRParsing(format!("Failed to parse Shamir share: {}", e)))
-            }
-            _ => Err(QRCryptError::QRParsing("QR code does not contain Shamir share data".to_string())),
+            QRDataType::ShamirShare => serde_json::from_str(&qr_data.content).map_err(|e| {
+                QRCryptError::QRParsing(format!("Failed to parse Shamir share: {}", e))
+            }),
+            _ => Err(QRCryptError::QRParsing(
+                "QR code does not contain Shamir share data".to_string(),
+            )),
         }
     }
 
     pub fn parse_layered_data(qr_data: &QRData) -> Result<LayeredData> {
         match qr_data.data_type {
-            QRDataType::LayeredSecret => {
-                serde_json::from_str(&qr_data.content)
-                    .map_err(|e| QRCryptError::QRParsing(format!("Failed to parse layered data: {}", e)))
-            }
-            _ => Err(QRCryptError::QRParsing("QR code does not contain layered secret data".to_string())),
+            QRDataType::LayeredSecret => serde_json::from_str(&qr_data.content).map_err(|e| {
+                QRCryptError::QRParsing(format!("Failed to parse layered data: {}", e))
+            }),
+            _ => Err(QRCryptError::QRParsing(
+                "QR code does not contain layered secret data".to_string(),
+            )),
         }
     }
 }
@@ -465,10 +554,10 @@ mod tests {
         let crypto = Crypto::new();
         let secret = SecretData::new("test secret phrase".to_string());
         let encrypted = crypto.encrypt(&secret, "password123").unwrap();
-        
+
         let qr_gen = QRGenerator::new();
         let image = qr_gen.generate_encrypted_qr(&encrypted).unwrap();
-        
+
         // Should be able to generate without error
         assert!(image.width() > 0);
         assert!(image.height() > 0);
@@ -478,12 +567,13 @@ mod tests {
     fn test_qr_generation_shamir() {
         let secret = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about";
         let shares = ShamirSecretSharing::split_secret(secret, 3, 5).unwrap();
-        
+
         let qr_gen = QRGenerator::new();
-        let images: Vec<_> = shares.iter()
+        let images: Vec<_> = shares
+            .iter()
             .map(|share| qr_gen.generate_shamir_qr(share).unwrap())
             .collect();
-        
+
         assert_eq!(images.len(), 5);
         for image in images {
             assert!(image.width() > 0);
@@ -496,15 +586,15 @@ mod tests {
         let secret = SecretData::new("test secret".to_string());
         let crypto = Crypto::new();
         let encrypted = crypto.encrypt(&secret, "password").unwrap();
-        
+
         let qr_data = QRData {
             data_type: QRDataType::EncryptedSecret,
             content: serde_json::to_string(&encrypted).unwrap(),
         };
-        
+
         let json = serde_json::to_string(&qr_data).unwrap();
         let parsed = QRReader::parse_qr_data(&json).unwrap();
-        
+
         match parsed.data_type {
             QRDataType::EncryptedSecret => {
                 let parsed_encrypted = QRReader::parse_encrypted_data(&parsed).unwrap();

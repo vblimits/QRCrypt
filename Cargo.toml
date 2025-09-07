@@ -1,8 +1,8 @@
 [package]
 name = "qrcrypt"
-version = "0.1.0"
+version = "0.96.0"
 edition = "2021"
-authors = ["Your Name <your.email@example.com>"]
+authors = ["VBLimits <7929699+vblimits@users.noreply.github.com>"]
 description = "Secure storage of crypto wallet seed phrases in encrypted QR codes with Shamir's Secret Sharing"
 license = "MIT"
 repository = "https://github.com/yourusername/qrcrypt"

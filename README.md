@@ -334,23 +334,33 @@ This is an open-source project focused on defensive security. Contributions for 
 1. **Fork and clone** the repository
 2. **Make changes** and test locally: `cargo test && cargo clippy`
 3. **Submit pull request** - CI will automatically test your changes
-4. **Auto-release** - When changes are merged to main and tests pass, new versions are released automatically!
+4. **Auto-versioning** - When merged to main, patch version auto-increments (0.96.0 → 0.96.1)
+5. **Auto-release** - New version is automatically released! 🚀
 
-### 📋 Version Management
+### 🤖 Automatic Version Management
 
-**For maintainers:**
+**Every push to main:**
+- ✅ Tests run automatically  
+- 🔢 Patch version increments (0.96.0 → 0.96.1 → 0.96.2...)
+- 🏷️ Git tag created automatically (v0.96.1, v0.96.2...)
+- 📦 Release created with binaries
+- 💾 Version and tag committed/pushed back to repo
+
+**For major/minor versions:**
 ```bash
-# Bump version automatically
-./scripts/bump-version.sh patch  # or minor, major, or specific version
+# When you need to bump major or minor versions
+./scripts/bump-version.sh minor  # 0.96.x → 0.97.0
+./scripts/bump-version.sh major  # 0.96.x → 1.0.0
+
 git add Cargo.toml
-git commit -m "Bump version to X.Y.Z"
-git push origin main  # Auto-release triggers when CI passes! 🚀
+git commit -m "Bump to new major/minor version"
+git push origin main  # Subsequent pushes will auto-increment patch
 ```
 
-**Release types:**
-- `patch`: Bug fixes, security updates (0.1.0 → 0.1.1)
-- `minor`: New features, non-breaking changes (0.1.0 → 0.2.0)
-- `major`: Breaking changes (0.1.0 → 1.0.0)
+**Version types:**
+- `patch`: Auto-incremented on every main branch push (0.96.0 → 0.96.1)
+- `minor`: Manual bump for new features (0.96.x → 0.97.0)  
+- `major`: Manual bump for breaking changes (0.96.x → 1.0.0)
 
 See [.github/RELEASES.md](.github/RELEASES.md) for detailed release documentation.
 

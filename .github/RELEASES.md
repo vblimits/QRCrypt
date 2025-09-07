@@ -1,31 +1,34 @@
 # Release Process
 
-QRCrypt has two types of releases:
+QRCrypt has automatic version management and releases:
 
-## 🤖 Automated Releases (Recommended)
+## 🤖 Automated Versioning & Releases
 
 **How it works:**
-- Automatically triggered when CI/CD tests pass on the `main` branch
-- Reads version from `Cargo.toml`
-- Only creates a release if the version tag doesn't already exist
-- Builds Linux binaries (static and dynamic)
-- Creates GitHub release with comprehensive changelog
+- **Auto-versioning**: When you push to `main`, CI automatically increments the patch version (0.96.0 → 0.96.1)
+- **Smart releases**: Only creates releases if the new version tag doesn't exist
+- **Builds & publishes**: Creates Linux binaries and comprehensive GitHub releases
+- **Version tracking**: Commits the new version back to the repo
 
-**To create an auto-release:**
-1. Update the version in `Cargo.toml`:
-   ```toml
-   [package]
-   version = "0.2.0"  # Increment this
-   ```
-
-2. Commit and push to main:
+**Simple workflow:**
+1. Make your changes and commit:
    ```bash
-   git add Cargo.toml
-   git commit -m "Bump version to 0.2.0"
+   git add .
+   git commit -m "Add new feature"
    git push origin main
    ```
 
-3. Wait for CI to pass - release will be created automatically! 🎉
+2. CI automatically:
+   - ✅ Runs tests
+   - 🔢 Increments patch version (0.96.0 → 0.96.1)
+   - 📦 Creates release with new version
+   - 💾 Commits version bump back to repo
+
+3. Next push will auto-increment again (0.96.1 → 0.96.2) 🔄
+
+**Manual version control:**
+- **Major/Minor bumps**: Use `./scripts/bump-version.sh major` or `minor`
+- **Patch auto-increment**: Happens automatically on every push to main
 
 ## 🛠️ Manual Cross-Platform Releases
 

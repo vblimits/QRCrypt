@@ -1,4 +1,6 @@
-name: Release
+# Manual Release Workflow (for cross-platform builds)
+# Auto-releases are handled by ci.yml when tests pass on main branch
+name: Manual Release
 
 on:
   push:

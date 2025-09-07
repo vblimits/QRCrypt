@@ -15,7 +15,25 @@ A secure Rust CLI tool for storing crypto wallet seed phrases and other sensitiv
 
 ## Installation
 
-### Standard Installation
+### 🚀 Quick Install (Recommended)
+
+**Linux (static binary - works everywhere):**
+```bash
+curl -L https://github.com/vblimits/QRCrypt/releases/latest/download/qrcrypt-linux-x86_64-static.tar.gz | tar -xz
+sudo mv qrcrypt-linux-x86_64-static /usr/local/bin/qrcrypt
+chmod +x /usr/local/bin/qrcrypt
+```
+
+**Linux (dynamic binary):**
+```bash
+curl -L https://github.com/vblimits/QRCrypt/releases/latest/download/qrcrypt-linux-x86_64.tar.gz | tar -xz
+sudo mv qrcrypt-linux-x86_64 /usr/local/bin/qrcrypt
+chmod +x /usr/local/bin/qrcrypt
+```
+
+> 💡 **Auto-releases**: New versions are automatically released when CI/CD tests pass on the main branch!
+
+### 🛠️ Build from Source
 
 Make sure you have Rust installed, then build from source:
 
@@ -310,6 +328,31 @@ qrcrypt reconstruct --shares ./backup_shares/share_1_of_5_share_1.json ./backup_
 ## Contributing
 
 This is an open-source project focused on defensive security. Contributions for security improvements, bug fixes, and feature enhancements are welcome.
+
+### 🔄 Development Workflow
+
+1. **Fork and clone** the repository
+2. **Make changes** and test locally: `cargo test && cargo clippy`
+3. **Submit pull request** - CI will automatically test your changes
+4. **Auto-release** - When changes are merged to main and tests pass, new versions are released automatically!
+
+### 📋 Version Management
+
+**For maintainers:**
+```bash
+# Bump version automatically
+./scripts/bump-version.sh patch  # or minor, major, or specific version
+git add Cargo.toml
+git commit -m "Bump version to X.Y.Z"
+git push origin main  # Auto-release triggers when CI passes! 🚀
+```
+
+**Release types:**
+- `patch`: Bug fixes, security updates (0.1.0 → 0.1.1)
+- `minor`: New features, non-breaking changes (0.1.0 → 0.2.0)
+- `major`: Breaking changes (0.1.0 → 1.0.0)
+
+See [.github/RELEASES.md](.github/RELEASES.md) for detailed release documentation.
 
 ## License
 

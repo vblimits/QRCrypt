@@ -7,7 +7,8 @@ A secure Rust CLI tool for storing crypto wallet seed phrases and other sensitiv
 - 🔐 **AES-256-GCM Encryption**: Military-grade encryption for your sensitive data
 - 🔑 **Argon2 Key Derivation**: Secure password-based key derivation
 - 📱 **QR Code Generation**: Convert encrypted data into scannable QR codes
-- 📷 **QR Code Scanning**: Read QR codes from images or webcam (simulated)
+- 📷 **QR Code Scanning**: Read QR codes from images or real-time webcam (optional OpenCV support)
+- 🎥 **Live Camera Detection**: Real-time QR detection with visual feedback (when camera feature enabled)
 - 🧩 **Shamir's Secret Sharing**: Split secrets into multiple shares (e.g., 3-of-5)
 - 🤖 **Smart Reconstruction**: Automatically stops when enough shares are scanned
 - 🗑️ **Memory Safety**: Secure memory handling with automatic clearing
@@ -24,10 +25,24 @@ sudo mv qrcrypt-linux-x86_64-static /usr/local/bin/qrcrypt
 chmod +x /usr/local/bin/qrcrypt
 ```
 
-**Linux (dynamic binary):**
+**Windows:**
+```powershell
+Invoke-WebRequest -Uri "https://github.com/vblimits/QRCrypt/releases/latest/download/qrcrypt-windows-x86_64.zip" -OutFile "qrcrypt.zip"
+Expand-Archive -Path "qrcrypt.zip" -DestinationPath "."
+# Add qrcrypt-windows-x86_64.exe to your PATH
+```
+
+**macOS (Intel):**
 ```bash
-curl -L https://github.com/vblimits/QRCrypt/releases/latest/download/qrcrypt-linux-x86_64.tar.gz | tar -xz
-sudo mv qrcrypt-linux-x86_64 /usr/local/bin/qrcrypt
+curl -L https://github.com/vblimits/QRCrypt/releases/latest/download/qrcrypt-macos-x86_64.tar.gz | tar -xz
+sudo mv qrcrypt-macos-x86_64 /usr/local/bin/qrcrypt
+chmod +x /usr/local/bin/qrcrypt
+```
+
+**macOS (Apple Silicon):**
+```bash
+curl -L https://github.com/vblimits/QRCrypt/releases/latest/download/qrcrypt-macos-aarch64.tar.gz | tar -xz
+sudo mv qrcrypt-macos-aarch64 /usr/local/bin/qrcrypt
 chmod +x /usr/local/bin/qrcrypt
 ```
 
@@ -44,6 +59,49 @@ cargo build --release
 ```
 
 The binary will be available at `target/release/qrcrypt`.
+
+#### 📷 Camera Support (Optional)
+
+QRCrypt includes optional real-time camera support for scanning QR codes. By default, it uses a fallback mode where you can provide QR data manually or from image files.
+
+**To enable camera support:**
+
+1. **Install OpenCV development libraries:**
+
+   **Linux (Ubuntu/Debian):**
+   ```bash
+   sudo apt update
+   sudo apt install libopencv-dev libclang-dev
+   ```
+
+   **Linux (CentOS/RHEL/Fedora):**
+   ```bash
+   sudo dnf install opencv-devel clang-devel
+   # or: sudo yum install opencv-devel clang-devel
+   ```
+
+   **macOS:**
+   ```bash
+   brew install opencv
+   ```
+
+   **Windows:**
+   - Install OpenCV from [opencv.org](https://opencv.org/releases/)
+   - Set `OPENCV_LINK_LIBS`, `OPENCV_LINK_PATHS`, and `OPENCV_INCLUDE_PATHS` environment variables
+
+2. **Build with camera feature:**
+   ```bash
+   cargo build --release --features camera
+   ```
+
+**Camera Features:**
+- 🎥 Real-time QR code detection and scanning
+- 📹 Live camera preview with QR code highlighting
+- 🎯 Smart detection with visual feedback
+- ⌨️ Simple controls: 's' to capture, 'q' to quit
+- 🔄 Automatic fallback to manual input if camera fails
+
+**Without camera support:** The application works perfectly fine without camera libraries and falls back to manual input modes where you can paste QR data or provide image file paths.
 
 ### 🛡️ Recommended: Tails Installation (Best Practice)
 

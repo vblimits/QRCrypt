@@ -9,9 +9,7 @@ use std::io::{self, Write};
 #[cfg(feature = "camera")]
 use opencv::{
     core::{Mat, Vector},
-    highgui,
-    imgproc,
-    objdetect,
+    highgui, imgproc, objdetect,
     prelude::*,
     videoio,
 };
@@ -30,11 +28,13 @@ impl QRScanner {
     /// Scan QR code from webcam (interactive)
     pub fn scan_from_webcam(prompt: &str) -> Result<QRData> {
         println!("{}", prompt);
-        
+
         #[cfg(feature = "camera")]
         {
-            println!("📷 Opening camera... Press 'q' to quit, 's' to capture when you see a QR code");
-            
+            println!(
+                "📷 Opening camera... Press 'q' to quit, 's' to capture when you see a QR code"
+            );
+
             // Try to capture from webcam first
             match Self::capture_qr_from_camera() {
                 Ok(qr_data) => return Ok(qr_data),
@@ -44,13 +44,13 @@ impl QRScanner {
                 }
             }
         }
-        
+
         #[cfg(not(feature = "camera"))]
         {
             println!("📷 Camera support not enabled. Use --features camera when building to enable webcam support.");
             println!("📁 Using manual input mode...");
         }
-        
+
         Self::fallback_manual_input()
     }
 
@@ -60,8 +60,9 @@ impl QRScanner {
         // Initialize camera
         let mut cam = videoio::VideoCapture::new(0, videoio::CAP_ANY)
             .map_err(|e| QRCryptError::QRParsing(format!("Failed to open camera: {}", e)))?;
-        
-        if !cam.is_opened()
+
+        if !cam
+            .is_opened()
             .map_err(|e| QRCryptError::QRParsing(format!("Camera error: {}", e)))?
         {
             return Err(QRCryptError::QRParsing("Camera not available".to_string()));
@@ -93,7 +94,7 @@ impl QRScanner {
             // Detect QR codes in the frame
             let mut bbox = Vector::new();
             let mut rectified_image = Mat::default();
-            
+
             match qr_detector.detect_and_decode(&frame, &mut bbox, &mut rectified_image) {
                 Ok(decoded_text) => {
                     let decoded_string = String::from_utf8_lossy(&decoded_text).to_string();
@@ -103,7 +104,8 @@ impl QRScanner {
                             let color = opencv::core::Scalar::new(0.0, 255.0, 0.0, 0.0); // Green
                             for i in 0..bbox.len() {
                                 let p1: opencv::core::Point2f = bbox.get(i).unwrap();
-                                let p2: opencv::core::Point2f = bbox.get((i + 1) % bbox.len()).unwrap();
+                                let p2: opencv::core::Point2f =
+                                    bbox.get((i + 1) % bbox.len()).unwrap();
                                 imgproc::line(
                                     &mut frame,
                                     opencv::core::Point::new(p1.x as i32, p1.y as i32),
@@ -112,10 +114,11 @@ impl QRScanner {
                                     2,
                                     imgproc::LINE_8,
                                     0,
-                                ).ok();
+                                )
+                                .ok();
                             }
                         }
-                        
+
                         // Show detection status
                         let text = "QR Code detected! Press 's' to capture";
                         let font = imgproc::FONT_HERSHEY_SIMPLEX;
@@ -130,8 +133,9 @@ impl QRScanner {
                             2,
                             imgproc::LINE_8,
                             false,
-                        ).ok();
-                        
+                        )
+                        .ok();
+
                         qr_data = decoded_string;
                         qr_found = true;
                     }
@@ -142,16 +146,20 @@ impl QRScanner {
             }
 
             // Show the frame
-            highgui::imshow("QRCrypt Scanner - Press 's' to capture, 'q' to quit", &frame)
-                .map_err(|e| QRCryptError::QRParsing(format!("Failed to display frame: {}", e)))?;
+            highgui::imshow(
+                "QRCrypt Scanner - Press 's' to capture, 'q' to quit",
+                &frame,
+            )
+            .map_err(|e| QRCryptError::QRParsing(format!("Failed to display frame: {}", e)))?;
 
             // Check for key press
             let key = highgui::wait_key(1)
                 .map_err(|e| QRCryptError::QRParsing(format!("Key input error: {}", e)))?;
-            
+
             match key & 0xFF {
                 113 => break, // 'q' key
-                115 => {      // 's' key
+                115 => {
+                    // 's' key
                     if qr_found {
                         println!("✅ QR code captured successfully!");
                         break;
@@ -159,7 +167,7 @@ impl QRScanner {
                         println!("❌ No QR code detected. Hold up a QR code and try again.");
                     }
                 }
-                27 => break,  // ESC key
+                27 => break, // ESC key
                 _ => {}
             }
         }
@@ -172,7 +180,9 @@ impl QRScanner {
             // Parse the QR data
             QRReader::parse_qr_data(&qr_data)
         } else {
-            Err(QRCryptError::QRParsing("No QR code was captured".to_string()))
+            Err(QRCryptError::QRParsing(
+                "No QR code was captured".to_string(),
+            ))
         }
     }
 
@@ -182,7 +192,7 @@ impl QRScanner {
         println!("You can either:");
         println!("1. Paste the QR code JSON data directly");
         println!("2. Provide a file path to a QR code image");
-        
+
         print!("Enter QR data as JSON or file path: ");
         io::stdout().flush().map_err(QRCryptError::Io)?;
 

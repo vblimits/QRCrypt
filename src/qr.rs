@@ -1,5 +1,7 @@
 use qrcode::{QrCode, EcLevel};
-use image::{DynamicImage, ImageFormat};
+use image::{DynamicImage, ImageFormat, Rgba, RgbaImage};
+use imageproc::drawing::draw_text_mut;
+use rusttype::{Font, Scale};
 use serde::{Deserialize, Serialize};
 use std::path::Path;
 use crate::error::{QRCryptError, Result};
@@ -174,6 +176,218 @@ impl QRGenerator {
         }
         
         Ok(file_paths)
+    }
+
+    pub fn save_shamir_card_qrs(
+        &self,
+        shares: &[ShamirShare],
+        base_path: &Path,
+        prefix: &str,
+        repo_url: &str,
+        card_width_cm: f32,
+        card_height_cm: f32,
+    ) -> Result<Vec<String>> {
+        let mut file_paths = Vec::new();
+        
+        for (i, share) in shares.iter().enumerate() {
+            let filename = format!("{}_{}_of_{}_share_{}_card.png", 
+                prefix, 
+                i + 1, 
+                shares.len(),
+                share.share_id
+            );
+            let file_path = base_path.join(&filename);
+            
+            // Convert share to JSON for QR code content
+            let share_json = serde_json::to_string(share)?;
+            let qr_data = crate::qr::QRData {
+                data_type: crate::qr::QRDataType::ShamirShare,
+                content: share_json,
+            };
+            let json_data = serde_json::to_string(&qr_data)?;
+            
+            // Generate card QR with repository URL
+            let image = self.generate_card_qr(&json_data, repo_url, card_width_cm, card_height_cm)?;
+            self.save_qr_image(&image, &file_path)?;
+            
+            file_paths.push(filename);
+        }
+        
+        Ok(file_paths)
+    }
+
+    pub fn generate_card_qr(&self, content: &str, repo_url: &str, card_width_cm: f32, card_height_cm: f32) -> Result<DynamicImage> {
+        // Convert cm to pixels at 300 DPI
+        let dpi = 300.0;
+        let cm_to_inch = 2.54;
+        let card_width_px = (card_width_cm * dpi / cm_to_inch) as u32;
+        let card_height_px = (card_height_cm * dpi / cm_to_inch) as u32;
+        
+        // Generate QR code for the content
+        let code = QrCode::with_error_correction_level(content, self.error_correction)
+            .map_err(|e| QRCryptError::QRGeneration(format!("Failed to create QR code: {:?}", e)))?;
+
+        // Create QR image
+        let qr_img = code.render::<char>()
+            .light_color(' ')
+            .dark_color('█')
+            .build();
+
+        // Convert to pixel data
+        let lines: Vec<&str> = qr_img.lines().collect();
+        let qr_height = lines.len() as u32;
+        let qr_width = if qr_height > 0 { lines[0].len() as u32 } else { 0 };
+
+        if qr_width == 0 || qr_height == 0 {
+            return Err(QRCryptError::QRGeneration("Generated QR code has zero dimensions".to_string()));
+        }
+
+        // Calculate QR size - make it the full height of the card minus small margins
+        let margin = 10u32; // Small margin
+        let available_height = card_height_px.saturating_sub(2 * margin);
+        
+        // QR code will be square and use full height
+        let scale = available_height / qr_width;
+        let final_qr_size = qr_width * scale;
+
+        // Create QR pixel data
+        let mut qr_pixels = Vec::new();
+        for line in &lines {
+            for ch in line.chars() {
+                qr_pixels.push(if ch == ' ' { 255u8 } else { 0u8 });
+            }
+        }
+
+        // Scale QR code
+        let mut scaled_qr_pixels = Vec::with_capacity((final_qr_size * final_qr_size) as usize);
+        for y in 0..final_qr_size {
+            for x in 0..final_qr_size {
+                let orig_x = x / scale;
+                let orig_y = y / scale;
+                let orig_index = (orig_y * qr_width + orig_x) as usize;
+                if orig_index < qr_pixels.len() {
+                    scaled_qr_pixels.push(qr_pixels[orig_index]);
+                } else {
+                    scaled_qr_pixels.push(255u8);
+                }
+            }
+        }
+
+        // Create card canvas
+        let mut card_buffer = RgbaImage::new(card_width_px, card_height_px);
+        
+        // Fill with white background
+        for pixel in card_buffer.pixels_mut() {
+            *pixel = Rgba([255u8, 255u8, 255u8, 255u8]);
+        }
+
+        // Position QR code on card (left-justified, centered vertically)
+        let qr_x = margin;
+        let qr_y = (card_height_px - final_qr_size) / 2;
+
+        // Copy QR code to card
+        for y in 0..final_qr_size {
+            for x in 0..final_qr_size {
+                let qr_idx = (y * final_qr_size + x) as usize;
+                if qr_idx < scaled_qr_pixels.len() {
+                    let intensity = scaled_qr_pixels[qr_idx];
+                    let card_x = qr_x + x;
+                    let card_y = qr_y + y;
+                    
+                    if card_x < card_width_px && card_y < card_height_px {
+                        card_buffer.put_pixel(card_x, card_y, Rgba([intensity, intensity, intensity, 255u8]));
+                    }
+                }
+            }
+        }
+
+        // Add logo and URL text
+        self.add_text_to_card(&mut card_buffer, repo_url, card_width_px, card_height_px, margin);
+        
+        Ok(DynamicImage::ImageRgba8(card_buffer))
+    }
+
+    fn add_text_to_card(&self, card_buffer: &mut RgbaImage, repo_url: &str, card_width: u32, card_height: u32, margin: u32) {
+        use imageproc::drawing::draw_text_mut;
+        use rusttype::{Font, Scale};
+        
+        // Use the new system font loading
+        if let Some(font) = self.load_system_font() {
+            eprintln!("Successfully loaded system font for main text rendering");
+            let text_color = Rgba([0u8, 0u8, 0u8, 255u8]);
+            
+            // Calculate QR area to position text to the right of it
+            let available_height = card_height.saturating_sub(2 * margin);
+            let qr_size = available_height; // QR is square using full height
+            let text_area_x = margin + qr_size + 20; // Start text 20px to the right of QR
+            
+            // "QRCrypt" at top of text area
+            let logo_scale = Scale::uniform(72.0); // 72pt
+            let logo_y = margin + 40;
+            draw_text_mut(card_buffer, text_color, text_area_x as i32, logo_y as i32, logo_scale, &font, "QRCrypt");
+            
+            // URL at bottom, positioned closer to QR code right edge
+            let url_scale = Scale::uniform(24.0);
+            let url_y = card_height - margin - 40;
+            // Move URL much closer to QR code - almost at its right edge
+            let url_x = margin + qr_size + 5; // Just 5px from QR right edge instead of 20px
+            
+            draw_text_mut(card_buffer, text_color, url_x as i32, url_y as i32, url_scale, &font, repo_url);
+        } else {
+            eprintln!("No system font available");
+        }
+    }
+    
+    
+
+    fn load_system_font(&self) -> Option<Font<'static>> {
+        // Try common system font paths
+        let font_paths = vec![
+            // Linux fonts
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            "/usr/share/fonts/TTF/DejaVuSans.ttf",
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+            "/usr/share/fonts/TTF/LiberationSans-Regular.ttf",
+            "/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf",
+            "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf",
+            
+            // macOS fonts
+            "/System/Library/Fonts/Helvetica.ttc",
+            "/System/Library/Fonts/Arial.ttf",
+            "/Library/Fonts/Arial.ttf",
+            
+            // Windows fonts
+            "C:\\Windows\\Fonts\\arial.ttf",
+            "C:\\Windows\\Fonts\\Arial.ttf",
+            "C:\\Windows\\Fonts\\calibri.ttf",
+            "C:\\Windows\\Fonts\\Calibri.ttf",
+        ];
+        
+        for path in font_paths {
+            if let Ok(font_data) = std::fs::read(path) {
+                if let Some(font) = Font::try_from_vec(font_data) {
+                    eprintln!("Loaded system font from: {}", path);
+                    return Some(font);
+                }
+            }
+        }
+        
+        eprintln!("No system fonts found, trying bundled font as fallback");
+        // Fallback to bundled font if it exists
+        if let Ok(font_data) = std::fs::read("assets/DejaVuSans.ttf") {
+            if let Some(font) = Font::try_from_vec(font_data) {
+                eprintln!("Loaded bundled font as fallback");
+                return Some(font);
+            }
+        }
+        
+        None
+    }
+
+
+    pub fn save_card_qr(&self, content: &str, repo_url: &str, path: &Path, card_width_cm: f32, card_height_cm: f32) -> Result<()> {
+        let image = self.generate_card_qr(content, repo_url, card_width_cm, card_height_cm)?;
+        self.save_qr_image(&image, path)
     }
 
     pub fn generate_info_text(&self, shares: &[ShamirShare]) -> String {

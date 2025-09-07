@@ -38,3 +38,8 @@ bip39 = "2.0"
 
 # QR code reading
 rqrr = "0.6"
+
+# Text rendering
+imageproc = "0.23"
+rusttype = "0.9"
+

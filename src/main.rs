@@ -33,14 +33,14 @@ fn main() {
 
 fn run_command(command: Commands) -> Result<()> {
     match command {
-        Commands::Encrypt { output, secret, file, scale, border, skip_word_check } => {
-            handle_encrypt(output, secret, file, scale, border, skip_word_check)
+        Commands::Encrypt { output, secret, file, scale, border, skip_word_check, card, card_width, card_height } => {
+            handle_encrypt(output, secret, file, scale, border, skip_word_check, card, card_width, card_height)
         }
         Commands::Decrypt { input, data, scan_qr, output } => {
             handle_decrypt(input, data, scan_qr, output)
         }
-        Commands::Split { threshold, total, output_dir, prefix, secret, file, scale, border, info, skip_word_check } => {
-            handle_split(threshold, total, output_dir, prefix, secret, file, scale, border, info, skip_word_check)
+        Commands::Split { threshold, total, output_dir, prefix, secret, file, scale, border, info, skip_word_check, card, card_width, card_height } => {
+            handle_split(threshold, total, output_dir, prefix, secret, file, scale, border, info, skip_word_check, card, card_width, card_height)
         }
         Commands::Reconstruct { shares, data, scan_qr, max_scans, output } => {
             handle_reconstruct(shares, data, scan_qr, max_scans, output)
@@ -69,6 +69,9 @@ fn handle_encrypt(
     scale: u32,
     border: u32,
     skip_word_check: bool,
+    card: bool,
+    card_width: f32,
+    card_height: f32,
 ) -> Result<()> {
     // Get secret data
     let secret_text = if let Some(file_path) = file {
@@ -114,9 +117,19 @@ fn handle_encrypt(
     };
     
     let qr_generator = QRGenerator::with_settings(error_correction, scale, border);
-    qr_generator.save_encrypted_qr(&encrypted_data, &output)?;
-
-    print_success(&format!("Encrypted QR code saved to: {}", output.display()));
+    
+    if card {
+        // Generate card-optimized QR code with repository URL
+        let json_data = serde_json::to_string(&encrypted_data)?;
+        let repo_url = "https://github.com/vblimits/QRCrypt.git";
+        qr_generator.save_card_qr(&json_data, repo_url, &output, card_width, card_height)?;
+        print_success(&format!("Card QR code saved to: {}", output.display()));
+        print_info(&format!("Card dimensions: {:.1}cm x {:.1}cm", card_width, card_height));
+        print_info("Optimized for 300 DPI printing on stainless steel cards");
+    } else {
+        qr_generator.save_encrypted_qr(&encrypted_data, &output)?;
+        print_success(&format!("Encrypted QR code saved to: {}", output.display()));
+    }
     
     // Optionally save JSON data as well
     let json_output = output.with_extension("json");
@@ -248,6 +261,9 @@ fn handle_split(
     border: u32,
     info: bool,
     skip_word_check: bool,
+    card: bool,
+    card_width: f32,
+    card_height: f32,
 ) -> Result<()> {
     // Get secret data
     let secret_text = if let Some(file_path) = file {
@@ -287,9 +303,20 @@ fn handle_split(
     };
     
     let qr_generator = QRGenerator::with_settings(error_correction, scale, border);
-    let file_names = qr_generator.save_shamir_qrs(&shares, &output_dir, &prefix)?;
-
-    print_success(&format!("Generated {} share QR codes in: {}", shares.len(), output_dir.display()));
+    
+    let file_names = if card {
+        // Generate card-optimized QR codes with repository URL
+        let repo_url = "https://github.com/vblimits/QRCrypt.git";
+        let card_files = qr_generator.save_shamir_card_qrs(&shares, &output_dir, &prefix, repo_url, card_width, card_height)?;
+        print_success(&format!("Generated {} card-optimized share QR codes in: {}", shares.len(), output_dir.display()));
+        print_info(&format!("Card dimensions: {:.1}cm x {:.1}cm", card_width, card_height));
+        print_info("Optimized for 300 DPI printing on stainless steel cards");
+        card_files
+    } else {
+        let regular_files = qr_generator.save_shamir_qrs(&shares, &output_dir, &prefix)?;
+        print_success(&format!("Generated {} share QR codes in: {}", shares.len(), output_dir.display()));
+        regular_files
+    };
     
     for file_name in &file_names {
         print_info(&format!("- {}", file_name));
@@ -576,3 +603,4 @@ fn handle_decoy_encrypt(
 
     Ok(())
 }
+

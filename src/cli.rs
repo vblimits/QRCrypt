@@ -38,6 +38,18 @@ pub enum Commands {
         /// Skip BIP39 word validation (allow invalid words)
         #[arg(long)]
         skip_word_check: bool,
+
+        /// Generate card-optimized QR code with repository URL
+        #[arg(long)]
+        card: bool,
+
+        /// Card width in centimeters (only with --card)
+        #[arg(long, default_value = "8.5", requires = "card")]
+        card_width: f32,
+
+        /// Card height in centimeters (only with --card)
+        #[arg(long, default_value = "5.0", requires = "card")]
+        card_height: f32,
     },
 
     /// Decrypt a QR code and display the secret
@@ -100,6 +112,18 @@ pub enum Commands {
         /// Skip BIP39 word validation (allow invalid words)
         #[arg(long)]
         skip_word_check: bool,
+
+        /// Generate card-optimized QR codes with repository URL
+        #[arg(long)]
+        card: bool,
+
+        /// Card width in centimeters (only with --card)
+        #[arg(long, default_value = "8.5", requires = "card")]
+        card_width: f32,
+
+        /// Card height in centimeters (only with --card)
+        #[arg(long, default_value = "5.0", requires = "card")]
+        card_height: f32,
     },
 
     /// Reconstruct secret from Shamir shares
@@ -212,6 +236,7 @@ pub enum Commands {
         #[arg(long)]
         skip_word_check: bool,
     },
+
 }
 
 impl Cli {

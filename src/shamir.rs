@@ -41,13 +41,14 @@ impl ShamirSecretSharing {
         for (byte_index, &byte_value) in secret_bytes.iter().enumerate() {
             let gf_byte = Gf256::from(byte_value);
             let byte_shares: Vec<ShareData> =
-                split_secret(threshold as usize, total_shares as usize, gf_byte, rng)
-                    .map_err(|e| {
+                split_secret(threshold as usize, total_shares as usize, gf_byte, rng).map_err(
+                    |e| {
                         QRCryptError::ShamirError(format!(
                             "Failed to split secret byte {}: {:?}",
                             byte_index, e
                         ))
-                    })?;
+                    },
+                )?;
             all_shares.push(byte_shares);
         }
 

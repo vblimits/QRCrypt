@@ -18,10 +18,10 @@ A secure Rust CLI tool for storing crypto wallet seed phrases and other sensitiv
 
 ### 🚀 Quick Install (Recommended)
 
-**Linux (static binary - works everywhere):**
+**Linux:**
 ```bash
-curl -L https://github.com/vblimits/QRCrypt/releases/latest/download/qrcrypt-linux-x86_64-static.tar.gz | tar -xz
-sudo mv qrcrypt-linux-x86_64-static /usr/local/bin/qrcrypt
+curl -L https://github.com/vblimits/QRCrypt/releases/latest/download/qrcrypt-linux-x86_64.tar.gz | tar -xz
+sudo mv qrcrypt-linux-x86_64 /usr/local/bin/qrcrypt
 chmod +x /usr/local/bin/qrcrypt
 ```
 

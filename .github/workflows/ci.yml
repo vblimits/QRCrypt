@@ -215,11 +215,6 @@ jobs:
             name: qrcrypt-linux-x86_64
             asset_name: qrcrypt-linux-x86_64.tar.gz
             deps: sudo apt-get update && sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libopencv-dev libclang-dev llvm-dev
-          - os: ubuntu-latest
-            target: x86_64-unknown-linux-musl
-            name: qrcrypt-linux-x86_64-static
-            asset_name: qrcrypt-linux-x86_64-static.tar.gz
-            deps: sudo apt-get update && sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libopencv-dev libclang-dev llvm-dev musl-tools
           - os: windows-latest
             target: x86_64-pc-windows-msvc
             name: qrcrypt-windows-x86_64.exe
@@ -360,14 +355,7 @@ jobs:
         
         ### 📦 Installation
         
-        **Linux (recommended - static binary):**
-        ```bash
-        curl -L https://github.com/vblimits/QRCrypt/releases/download/${{ steps.version.outputs.VERSION }}/qrcrypt-linux-x86_64-static.tar.gz | tar -xz
-        sudo mv qrcrypt-linux-x86_64-static /usr/local/bin/qrcrypt
-        chmod +x /usr/local/bin/qrcrypt
-        ```
-        
-        **Linux (dynamic binary):**
+        **Linux:**
         ```bash
         curl -L https://github.com/vblimits/QRCrypt/releases/download/${{ steps.version.outputs.VERSION }}/qrcrypt-linux-x86_64.tar.gz | tar -xz
         sudo mv qrcrypt-linux-x86_64 /usr/local/bin/qrcrypt
@@ -435,7 +423,6 @@ jobs:
         prerelease: false
         files: |
           artifacts/qrcrypt-linux-x86_64.tar.gz
-          artifacts/qrcrypt-linux-x86_64-static.tar.gz
           artifacts/qrcrypt-windows-x86_64.zip
           artifacts/qrcrypt-macos-x86_64.tar.gz
           artifacts/qrcrypt-macos-aarch64.tar.gz

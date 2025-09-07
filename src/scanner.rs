@@ -73,7 +73,8 @@ impl QRScanner {
         let _ = cam.set(videoio::CAP_PROP_FRAME_HEIGHT, 480.0);
 
         // Initialize QR detector
-        let qr_detector = objdetect::QRCodeDetector::default()
+        #[allow(unused_mut)]
+        let mut qr_detector = objdetect::QRCodeDetector::default()
             .map_err(|e| QRCryptError::QRParsing(format!("Failed to create QR detector: {}", e)))?;
 
         let mut frame = Mat::default();

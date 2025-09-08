@@ -219,13 +219,6 @@ jobs:
             target: x86_64-pc-windows-msvc
             name: qrcrypt-windows-x86_64.exe
             asset_name: qrcrypt-windows-x86_64.zip
-            deps: |
-              git clone https://github.com/Microsoft/vcpkg.git C:\vcpkg
-              cd C:\vcpkg
-              .\bootstrap-vcpkg.bat
-              .\vcpkg integrate install
-              .\vcpkg install opencv4[core,imgproc,imgcodecs,highgui,videoio,objdetect]:x64-windows
-              choco install llvm -y
           - os: macos-latest
             target: x86_64-apple-darwin
             name: qrcrypt-macos-x86_64
@@ -270,9 +263,15 @@ jobs:
         path: ~/.cargo/registry/src/**/opencv-*
         key: ${{ runner.os }}-${{ matrix.target }}-opencv-${{ hashFiles('**/Cargo.lock') }}
 
-    - name: Install system dependencies
-      if: matrix.deps != ''
+    - name: Install system dependencies (Unix)
+      if: matrix.deps != '' && matrix.os != 'windows-latest'
       run: ${{ matrix.deps }}
+
+    - name: Install OpenCV with vcpkg (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        vcpkg install opencv4[core,imgproc,imgcodecs,highgui,videoio,objdetect] --triplet x64-windows
+        choco install llvm -y
 
     - name: Set macOS environment variables
       if: matrix.os == 'macos-latest'
@@ -285,15 +284,17 @@ jobs:
       if: matrix.os == 'windows-latest'
       shell: powershell
       run: |
-        echo "VCPKG_ROOT=C:\vcpkg" >> $env:GITHUB_ENV
+        echo "VCPKG_ROOT=C:/vcpkg" >> $env:GITHUB_ENV
         echo "VCPKGRS_DYNAMIC=1" >> $env:GITHUB_ENV
-        echo "CMAKE_PREFIX_PATH=C:\vcpkg\installed\x64-windows" >> $env:GITHUB_ENV
-        echo "OpenCV_DIR=C:\vcpkg\installed\x64-windows\share\opencv4" >> $env:GITHUB_ENV
-        echo "LIBCLANG_PATH=C:\Program Files\LLVM\bin" >> $env:GITHUB_ENV
-        echo "PATH=C:\Program Files\LLVM\bin;$env:PATH" >> $env:GITHUB_ENV
+        echo "OpenCV_DIR=C:/vcpkg/installed/x64-windows/share/opencv4" >> $env:GITHUB_ENV
+        echo "LIBCLANG_PATH=C:/Program Files/LLVM/bin" >> $env:GITHUB_ENV
+        echo "PATH=C:/Program Files/LLVM/bin;$env:PATH" >> $env:GITHUB_ENV
 
     - name: Build release binary with camera support
       run: cargo build --release --features camera --target ${{ matrix.target }}
+      env:
+        VCPKG_ROOT: ${{ matrix.os == 'windows-latest' && 'C:/vcpkg' || '' }}
+        OpenCV_DIR: ${{ matrix.os == 'windows-latest' && 'C:/vcpkg/installed/x64-windows/share/opencv4' || '' }}
 
     - name: Strip binary (Unix)
       if: matrix.os != 'windows-latest'

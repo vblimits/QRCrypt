@@ -8,7 +8,7 @@ on:
 
 permissions:
   contents: write
-  
+
 env:
   CARGO_TERM_COLOR: always
 
@@ -35,6 +35,38 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y libfontconfig1-dev libfreetype6-dev libopencv-dev libclang-dev llvm-dev
+
+    - name: Install system dependencies (Windows)
+      if: matrix.os == 'windows-latest'
+      shell: pwsh
+      run: |
+        choco install ninja llvm -y
+        git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
+        C:/vcpkg/bootstrap-vcpkg.bat
+        C:/vcpkg/vcpkg.exe install opencv4[core,imgproc,imgcodecs,highgui,videoio,objdetect] --triplet x64-windows
+
+    - name: Set environment variables (Windows)
+      if: matrix.os == 'windows-latest'
+      shell: pwsh
+      run: |
+        echo "VCPKG_ROOT=C:/vcpkg" >> $env:GITHUB_ENV
+        echo "VCPKGRS_DYNAMIC=1" >> $env:GITHUB_ENV
+        echo "OpenCV_DIR=C:/vcpkg/installed/x64-windows/share/opencv4" >> $env:GITHUB_ENV
+        echo "OPENCV_INSTALL=1" >> $env:GITHUB_ENV
+        echo "LIBCLANG_PATH=C:/Program Files/LLVM/bin" >> $env:GITHUB_ENV
+        echo "PATH=C:/Program Files/LLVM/bin;$env:PATH" >> $env:GITHUB_ENV
+
+    - name: Install system dependencies (macOS)
+      if: matrix.os == 'macos-latest'
+      run: |
+        brew install opencv llvm
+
+    - name: Set macOS environment variables
+      if: matrix.os == 'macos-latest'
+      run: |
+        echo "LLVM_CONFIG_PATH=$(brew --prefix llvm)/bin/llvm-config" >> $GITHUB_ENV
+        echo "LIBCLANG_PATH=$(brew --prefix llvm)/lib" >> $GITHUB_ENV
+        echo "PKG_CONFIG_PATH=$(brew --prefix opencv)/lib/pkgconfig:$(brew --prefix)/lib/pkgconfig" >> $GITHUB_ENV
 
     - name: Cache cargo registry
       uses: actions/cache@v3
@@ -269,20 +301,16 @@ jobs:
 
     - name: Install OpenCV with vcpkg (Windows)
       if: matrix.os == 'windows-latest'
+      shell: pwsh
       run: |
-        vcpkg install opencv4[core,imgproc,imgcodecs,highgui,videoio,objdetect] --triplet x64-windows
+        git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
+        C:/vcpkg/bootstrap-vcpkg.bat
+        C:/vcpkg/vcpkg.exe install opencv4[core,imgproc,imgcodecs,highgui,videoio,objdetect] --triplet x64-windows
         choco install llvm -y
-
-    - name: Set macOS environment variables
-      if: matrix.os == 'macos-latest'
-      run: |
-        echo "LLVM_CONFIG_PATH=$(brew --prefix llvm)/bin/llvm-config" >> $GITHUB_ENV
-        echo "LIBCLANG_PATH=$(brew --prefix llvm)/lib" >> $GITHUB_ENV
-        echo "PKG_CONFIG_PATH=$(brew --prefix opencv)/lib/pkgconfig:$(brew --prefix)/lib/pkgconfig" >> $GITHUB_ENV
 
     - name: Set Windows environment variables
       if: matrix.os == 'windows-latest'
-      shell: powershell
+      shell: pwsh
       run: |
         echo "VCPKG_ROOT=C:/vcpkg" >> $env:GITHUB_ENV
         echo "VCPKGRS_DYNAMIC=1" >> $env:GITHUB_ENV
@@ -290,6 +318,13 @@ jobs:
         echo "OPENCV_INSTALL=1" >> $env:GITHUB_ENV
         echo "LIBCLANG_PATH=C:/Program Files/LLVM/bin" >> $env:GITHUB_ENV
         echo "PATH=C:/Program Files/LLVM/bin;$env:PATH" >> $env:GITHUB_ENV
+
+    - name: Set macOS environment variables
+      if: matrix.os == 'macos-latest'
+      run: |
+        echo "LLVM_CONFIG_PATH=$(brew --prefix llvm)/bin/llvm-config" >> $GITHUB_ENV
+        echo "LIBCLANG_PATH=$(brew --prefix llvm)/lib" >> $GITHUB_ENV
+        echo "PKG_CONFIG_PATH=$(brew --prefix opencv)/lib/pkgconfig:$(brew --prefix)/lib/pkgconfig" >> $GITHUB_ENV
 
     - name: Build release binary with camera support
       run: cargo build --release --features camera --target ${{ matrix.target }}
@@ -390,7 +425,7 @@ jobs:
         
         **macOS (Intel):**
         ```bash
-        curl -L https://github.com/vblimits/QRCrypt/releases/download/${{ steps.version.outputs.VERSION }}/qrcrypt-macos-x86_64.tar.gz | tar -xz
+        curl -L https://github.com/vbllimits/QRCrypt/releases/download/${{ steps.version.outputs.VERSION }}/qrcrypt-macos-x86_64.tar.gz | tar -xz
         sudo mv qrcrypt-macos-x86_64 /usr/local/bin/qrcrypt
         chmod +x /usr/local/bin/qrcrypt
         ```

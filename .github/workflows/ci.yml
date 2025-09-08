@@ -43,7 +43,7 @@ jobs:
         choco install ninja llvm -y
         git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
         C:/vcpkg/bootstrap-vcpkg.bat
-        C:/vcpkg/vcpkg.exe install opencv4 --triplet x64-windows
+        C:/vcpkg/vcpkg.exe install opencv --triplet x64-windows
 
     - name: Set environment variables (Windows)
       if: matrix.os == 'windows-latest'
@@ -51,7 +51,7 @@ jobs:
       run: |
         echo "VCPKG_ROOT=C:/vcpkg" >> $env:GITHUB_ENV
         echo "VCPKGRS_DYNAMIC=1" >> $env:GITHUB_ENV
-        echo "OpenCV_DIR=C:/vcpkg/installed/x64-windows/share/opencv4" >> $env:GITHUB_ENV
+        echo "OpenCV_DIR=C:/vcpkg/installed/x64-windows/share/opencv" >> $env:GITHUB_ENV
         echo "OPENCV_INSTALL=1" >> $env:GITHUB_ENV
         echo "LIBCLANG_PATH=C:/Program Files/LLVM/bin" >> $env:GITHUB_ENV
         echo "PATH=C:/Program Files/LLVM/bin;$env:PATH" >> $env:GITHUB_ENV
@@ -307,7 +307,7 @@ jobs:
           git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
           C:/vcpkg/bootstrap-vcpkg.bat
         }
-        C:/vcpkg/vcpkg.exe install opencv4 --triplet x64-windows
+        C:/vcpkg/vcpkg.exe install opencv --triplet x64-windows
         choco install llvm -y --force
 
     - name: Set Windows environment variables
@@ -316,7 +316,7 @@ jobs:
       run: |
         echo "VCPKG_ROOT=C:/vcpkg" >> $env:GITHUB_ENV
         echo "VCPKGRS_DYNAMIC=1" >> $env:GITHUB_ENV
-        echo "OpenCV_DIR=C:/vcpkg/installed/x64-windows/share/opencv4" >> $env:GITHUB_ENV
+        echo "OpenCV_DIR=C:/vcpkg/installed/x64-windows/share/opencv" >> $env:GITHUB_ENV
         echo "OPENCV_INSTALL=1" >> $env:GITHUB_ENV
         echo "LIBCLANG_PATH=C:/Program Files/LLVM/bin" >> $env:GITHUB_ENV
         echo "PATH=C:/Program Files/LLVM/bin;$env:PATH" >> $env:GITHUB_ENV
@@ -332,7 +332,7 @@ jobs:
       run: cargo build --release --features camera --target ${{ matrix.target }}
       env:
         VCPKG_ROOT: ${{ matrix.os == 'windows-latest' && 'C:/vcpkg' || '' }}
-        OpenCV_DIR: ${{ matrix.os == 'windows-latest' && 'C:/vcpkg/installed/x64-windows/share/opencv4' || '' }}
+        OpenCV_DIR: ${{ matrix.os == 'windows-latest' && 'C:/vcpkg/installed/x64-windows/share/opencv' || '' }}
 
     - name: Strip binary (Unix)
       if: matrix.os != 'windows-latest'

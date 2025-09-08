@@ -40,7 +40,7 @@ bip39 = "2.0"
 rqrr = "0.6"
 
 # Camera support (optional - requires system OpenCV installation)
-opencv = { version = "0.95", default-features = false, features = ["imgproc", "highgui", "vcpkg"], optional = true }
+opencv = { version = "0.95", default-features = false, features = ["imgproc", "highgui"], optional = true }
 
 # Text rendering - using maintained alternatives
 imageproc = "0.25"

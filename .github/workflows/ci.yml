@@ -43,7 +43,7 @@ jobs:
         choco install ninja llvm -y
         git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
         C:/vcpkg/bootstrap-vcpkg.bat
-        C:/vcpkg/vcpkg.exe install opencv4[core,imgproc,imgcodecs,highgui,videoio,objdetect] --triplet x64-windows
+        C:/vcpkg/vcpkg.exe install opencv4[core,imgproc,imgcodecs,highgui,objdetect] --triplet x64-windows
 
     - name: Set environment variables (Windows)
       if: matrix.os == 'windows-latest'
@@ -303,10 +303,12 @@ jobs:
       if: matrix.os == 'windows-latest'
       shell: pwsh
       run: |
-        git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
-        C:/vcpkg/bootstrap-vcpkg.bat
-        C:/vcpkg/vcpkg.exe install opencv4[core,imgproc,imgcodecs,highgui,videoio,objdetect] --triplet x64-windows
-        choco install llvm -y
+        if (-not (Test-Path "C:/vcpkg")) {
+          git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
+          C:/vcpkg/bootstrap-vcpkg.bat
+        }
+        C:/vcpkg/vcpkg.exe install opencv4[core,imgproc,imgcodecs,highgui,objdetect] --triplet x64-windows
+        choco install llvm -y --force
 
     - name: Set Windows environment variables
       if: matrix.os == 'windows-latest'

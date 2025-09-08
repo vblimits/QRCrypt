@@ -478,10 +478,10 @@ jobs:
         draft: false
         prerelease: false
         files: |
-          artifacts/qrcrypt-linux-x86_64.tar.gz
-          artifacts/qrcrypt-windows-x86_64.zip
-          artifacts/qrcrypt-macos-x86_64.tar.gz
-          artifacts/qrcrypt-macos-aarch64.tar.gz
+          artifacts/qrcrypt-linux-x86_64.tar.gz/qrcrypt-linux-x86_64.tar.gz
+          artifacts/qrcrypt-windows-x86_64.zip/qrcrypt-windows-x86_64.zip
+          artifacts/qrcrypt-macos-x86_64.tar.gz/qrcrypt-macos-x86_64.tar.gz
+          artifacts/qrcrypt-macos-aarch64.tar.gz/qrcrypt-macos-aarch64.tar.gz
         make_latest: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

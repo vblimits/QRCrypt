@@ -219,7 +219,7 @@ jobs:
             target: x86_64-pc-windows-msvc
             name: qrcrypt-windows-x86_64.exe
             asset_name: qrcrypt-windows-x86_64.zip
-            deps: ""
+            deps: choco install opencv llvm -y
           - os: macos-latest
             target: x86_64-apple-darwin
             name: qrcrypt-macos-x86_64
@@ -274,6 +274,15 @@ jobs:
         echo "LLVM_CONFIG_PATH=$(brew --prefix llvm)/bin/llvm-config" >> $GITHUB_ENV
         echo "LIBCLANG_PATH=$(brew --prefix llvm)/lib" >> $GITHUB_ENV
         echo "PKG_CONFIG_PATH=$(brew --prefix opencv)/lib/pkgconfig:$(brew --prefix)/lib/pkgconfig" >> $GITHUB_ENV
+
+    - name: Set Windows environment variables
+      if: matrix.os == 'windows-latest'
+      shell: powershell
+      run: |
+        echo "OpenCV_DIR=C:\tools\opencv\build" >> $env:GITHUB_ENV
+        echo "CMAKE_PREFIX_PATH=C:\tools\opencv\build" >> $env:GITHUB_ENV
+        echo "LIBCLANG_PATH=C:\Program Files\LLVM\bin" >> $env:GITHUB_ENV
+        echo "PATH=C:\Program Files\LLVM\bin;$env:PATH" >> $env:GITHUB_ENV
 
     - name: Build release binary with camera support
       run: cargo build --release --features camera --target ${{ matrix.target }}

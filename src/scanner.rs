@@ -1,6 +1,6 @@
 use crate::crypto::{EncryptedData, LayeredData};
 use crate::error::{QRCryptError, Result};
-use crate::qr::{QRData, QRReader};
+use crate::qr::{QRData, QRDataType, QRReader};
 use crate::shamir::ShamirShare;
 use image::DynamicImage;
 use rqrr::PreparedImage;
@@ -12,7 +12,7 @@ impl QRScanner {
     /// Scan QR code from image file (for testing or file-based scanning)
     pub fn scan_from_image(img: &DynamicImage) -> Result<QRData> {
         let img = img.to_luma8();
-        let prepared = PreparedImage::prepare(img);
+        let mut prepared = PreparedImage::prepare(img);
         let grids = prepared.detect_grids();
 
         if grids.is_empty() {
@@ -105,6 +105,49 @@ impl QRScanner {
         Self::scan_from_image(&img)
     }
 
+    /// Scan for layered QR data interactively
+    pub fn scan_layered_interactive() -> Result<LayeredData> {
+        println!("🔍 Scanning for layered QR data...");
+        let qr_data = Self::interactive_scan()?;
+
+        // Extract LayeredData from QRData
+        if qr_data.data_type == QRDataType::LayeredSecret {
+            serde_json::from_str::<LayeredData>(&qr_data.content)
+                .map_err(|e| QRCryptError::QRParsing(format!("Failed to parse LayeredData: {}", e)))
+        } else {
+            Err(QRCryptError::QRParsing(
+                "Expected LayeredSecret QR code".to_string(),
+            ))
+        }
+    }
+
+    /// Scan for encrypted QR data interactively
+    pub fn scan_encrypted_interactive() -> Result<EncryptedData> {
+        println!("🔍 Scanning for encrypted QR data...");
+        let qr_data = Self::interactive_scan()?;
+
+        // Extract EncryptedData from QRData
+        if qr_data.data_type == QRDataType::EncryptedSecret {
+            serde_json::from_str::<EncryptedData>(&qr_data.content).map_err(|e| {
+                QRCryptError::QRParsing(format!("Failed to parse EncryptedData: {}", e))
+            })
+        } else {
+            Err(QRCryptError::QRParsing(
+                "Expected EncryptedSecret QR code".to_string(),
+            ))
+        }
+    }
+
+    /// Scan shares interactively
+    pub fn scan_shares_interactive(max_shares: Option<u8>) -> Result<Vec<ShamirShare>> {
+        Self::collect_shares(max_shares.map(|n| n as usize))
+    }
+
+    /// Scan for validation purposes
+    pub fn scan_for_validation(count: u8) -> Result<Vec<ShamirShare>> {
+        Self::collect_shares(Some(count as usize))
+    }
+
     /// Collect multiple shares for reconstruction
     pub fn collect_shares(max_shares: Option<usize>) -> Result<Vec<ShamirShare>> {
         let mut shares = Vec::new();
@@ -119,51 +162,58 @@ impl QRScanner {
             println!("\n🔍 Scanning share {} of {}:", share_count, max);
 
             match Self::interactive_scan() {
-                Ok(qr_data) => match qr_data {
-                    QRData::ShamirShare(share) => {
-                        // Check for duplicates
-                        if shares.iter().any(|s: &ShamirShare| s.id == share.id) {
-                            println!("⚠️  Duplicate share {} detected, skipping", share.id);
-                            share_count -= 1;
-                            continue;
+                Ok(qr_data) => {
+                    // Check if this is a Shamir share
+                    if qr_data.data_type == QRDataType::ShamirShare {
+                        // Parse the content as ShamirShare
+                        match serde_json::from_str::<ShamirShare>(&qr_data.content) {
+                            Ok(share) => {
+                                // Check for duplicates
+                                if shares
+                                    .iter()
+                                    .any(|s: &ShamirShare| s.share_id == share.share_id)
+                                {
+                                    println!(
+                                        "⚠️  Duplicate share {} detected, skipping",
+                                        share.share_id
+                                    );
+                                    share_count -= 1;
+                                    continue;
+                                }
+
+                                println!(
+                                    "✅ Share {}/{} collected (ID: {})",
+                                    share.share_id, share.total_shares, share.share_id
+                                );
+                                shares.push(share.clone());
+
+                                // Check if we have enough shares to reconstruct
+                                if shares.len() >= share.threshold as usize {
+                                    println!(
+                                        "🎉 Collected {} of {} required shares - ready to reconstruct!",
+                                        shares.len(),
+                                        share.threshold
+                                    );
+                                    break;
+                                }
+
+                                println!(
+                                    "📊 Need {} more shares (minimum {} of {} required)",
+                                    share.threshold as usize - shares.len(),
+                                    share.threshold,
+                                    share.total_shares
+                                );
+                            }
+                            Err(e) => {
+                                println!("❌ Failed to parse Shamir share: {}", e);
+                                share_count -= 1;
+                            }
                         }
-
-                        println!(
-                            "✅ Share {}/{} collected (ID: {})",
-                            share.id, share.total_shares, share.id
-                        );
-                        shares.push(share.clone());
-
-                        // Check if we have enough shares to reconstruct
-                        if shares.len() >= share.threshold as usize {
-                            println!(
-                                "🎉 Collected {} of {} required shares - ready to reconstruct!",
-                                shares.len(),
-                                share.threshold
-                            );
-                            break;
-                        }
-
-                        println!(
-                            "📊 Need {} more shares (minimum {} of {} required)",
-                            share.threshold as usize - shares.len(),
-                            share.threshold,
-                            share.total_shares
-                        );
-                    }
-                    QRData::Encrypted(_) => {
-                        println!("❌ Expected Shamir share, got encrypted data");
+                    } else {
+                        println!("❌ Expected Shamir share, got {:?}", qr_data.data_type);
                         share_count -= 1;
                     }
-                    QRData::Layered(_) => {
-                        println!("❌ Expected Shamir share, got layered data");
-                        share_count -= 1;
-                    }
-                    QRData::Raw(_) => {
-                        println!("❌ Expected Shamir share, got raw data");
-                        share_count -= 1;
-                    }
-                },
+                }
                 Err(e) => {
                     println!("❌ Failed to scan QR code: {}", e);
                     println!("🔄 Try again or press Ctrl+C to cancel");
@@ -174,7 +224,7 @@ impl QRScanner {
             if share_count >= max {
                 println!("⚠️  Reached maximum share limit ({})", max);
                 if shares.is_empty() {
-                    return Err(QRCryptError::ShamirReconstruction(
+                    return Err(QRCryptError::ShamirError(
                         "No valid shares collected".to_string(),
                     ));
                 }
@@ -183,7 +233,7 @@ impl QRScanner {
         }
 
         if shares.is_empty() {
-            return Err(QRCryptError::ShamirReconstruction(
+            return Err(QRCryptError::ShamirError(
                 "No valid shares collected".to_string(),
             ));
         }
@@ -194,7 +244,7 @@ impl QRScanner {
 
         for share in &shares {
             if share.threshold != first_threshold || share.total_shares != first_total {
-                return Err(QRCryptError::ShamirReconstruction(
+                return Err(QRCryptError::ShamirError(
                     "Incompatible shares detected - threshold/total mismatch".to_string(),
                 ));
             }

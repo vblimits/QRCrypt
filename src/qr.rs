@@ -13,7 +13,7 @@ pub struct QRData {
     pub content: String,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub enum QRDataType {
     EncryptedSecret,
     ShamirShare,

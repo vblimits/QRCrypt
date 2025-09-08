@@ -202,37 +202,22 @@ jobs:
           echo "NEW_TAG_EXISTS=false" >> $GITHUB_OUTPUT
         fi
 
-    - name: Update version in Cargo.toml
-      if: steps.tag_check.outputs.NEW_TAG_EXISTS == 'false'
+    - name: Use current version (local hook handles versioning)
       run: |
-        if [[ "${{ steps.tag_check.outputs.CURRENT_TAG_EXISTS }}" == "true" ]]; then
-          # Increment version
-          sed -i 's/^version = ".*"/version = "${{ steps.version.outputs.NEW_VERSION_NUM }}"/' Cargo.toml
-          echo "Updated version to ${{ steps.version.outputs.NEW_VERSION_NUM }}"
-        else
-          # Use current version
-          echo "Using current version ${{ steps.version.outputs.CURRENT_VERSION }}"
-        fi
+        CURRENT_VERSION=$(grep '^version = ' Cargo.toml | head -1 | sed 's/version = "\(.*\)"/\1/')
+        echo "Using current version: $CURRENT_VERSION"
+        echo "VERSION=v$CURRENT_VERSION" >> $GITHUB_OUTPUT
+        echo "NEW_VERSION_NUM=$CURRENT_VERSION" >> $GITHUB_OUTPUT
 
-    - name: Commit version bump and create tag
+    - name: Create tag for release
       if: steps.tag_check.outputs.NEW_TAG_EXISTS == 'false'
       run: |
-        # Determine which version to use for tagging
-        if [[ "${{ steps.tag_check.outputs.CURRENT_TAG_EXISTS }}" == "true" ]]; then
-          # Use incremented version
-          VERSION_TO_TAG="${{ steps.version.outputs.NEW_VERSION_NUM }}"
-          TAG_TO_CREATE="${{ steps.version.outputs.VERSION }}"
-          git add Cargo.toml
-          git commit -m "🤖 Auto-bump version to ${VERSION_TO_TAG}"
-        else
-          # Use current version
-          VERSION_TO_TAG=$(grep '^version = ' Cargo.toml | head -1 | sed 's/version = "\(.*\)"/\1/')
-          TAG_TO_CREATE="v${VERSION_TO_TAG}"
-        fi
+        CURRENT_VERSION=$(grep '^version = ' Cargo.toml | head -1 | sed 's/version = "\(.*\)"/\1/')
+        TAG_TO_CREATE="v${CURRENT_VERSION}"
         
         echo "Creating tag: ${TAG_TO_CREATE}"
         git tag -a "${TAG_TO_CREATE}" -m "🤖 Auto-release ${TAG_TO_CREATE} - All tests passed"
-        git push origin main --tags
+        git push origin --tags
 
   build-cross-platform:
     name: Build Cross-Platform Binaries

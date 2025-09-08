@@ -220,7 +220,11 @@ jobs:
             name: qrcrypt-windows-x86_64.exe
             asset_name: qrcrypt-windows-x86_64.zip
             deps: |
-              vcpkg install opencv4[core,imgproc,imgcodecs,highgui,videoio,objdetect]:x64-windows
+              git clone https://github.com/Microsoft/vcpkg.git C:\vcpkg
+              cd C:\vcpkg
+              .\bootstrap-vcpkg.bat
+              .\vcpkg integrate install
+              .\vcpkg install opencv4[core,imgproc,imgcodecs,highgui,videoio,objdetect]:x64-windows
               choco install llvm -y
           - os: macos-latest
             target: x86_64-apple-darwin
@@ -281,6 +285,7 @@ jobs:
       if: matrix.os == 'windows-latest'
       shell: powershell
       run: |
+        echo "VCPKG_ROOT=C:\vcpkg" >> $env:GITHUB_ENV
         echo "VCPKGRS_DYNAMIC=1" >> $env:GITHUB_ENV
         echo "LIBCLANG_PATH=C:\Program Files\LLVM\bin" >> $env:GITHUB_ENV
         echo "PATH=C:\Program Files\LLVM\bin;$env:PATH" >> $env:GITHUB_ENV

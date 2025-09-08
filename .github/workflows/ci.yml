@@ -43,7 +43,7 @@ jobs:
         choco install ninja llvm -y
         git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
         C:/vcpkg/bootstrap-vcpkg.bat
-        C:/vcpkg/vcpkg.exe install opencv4[core,imgproc,imgcodecs,highgui] --triplet x64-windows
+        C:/vcpkg/vcpkg.exe install opencv4 --triplet x64-windows
 
     - name: Set environment variables (Windows)
       if: matrix.os == 'windows-latest'
@@ -307,7 +307,7 @@ jobs:
           git clone https://github.com/microsoft/vcpkg.git C:/vcpkg
           C:/vcpkg/bootstrap-vcpkg.bat
         }
-        C:/vcpkg/vcpkg.exe install opencv4[core,imgproc,imgcodecs,highgui] --triplet x64-windows
+        C:/vcpkg/vcpkg.exe install opencv4 --triplet x64-windows
         choco install llvm -y --force
 
     - name: Set Windows environment variables

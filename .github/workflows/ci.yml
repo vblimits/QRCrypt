@@ -287,6 +287,7 @@ jobs:
         echo "VCPKG_ROOT=C:/vcpkg" >> $env:GITHUB_ENV
         echo "VCPKGRS_DYNAMIC=1" >> $env:GITHUB_ENV
         echo "OpenCV_DIR=C:/vcpkg/installed/x64-windows/share/opencv4" >> $env:GITHUB_ENV
+        echo "OPENCV_INSTALL=1" >> $env:GITHUB_ENV
         echo "LIBCLANG_PATH=C:/Program Files/LLVM/bin" >> $env:GITHUB_ENV
         echo "PATH=C:/Program Files/LLVM/bin;$env:PATH" >> $env:GITHUB_ENV
 

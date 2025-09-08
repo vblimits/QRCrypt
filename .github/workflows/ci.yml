@@ -219,7 +219,9 @@ jobs:
             target: x86_64-pc-windows-msvc
             name: qrcrypt-windows-x86_64.exe
             asset_name: qrcrypt-windows-x86_64.zip
-            deps: choco install opencv llvm -y
+            deps: |
+              vcpkg install opencv4[core,imgproc,imgcodecs,highgui,videoio,objdetect]:x64-windows
+              choco install llvm -y
           - os: macos-latest
             target: x86_64-apple-darwin
             name: qrcrypt-macos-x86_64
@@ -279,8 +281,7 @@ jobs:
       if: matrix.os == 'windows-latest'
       shell: powershell
       run: |
-        echo "OpenCV_DIR=C:\tools\opencv\build" >> $env:GITHUB_ENV
-        echo "CMAKE_PREFIX_PATH=C:\tools\opencv\build" >> $env:GITHUB_ENV
+        echo "VCPKGRS_DYNAMIC=1" >> $env:GITHUB_ENV
         echo "LIBCLANG_PATH=C:\Program Files\LLVM\bin" >> $env:GITHUB_ENV
         echo "PATH=C:\Program Files\LLVM\bin;$env:PATH" >> $env:GITHUB_ENV
 
